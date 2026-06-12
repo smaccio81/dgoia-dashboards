@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parque Tecnológico Corrientes — Avance organizacional</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #f4f4f2;
+    color: #1a1a18;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 3px solid #1D9E75;
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a18;
+  }
+  .header h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #5f5e5a;
+    margin-top: 2px;
+  }
+  .badge-periodo {
+    font-size: 12px;
+    background: #E1F5EE;
+    color: #0F6E56;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  /* SECCIÓN */
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #5f5e5a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+
+  /* TARJETAS MÉTRICAS */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+  .metric-card {
+    background: #fff;
+    border: 0.5px solid #ddddd8;
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .metric-card .label {
+    font-size: 12px;
+    color: #888780;
+    margin-bottom: 4px;
+  }
+  .metric-card .value {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a1a18;
+    line-height: 1;
+  }
+  .metric-card .sub {
+    font-size: 11px;
+    color: #888780;
+    margin-top: 4px;
+  }
+
+  /* CARDS */
+  .card {
+    background: #fff;
+    border: 0.5px solid #ddddd8;
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 1rem;
+  }
+
+  /* EQUIPO */
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f4f4f2;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .avatar.blue  { background: #E6F1FB; color: #185FA5; }
+  .avatar.green { background: #EAF3DE; color: #3B6D11; }
+  .member-name { font-weight: 500; color: #1a1a18; }
+  .member-role { font-size: 11px; color: #888780; }
+
+  /* PROCEDIMIENTOS */
+  .proc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .proc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f4f4f2;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .proc-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-pg { background: #EAF3DE; color: #3B6D11; }
+  .badge-pe { background: #E6F1FB; color: #185FA5; }
+  .badge-ad { background: #F1EFE8; color: #5F5E5A; }
+  .proc-name { font-size: 13px; font-weight: 500; color: #1a1a18; }
+  .proc-sub  { font-size: 11px; color: #888780; margin-top: 1px; }
+  .proc-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #888780;
+    flex-wrap: wrap;
+  }
+  .proc-legend span { display: flex; align-items: center; gap: 6px; }
+
+  /* GRÁFICOS */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .charts-grid { grid-template-columns: 1fr; }
+  }
+
+  /* PENDIENTES */
+  .pending-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .pending-item {
+    font-size: 13px;
+    padding: 8px 12px;
+    background: #f4f4f2;
+    border-radius: 0 8px 8px 0;
+  }
+  .pending-item.warn     { border-left: 3px solid #EF9F27; }
+  .pending-item.critical { border-left: 3px solid #E24B4A; }
+  .pending-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888780;
+  }
+  .pending-legend span { display: flex; align-items: center; gap: 6px; }
+  .dot { display: inline-block; width: 10px; height: 3px; border-radius: 2px; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid #ddddd8;
+    margin: 2.5rem 0;
+  }
+
+  /* RESUMEN EJECUTIVO */
+  .resumen-header {
+    margin-bottom: 1.5rem;
+  }
+  .resumen-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a18;
+    margin-bottom: 4px;
+  }
+  .resumen-header .meta {
+    font-size: 12px;
+    color: #888780;
+  }
+  .resumen-body p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2c2c2a;
+    margin-bottom: 1rem;
+  }
+  .resumen-body strong {
+    color: #1a1a18;
+    font-weight: 600;
+  }
+  .firma {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddddd8;
+    font-size: 13px;
+    color: #5f5e5a;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddddd8;
+    font-size: 11px;
+    color: #b4b2a9;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ENCABEZADO -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>Parque Tecnológico Corrientes</h1>
+        <h2>Organización administrativa y funcional — Panel de avance</h2>
+      </div>
+      <span class="badge-periodo">Abril – mayo 2026</span>
+    </div>
+  </div>
+
+  <!-- EQUIPO -->
+  <div class="card">
+    <p class="card-title">Equipo responsable</p>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="avatar blue">LA</div>
+        <div>
+          <div class="member-name">Lic. Lourdes Azeves</div>
+          <div class="member-role">Directora Ejecutiva Ecosistema Tecnológico UNNE</div>
+        </div>
+      </div>
+      <div class="team-member">
+        <div class="avatar green">SM</div>
+        <div><div class="member-name">Téc. Sebastian Maccio</div></div>
+      </div>
+      <div class="team-member">
+        <div class="avatar green">MG</div>
+        <div><div class="member-name">Cra. Mara Gómez Contardi</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="label">Documentos producidos</div>
+      <div class="value">9</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Procedimientos elaborados</div>
+      <div class="value">4</div>
+      <div class="sub">3 generales · 1 específico</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Decisiones pendientes</div>
+      <div class="value">8</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Avance general estimado</div>
+      <div class="value">65%</div>
+    </div>
+  </div>
+
+  <!-- PROCEDIMIENTOS -->
+  <div class="card">
+    <p class="card-title">Procedimientos elaborados</p>
+    <div class="proc-list">
+      <div class="proc-item">
+        <span class="proc-badge badge-pg">PG</span>
+        <div>
+          <div class="proc-name">PG.PTC.01 — Control de documentos y registros</div>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-badge badge-pg">PG</span>
+        <div>
+          <div class="proc-name">PG.PTC.02 — Vinculación e ingreso</div>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-badge badge-pg">PG</span>
+        <div>
+          <div class="proc-name">PG.PTC.03 — Gestión de recursos económicos del PTC</div>
+          <div class="proc-sub">v02</div>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-badge badge-pe">PE</span>
+        <div>
+          <div class="proc-name">PE.PTC.01 — Permiso de uso precario de espacios</div>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-badge badge-ad">AD</span>
+        <div>
+          <div class="proc-name">Árbol de decisión — Evaluación preliminar de propiedad intelectual</div>
+          <div class="proc-sub">Herramienta de apoyo · no es un procedimiento</div>
+        </div>
+      </div>
+    </div>
+    <div class="proc-legend">
+      <span><span class="proc-badge badge-pg" style="font-size:10px;padding:2px 7px;">PG</span>Procedimiento general</span>
+      <span><span class="proc-badge badge-pe" style="font-size:10px;padding:2px 7px;">PE</span>Procedimiento específico</span>
+      <span><span class="proc-badge badge-ad" style="font-size:10px;padding:2px 7px;">AD</span>Herramienta</span>
+    </div>
+  </div>
+
+  <!-- PARAMETRIZACIÓN -->
+  <div class="card" style="border-left: 4px solid #1D9E75;">
+    <p class="card-title" style="display:flex;align-items:center;gap:8px;">
+      <i class="ti ti-layout-grid" aria-hidden="true" style="font-size:18px;color:#1D9E75;"></i>
+      Parametrización del sistema de gestión
+    </p>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:1rem;line-height:1.6;">
+      La parametrización constituye la base estructural sobre la que se diseñó el sistema de gestión del PTC. Define los módulos, circuitos, roles y criterios de intervención que articulan todos los procedimientos y registros. Se desarrolló en dos niveles:
+    </p>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="background:#f4f4f2;border-radius:8px;padding:12px 14px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:600;background:#EAF3DE;color:#3B6D11;padding:3px 9px;border-radius:20px;">Nivel 1</span>
+          <span style="font-size:13px;font-weight:500;color:#1a1a18;">Parametrización general del sistema PTC</span>
+        </div>
+        <p style="font-size:12px;color:#888780;margin-left:2px;">Estructura funcional completa del sistema: módulos de gestión, circuitos administrativos, criterios de codificación y trazabilidad documental.</p>
+      </div>
+      <div style="background:#f4f4f2;border-radius:8px;padding:12px 14px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <span style="font-size:11px;font-weight:600;background:#E6F1FB;color:#185FA5;padding:3px 9px;border-radius:20px;">Nivel 2</span>
+          <span style="font-size:13px;font-weight:500;color:#1a1a18;">Parametrización de Preincubación</span>
+        </div>
+        <p style="font-size:12px;color:#888780;margin-left:2px;">Ampliación del sistema para el módulo de preincubación y análisis de proyectos, articulada con el procedimiento en desarrollo por <strong style="color:#5f5e5a;">UNNETEC INNOVAR</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICOS -->
+  <div class="charts-grid">
+    <div class="card" style="margin-bottom:0;">
+      <p class="card-title">Avance por área temática</p>
+      <div style="position:relative;height:200px;">
+        <canvas id="chartAvance" role="img" aria-label="Barras de avance por área temática">Estructura y roles 90%, Procedimientos 75%, Propiedad intelectual 70%, Registros 60%, Sistema de gestión 30%.</canvas>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:0;">
+      <p class="card-title">Decisiones institucionales pendientes</p>
+      <div class="pending-list">
+        <div class="pending-item warn">Validación política de la estructura funcional</div>
+        <div class="pending-item warn">Revisión especializada de propiedad intelectual</div>
+        <div class="pending-item warn">Autoridad competente por procedimiento</div>
+        <div class="pending-item warn">Firmas y autorizaciones por circuito</div>
+        <div class="pending-item critical">Sistema informático de gestión de trámites</div>
+        <div class="pending-item warn">Validación final de codificación documental</div>
+        <div class="pending-item warn">Cierre de procedimientos en borrador</div>
+        <div class="pending-item warn">Aprobación formal de registros y matrices</div>
+      </div>
+      <div class="pending-legend">
+        <span><span class="dot" style="background:#EF9F27;"></span>Prioritario</span>
+        <span><span class="dot" style="background:#E24B4A;"></span>Crítico / bloqueante</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVIDER -->
+  <hr class="divider">
+
+  <!-- RESUMEN EJECUTIVO -->
+  <div class="resumen-header">
+    <h2>Resumen ejecutivo</h2>
+    <div class="meta">Organización Administrativa y Funcional del Parque Tecnológico Corrientes · Período: abril – mayo 2026</div>
+  </div>
+
+  <div class="resumen-body">
+    <p>Durante los meses de abril y mayo de 2026 se llevó adelante un proceso de organización administrativa, funcional y procedimental del Parque Tecnológico Corrientes (PTC), en el marco de un trabajo conjunto con autoridades de la UNNE.</p>
+
+    <p><strong>Se alcanzó una base documental concreta</strong> que incluye organigrama funcional, manual de misiones y funciones, procedimientos generales y específicos, registros y matrices asociadas, modelo de parametrización del sistema de gestión, y un módulo de evaluación preliminar de propiedad intelectual.</p>
+
+    <p><strong>El avance técnico es significativo.</strong> Se estructuraron los niveles de decisión estratégica, conducción ejecutiva, gestión operativa y apoyo administrativo; se definieron roles para el Consejo Directivo, la Dirección Ejecutiva, la Gerencia del PTC y las áreas funcionales. Se adoptaron criterios organizativos clave: codificación documental propia, separación entre procedimientos generales y específicos, e incorporación preventiva del análisis de propiedad intelectual desde el inicio de cada trámite.</p>
+
+    <p><strong>Un hito central del período fue la parametrización del sistema de gestión.</strong> Este trabajo constituyó la base estructural sobre la que se ordenaron todos los circuitos, procedimientos y registros del PTC. Se desarrolló en dos niveles: una parametrización general del sistema — que define módulos, roles, criterios de intervención y trazabilidad documental — y una parametrización específica para el módulo de Preincubación, elaborada en articulación con el procedimiento en desarrollo por UNNETEC INNOVAR. Esta ampliación representa un avance concreto en la integración operativa entre el PTC y el ecosistema tecnológico universitario.</p>
+
+    <p><strong>La etapa siguiente es institucional, no técnica.</strong> El principal obstáculo no es la producción de documentos sino la validación política de la estructura propuesta: definir qué autoridad aprueba cada instrumento, quién firma los actos de cada circuito, qué sistema informático dará soporte a los trámites y cómo se articula la intervención de la UNNE, la Provincia y el Consejo Directivo.</p>
+
+    <p><strong>Próximas acciones prioritarias:</strong> validación institucional de la estructura funcional y los procedimientos, revisión especializada del módulo de propiedad intelectual, definición del sistema de gestión informático y cierre de los documentos pendientes.</p>
+
+    <p>Se considera que el proyecto está adecuadamente encaminado, con producción documental concreta y una agenda clara de decisiones para su consolidación institucional.</p>
+  </div>
+
+  <div class="firma">
+    Lic. Lourdes Azeves — Directora Ejecutiva Ecosistema Tecnológico UNNE &nbsp;·&nbsp;
+    Téc. Sebastian Maccio &nbsp;·&nbsp;
+    Cra. Mara Gómez Contardi
+  </div>
+
+  <div class="footer">Parque Tecnológico Corrientes · UNNE · Junio 2026</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+new Chart(document.getElementById('chartAvance'), {
+  type: 'bar',
+  data: {
+    labels: ['Estructura y roles', 'Procedimientos gral.', 'Propiedad intelectual', 'Registros y matrices', 'Sistema de gestión'],
+    datasets: [{
+      data: [90, 75, 70, 60, 30],
+      backgroundColor: ['#1D9E75','#1D9E75','#EF9F27','#EF9F27','#E24B4A'],
+      borderWidth: 0,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: {
+        min: 0, max: 100,
+        ticks: { callback: v => v + '%', font: { size: 11 } },
+        grid: { color: 'rgba(0,0,0,0.06)' }
+      },
+      y: {
+        ticks: { font: { size: 11 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
