@@ -24,10 +24,29 @@
 
   /* HEADER */
   .header {
-    border-bottom: 3px solid #1D9E75;
+    border-bottom: 3px solid #B8962E;
     padding-bottom: 1.25rem;
     margin-bottom: 2rem;
   }
+  .header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .header-logo img { height: 56px; }
+  .btn-volver {
+    font-size: 12px;
+    color: #B8962E;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border: 1px solid #B8962E;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: background 0.15s;
+  }
+  .btn-volver:hover { background: #f5edd8; }
   .header-top {
     display: flex;
     justify-content: space-between;
@@ -48,8 +67,8 @@
   }
   .badge-periodo {
     font-size: 12px;
-    background: #E1F5EE;
-    color: #0F6E56;
+    background: #f5edd8;
+    color: #8a6a1a;
     padding: 4px 12px;
     border-radius: 20px;
     white-space: nowrap;
@@ -268,6 +287,14 @@
 
   <!-- ENCABEZADO -->
   <div class="header">
+    <div class="header-logo">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <img src="../unne + logo 70 años (2).png" alt="Logo UNNE">
+        <div style="width:1px; height:48px; background:#ddd;"></div>
+        <img src="logo-ptc.png" alt="Logo PTC" style="height:52px;">
+      </div>
+      <a class="btn-volver" href="../index.html">← Volver al portal</a>
+    </div>
     <div class="header-top">
       <div>
         <h1>Parque Tecnológico Corrientes</h1>
