@@ -22,12 +22,9 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--gris-cl); color: var(--gris-os); font-size: 14px; }
 
-  /* HEADER */
   .header {
     background: linear-gradient(135deg, var(--azul) 0%, #0f2548 100%);
-    color: var(--blanco);
-    padding: 32px 48px 26px;
-    border-top: 5px solid var(--azul-md);
+    color: var(--blanco); padding: 32px 48px 26px; border-top: 5px solid var(--azul-md);
   }
   .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
   .header-logo { display: flex; align-items: center; gap: 14px; }
@@ -39,7 +36,6 @@
   .header-sub { font-size: 13px; opacity: .8; }
   .badge-fecha { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 5px 14px; font-size: 12px; white-space: nowrap; }
 
-  /* LAYOUT */
   .main { padding: 28px 40px; max-width: 1200px; margin: 0 auto; }
   .section-title {
     font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
@@ -48,64 +44,53 @@
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--borde); }
 
-  /* KPI */
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
-  .kpi-card {
-    background: var(--blanco); border-radius: 10px; padding: 20px 18px 16px;
-    border-left: 4px solid var(--azul-md); box-shadow: 0 1px 4px rgba(0,0,0,.06);
-  }
-  .kpi-card.verde  { border-left-color: var(--verde); }
-  .kpi-card.naranja{ border-left-color: var(--naranja); }
-  .kpi-card.gris   { border-left-color: #aaa; }
+  .kpi-card { background: var(--blanco); border-radius: 10px; padding: 20px 18px 16px; border-left: 4px solid var(--azul-md); box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .kpi-card.verde   { border-left-color: var(--verde); }
+  .kpi-card.naranja { border-left-color: var(--naranja); }
+  .kpi-card.gris    { border-left-color: #aaa; }
   .kpi-num { font-size: 36px; font-weight: 800; color: var(--azul-md); line-height: 1; margin-bottom: 4px; }
-  .kpi-card.verde  .kpi-num { color: var(--verde); }
+  .kpi-card.verde   .kpi-num { color: var(--verde); }
   .kpi-card.naranja .kpi-num { color: var(--naranja); }
-  .kpi-card.gris   .kpi-num { color: #888; }
+  .kpi-card.gris    .kpi-num { color: #888; }
   .kpi-label { font-size: 12px; color: var(--gris-md); line-height: 1.4; }
 
-  /* CARD */
   .card { background: var(--blanco); border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
   .card-title { font-size: 13px; font-weight: 700; color: var(--azul); margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
 
-  /* GRID */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media(max-width:700px) { .two-col { grid-template-columns: 1fr; } .main { padding: 20px; } .header { padding: 24px; } }
 
-  /* TABLA DE UAs */
   .ua-table { width: 100%; border-collapse: collapse; font-size: 12px; }
   .ua-table th { background: var(--azul-cl); color: var(--azul); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .8px; padding: 9px 12px; text-align: left; }
   .ua-table td { padding: 10px 12px; border-bottom: 1px solid var(--gris-cl); vertical-align: middle; }
   .ua-table tr:last-child td { border-bottom: none; }
   .ua-table tr:hover td { background: #f8faff; }
 
-  /* PILLS */
   .pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; white-space: nowrap; }
   .pill.finalizado { background: var(--verde-cl); color: var(--verde); }
   .pill.en-proceso { background: var(--naranja-cl); color: var(--naranja); }
   .pill.pendiente  { background: #f0f0f0; color: #888; }
-  .pill.proximo    { background: #fff8e1; color: #b8860b; }
+  .pill.proximo-inicio { background: #e8f0fb; color: var(--azul-md); }
 
-  /* PROGRESS */
   .progress-wrap { display: flex; align-items: center; gap: 8px; }
   .progress-track { flex: 1; height: 7px; background: var(--gris-cl); border-radius: 4px; overflow: hidden; }
   .progress-fill  { height: 100%; border-radius: 4px; }
   .fill-verde   { background: var(--verde); }
   .fill-naranja { background: var(--naranja); }
-  .fill-proximo { background: #c8a000; }
   .progress-pct { font-size: 11px; font-weight: 700; min-width: 36px; text-align: right; }
 
-  /* BAR CHART */
   .bar-list { display: flex; flex-direction: column; gap: 10px; }
   .bar-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
-  .bar-label { width: 160px; flex-shrink: 0; color: var(--gris-md); }
-  .bar-track { flex: 1; height: 20px; background: var(--gris-cl); border-radius: 4px; overflow: hidden; position: relative; }
-  .bar-fill  { height: 100%; border-radius: 4px; background: var(--azul-md); display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+  .bar-label { width: 150px; flex-shrink: 0; color: var(--gris-md); }
+  .bar-track { flex: 1; height: 22px; background: var(--gris-cl); border-radius: 4px; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: 4px; background: var(--azul-md); display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; }
+  .bar-fill.verde { background: var(--verde); }
   .bar-fill span { font-size: 10px; font-weight: 700; color: white; white-space: nowrap; }
 
-  /* NOTA */
   .nota { background: var(--azul-cl); border-left: 3px solid var(--azul-md); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 12px; color: var(--azul); line-height: 1.6; margin-top: 12px; }
+  .contexto { background: #f0f4fa; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--gris-md); margin-bottom: 16px; line-height: 1.6; }
 
-  /* FOOTER */
   .footer { text-align: center; padding: 24px 40px; font-size: 11px; color: #999; border-top: 1px solid var(--borde); margin-top: 16px; }
 </style>
 </head>
@@ -137,7 +122,7 @@
       <div class="kpi-label">Unidades académicas en el proyecto</div>
     </div>
     <div class="kpi-card verde">
-      <div class="kpi-num">5</div>
+      <div class="kpi-num">6</div>
       <div class="kpi-label">UA con trabajo finalizado</div>
     </div>
     <div class="kpi-card naranja">
@@ -145,22 +130,25 @@
       <div class="kpi-label">UA con trabajo en curso</div>
     </div>
     <div class="kpi-card gris">
-      <div class="kpi-num">3</div>
+      <div class="kpi-num">2</div>
       <div class="kpi-label">UA pendientes de inicio</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-num">248K</div>
+      <div class="kpi-num">~250K</div>
       <div class="kpi-label">Resoluciones digitalizadas hasta la fecha</div>
     </div>
     <div class="kpi-card verde">
-      <div class="kpi-num">135K</div>
+      <div class="kpi-num">~177K</div>
       <div class="kpi-label">Resoluciones en UA finalizadas</div>
     </div>
   </div>
 
-  <!-- TABLA PRINCIPAL -->
+  <!-- TABLA -->
   <div class="section-title">Avance por Unidad Académica</div>
   <div class="card">
+    <div class="contexto">
+      📋 <strong>Alcance del proyecto:</strong> resoluciones 2000–2023 · <strong>23 años de Decanato + 23 años de Consejo Directivo = 46 años digitalizados por facultad</strong>
+    </div>
     <table class="ua-table">
       <thead>
         <tr>
@@ -179,6 +167,13 @@
           <td>Todas las resoluciones ya se encontraban digitalizadas</td>
           <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
           <td><strong>74.987</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Cs. Económicas</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>46 volúmenes terminados</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>42.000</strong></td>
         </tr>
         <tr>
           <td><strong>Facultad de Odontología</strong></td>
@@ -210,13 +205,6 @@
         </tr>
         <!-- EN PROCESO -->
         <tr>
-          <td><strong>Cs. Económicas</strong></td>
-          <td><span class="pill proximo">Próximo a terminar</span></td>
-          <td>43 volúmenes terminados · 03 pendientes</td>
-          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-proximo" style="width:95%"></div></div><span class="progress-pct" style="color:#b8860b">95%</span></div></td>
-          <td><strong>40.099</strong></td>
-        </tr>
-        <tr>
           <td><strong>Cs. Veterinarias</strong></td>
           <td><span class="pill en-proceso">En proceso</span></td>
           <td>31 volúmenes terminados · 15 pendientes</td>
@@ -244,6 +232,13 @@
           <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:20%"></div></div><span class="progress-pct" style="color:var(--naranja)">20%</span></div></td>
           <td><strong>9.586</strong></td>
         </tr>
+        <tr>
+          <td><strong>Humanidades</strong></td>
+          <td><span class="pill proximo-inicio">Próximo inicio</span></td>
+          <td>Inicio previsto la semana entrante</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
+          <td style="color:#aaa">—</td>
+        </tr>
         <!-- PENDIENTES -->
         <tr>
           <td><strong>FACENA</strong></td>
@@ -259,23 +254,24 @@
           <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
           <td style="color:#aaa">—</td>
         </tr>
-        <tr>
-          <td><strong>Humanidades</strong></td>
-          <td><span class="pill pendiente">Pendiente</span></td>
-          <td>Inicio pendiente para el resto del año</td>
-          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
-          <td style="color:#aaa">—</td>
-        </tr>
       </tbody>
     </table>
     <div class="nota">📌 Se solicitó incorporar <strong>Criminalística</strong> al cronograma. Rectorado tiene resoluciones pendientes de años anteriores a 2017.</div>
   </div>
 
-  <!-- PRODUCCIÓN + SISTEMAS -->
+  <!-- COMPARATIVO + PRODUCCIÓN -->
   <div class="two-col" style="margin-top:20px;">
 
     <div class="card">
-      <div class="card-title">📊 Producción histórica de resoluciones por año</div>
+      <div class="card-title">📊 Volumen digitalizado — UA finalizadas (sin Rectorado)</div>
+      <div style="position:relative; height:260px;">
+        <canvas id="treemapChart"></canvas>
+      </div>
+      <div style="margin-top:10px; font-size:11px; color:var(--gris-md);">Total finalizado (sin Rectorado): <strong style="color:var(--verde)">166.772 resoluciones</strong></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📈 Producción histórica de resoluciones por año</div>
       <div class="bar-list">
         <div class="bar-item">
           <span class="bar-label">Cs. Veterinarias</span>
@@ -312,28 +308,29 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">💻 Infraestructura y sistemas</div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
-          <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ IA UNNE — Operativa</div>
-          <div style="font-size:12px; color:var(--gris-md);">Reuniones realizadas en el PTC. La IA institucional está apta para uso y carga de documentos.</div>
-        </div>
-        <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
-          <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ Repositorios — Operativos</div>
-          <div style="font-size:12px; color:var(--gris-md);">Archivematica y AtoM aptos para carga. Documentos se remiten para firma de autoridades via Huarpe.</div>
-        </div>
-        <div style="background:var(--naranja-cl); border-radius:8px; padding:14px; border-left:3px solid var(--naranja);">
-          <div style="font-weight:700; font-size:12px; color:var(--naranja); margin-bottom:4px;">⏳ Firma y autorización — En trámite</div>
-          <div style="font-size:12px; color:var(--gris-md);">Se envían lotes a firmas de autoridades por facultad para habilitar la carga oficial en Archivematica.</div>
-        </div>
-        <div style="background:var(--azul-cl); border-radius:8px; padding:14px; border-left:3px solid var(--azul-md);">
-          <div style="font-weight:700; font-size:12px; color:var(--azul); margin-bottom:4px;">📌 Pendientes resto del año</div>
-          <div style="font-size:12px; color:var(--gris-md);">FACENA · Derecho · Humanidades · Resto de Rectorado · Criminalística (a incorporar)</div>
-        </div>
+  </div>
+
+  <!-- SISTEMAS -->
+  <div class="section-title">Infraestructura y sistemas</div>
+  <div class="card">
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:12px;">
+      <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
+        <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ IA UNNE — Operativa</div>
+        <div style="font-size:12px; color:var(--gris-md);">Reuniones realizadas en el PTC. La IA institucional está apta para uso y carga de documentos.</div>
+      </div>
+      <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
+        <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ Repositorios — Operativos</div>
+        <div style="font-size:12px; color:var(--gris-md);">Archivematica y AtoM aptos para carga. Documentos remitidos via Huarpe para firma de autoridades.</div>
+      </div>
+      <div style="background:var(--naranja-cl); border-radius:8px; padding:14px; border-left:3px solid var(--naranja);">
+        <div style="font-weight:700; font-size:12px; color:var(--naranja); margin-bottom:4px;">⏳ Firma y autorización — En trámite</div>
+        <div style="font-size:12px; color:var(--gris-md);">Se envían lotes a firmas de autoridades por facultad para habilitar la carga oficial en Archivematica.</div>
+      </div>
+      <div style="background:var(--azul-cl); border-radius:8px; padding:14px; border-left:3px solid var(--azul-md);">
+        <div style="font-weight:700; font-size:12px; color:var(--azul); margin-bottom:4px;">📌 Pendientes resto del año</div>
+        <div style="font-size:12px; color:var(--gris-md);">FACENA · Derecho · Resto de Rectorado · Criminalística (a incorporar)</div>
       </div>
     </div>
-
   </div>
 
 </div>
@@ -342,5 +339,54 @@
   Elaborado por la <strong style="color:var(--azul)">Dirección General de Organización e Innovación Administrativa</strong> · Secretaría General de Planeamiento · UNNE &nbsp;·&nbsp; Junio 2026
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@3.1.0/dist/chartjs-chart-treemap.min.js"></script>
+<script>
+new Chart(document.getElementById('treemapChart'), {
+  type: 'treemap',
+  data: {
+    datasets: [{
+      label: 'Resoluciones digitalizadas',
+      tree: [
+        { name: 'Medicina',       value: 74987 },
+        { name: 'Cs. Económicas', value: 42000 },
+        { name: 'Odontología',    value: 37689 },
+        { name: 'FADYCC',         value: 11046 },
+        { name: 'COMTULAB',       value: 1350  },
+      ],
+      key: 'value',
+      backgroundColor(ctx) {
+        const colors = ['#1e5c2a','#2e7d32','#388e3c','#4caf50','#81c784'];
+        return colors[ctx.dataIndex % colors.length];
+      },
+      borderWidth: 2,
+      borderColor: '#fff',
+      labels: {
+        display: true,
+        formatter(ctx) {
+          const d = ctx.raw._data;
+          return [d.name, d.value.toLocaleString('es-AR')];
+        },
+        color: '#fff',
+        font: [{ size: 13, weight: 'bold' }, { size: 11 }],
+        padding: 6,
+      }
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title(items) { return items[0].raw._data.name; },
+          label(item)  { return ' ' + item.raw._data.value.toLocaleString('es-AR') + ' resoluciones'; }
+        }
+      }
+    }
+  }
+});
+</script>
 </body>
 </html>
