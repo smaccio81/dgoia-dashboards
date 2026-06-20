@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitalización de Resoluciones Históricas — UNNE</title>
+<style>
+  :root {
+    --azul:     #1a3a6e;
+    --azul-md:  #2e6bb5;
+    --azul-cl:  #dce8f7;
+    --verde:    #2e7d32;
+    --verde-cl: #e8f5e9;
+    --naranja:  #e65c00;
+    --naranja-cl:#fff0e6;
+    --gris-os:  #2c2c2c;
+    --gris-md:  #555;
+    --gris-cl:  #f5f7fa;
+    --borde:    #dde3ee;
+    --blanco:   #fff;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--gris-cl); color: var(--gris-os); font-size: 14px; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--azul) 0%, #0f2548 100%);
+    color: var(--blanco);
+    padding: 32px 48px 26px;
+    border-top: 5px solid var(--azul-md);
+  }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+  .header-logo { display: flex; align-items: center; gap: 14px; }
+  .header-logo img { height: 52px; }
+  .header-logo .sep { width: 1px; height: 42px; background: rgba(255,255,255,0.25); }
+  .btn-volver { font-size: 12px; color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; border: 1px solid rgba(255,255,255,0.35); padding: 4px 14px; border-radius: 20px; }
+  .header-inst { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: .7; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .header-sub { font-size: 13px; opacity: .8; }
+  .badge-fecha { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 5px 14px; font-size: 12px; white-space: nowrap; }
+
+  /* LAYOUT */
+  .main { padding: 28px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--azul); font-weight: 700; margin-bottom: 14px; margin-top: 32px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--borde); }
+
+  /* KPI */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+  .kpi-card {
+    background: var(--blanco); border-radius: 10px; padding: 20px 18px 16px;
+    border-left: 4px solid var(--azul-md); box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+  .kpi-card.verde  { border-left-color: var(--verde); }
+  .kpi-card.naranja{ border-left-color: var(--naranja); }
+  .kpi-card.gris   { border-left-color: #aaa; }
+  .kpi-num { font-size: 36px; font-weight: 800; color: var(--azul-md); line-height: 1; margin-bottom: 4px; }
+  .kpi-card.verde  .kpi-num { color: var(--verde); }
+  .kpi-card.naranja .kpi-num { color: var(--naranja); }
+  .kpi-card.gris   .kpi-num { color: #888; }
+  .kpi-label { font-size: 12px; color: var(--gris-md); line-height: 1.4; }
+
+  /* CARD */
+  .card { background: var(--blanco); border-radius: 10px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .card-title { font-size: 13px; font-weight: 700; color: var(--azul); margin-bottom: 16px; display: flex; align-items: center; gap: 7px; }
+
+  /* GRID */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:700px) { .two-col { grid-template-columns: 1fr; } .main { padding: 20px; } .header { padding: 24px; } }
+
+  /* TABLA DE UAs */
+  .ua-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .ua-table th { background: var(--azul-cl); color: var(--azul); font-weight: 700; font-size: 10px; text-transform: uppercase; letter-spacing: .8px; padding: 9px 12px; text-align: left; }
+  .ua-table td { padding: 10px 12px; border-bottom: 1px solid var(--gris-cl); vertical-align: middle; }
+  .ua-table tr:last-child td { border-bottom: none; }
+  .ua-table tr:hover td { background: #f8faff; }
+
+  /* PILLS */
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; white-space: nowrap; }
+  .pill.finalizado { background: var(--verde-cl); color: var(--verde); }
+  .pill.en-proceso { background: var(--naranja-cl); color: var(--naranja); }
+  .pill.pendiente  { background: #f0f0f0; color: #888; }
+  .pill.proximo    { background: #fff8e1; color: #b8860b; }
+
+  /* PROGRESS */
+  .progress-wrap { display: flex; align-items: center; gap: 8px; }
+  .progress-track { flex: 1; height: 7px; background: var(--gris-cl); border-radius: 4px; overflow: hidden; }
+  .progress-fill  { height: 100%; border-radius: 4px; }
+  .fill-verde   { background: var(--verde); }
+  .fill-naranja { background: var(--naranja); }
+  .fill-proximo { background: #c8a000; }
+  .progress-pct { font-size: 11px; font-weight: 700; min-width: 36px; text-align: right; }
+
+  /* BAR CHART */
+  .bar-list { display: flex; flex-direction: column; gap: 10px; }
+  .bar-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .bar-label { width: 160px; flex-shrink: 0; color: var(--gris-md); }
+  .bar-track { flex: 1; height: 20px; background: var(--gris-cl); border-radius: 4px; overflow: hidden; position: relative; }
+  .bar-fill  { height: 100%; border-radius: 4px; background: var(--azul-md); display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+  .bar-fill span { font-size: 10px; font-weight: 700; color: white; white-space: nowrap; }
+
+  /* NOTA */
+  .nota { background: var(--azul-cl); border-left: 3px solid var(--azul-md); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 12px; color: var(--azul); line-height: 1.6; margin-top: 12px; }
+
+  /* FOOTER */
+  .footer { text-align: center; padding: 24px 40px; font-size: 11px; color: #999; border-top: 1px solid var(--borde); margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="header-logo">
+      <img src="../unne + logo 70 años (2).png" alt="Logo UNNE">
+      <div class="sep"></div>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <span class="badge-fecha">📅 Mayo – Junio 2026</span>
+      <a href="../index.html" class="btn-volver">← Volver al portal</a>
+    </div>
+  </div>
+  <div class="header-inst">Universidad Nacional del Nordeste · Secretaría General de Planeamiento · DGOIA</div>
+  <h1>Digitalización de Resoluciones Históricas</h1>
+  <div class="header-sub">Informe de avance · 04 de mayo al 08 de junio de 2026 · Coord. Fernanda Frasson Martendal</div>
+</div>
+
+<div class="main">
+
+  <!-- KPIs -->
+  <div class="section-title">Estado general del proyecto</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-num">13</div>
+      <div class="kpi-label">Unidades académicas en el proyecto</div>
+    </div>
+    <div class="kpi-card verde">
+      <div class="kpi-num">5</div>
+      <div class="kpi-label">UA con trabajo finalizado</div>
+    </div>
+    <div class="kpi-card naranja">
+      <div class="kpi-num">5</div>
+      <div class="kpi-label">UA con trabajo en curso</div>
+    </div>
+    <div class="kpi-card gris">
+      <div class="kpi-num">3</div>
+      <div class="kpi-label">UA pendientes de inicio</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num">248K</div>
+      <div class="kpi-label">Resoluciones digitalizadas hasta la fecha</div>
+    </div>
+    <div class="kpi-card verde">
+      <div class="kpi-num">135K</div>
+      <div class="kpi-label">Resoluciones en UA finalizadas</div>
+    </div>
+  </div>
+
+  <!-- TABLA PRINCIPAL -->
+  <div class="section-title">Avance por Unidad Académica</div>
+  <div class="card">
+    <table class="ua-table">
+      <thead>
+        <tr>
+          <th>Unidad Académica</th>
+          <th>Estado</th>
+          <th>Detalle</th>
+          <th>Avance</th>
+          <th>Resoluciones digitalizadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- FINALIZADAS -->
+        <tr>
+          <td><strong>Facultad de Medicina</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>Todas las resoluciones ya se encontraban digitalizadas</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>74.987</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Facultad de Odontología</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>46 volúmenes terminados</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>37.689</strong></td>
+        </tr>
+        <tr>
+          <td><strong>FADYCC</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>26 volúmenes terminados</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>11.046</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Rectorado</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>Resoluciones Rectorales 2017 y 2018 terminadas</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>10.400</strong></td>
+        </tr>
+        <tr>
+          <td><strong>COMTULAB</strong></td>
+          <td><span class="pill finalizado">Finalizado</span></td>
+          <td>19 volúmenes terminados</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:100%"></div></div><span class="progress-pct" style="color:var(--verde)">100%</span></div></td>
+          <td><strong>1.350</strong></td>
+        </tr>
+        <!-- EN PROCESO -->
+        <tr>
+          <td><strong>Cs. Económicas</strong></td>
+          <td><span class="pill proximo">Próximo a terminar</span></td>
+          <td>43 volúmenes terminados · 03 pendientes</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-proximo" style="width:95%"></div></div><span class="progress-pct" style="color:#b8860b">95%</span></div></td>
+          <td><strong>40.099</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Cs. Veterinarias</strong></td>
+          <td><span class="pill en-proceso">En proceso</span></td>
+          <td>31 volúmenes terminados · 15 pendientes</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:70%"></div></div><span class="progress-pct" style="color:var(--naranja)">70%</span></div></td>
+          <td><strong>39.357</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Facultad de Ingeniería</strong></td>
+          <td><span class="pill en-proceso">En proceso</span></td>
+          <td>24 volúmenes terminados · 22 pendientes</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:50%"></div></div><span class="progress-pct" style="color:var(--naranja)">50%</span></div></td>
+          <td><strong>19.527</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Cs. Agrarias</strong></td>
+          <td><span class="pill en-proceso">En proceso</span></td>
+          <td>03 volúmenes realizados · 23 pendientes (19 previos a verificar)</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:50%"></div></div><span class="progress-pct" style="color:var(--naranja)">50%</span></div></td>
+          <td><strong>4.400</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Facultad de Arquitectura</strong></td>
+          <td><span class="pill en-proceso">En proceso</span></td>
+          <td>10 volúmenes terminados · 36 pendientes</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-naranja" style="width:20%"></div></div><span class="progress-pct" style="color:var(--naranja)">20%</span></div></td>
+          <td><strong>9.586</strong></td>
+        </tr>
+        <!-- PENDIENTES -->
+        <tr>
+          <td><strong>FACENA</strong></td>
+          <td><span class="pill pendiente">Pendiente</span></td>
+          <td>Inicio pendiente para el resto del año</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
+          <td style="color:#aaa">—</td>
+        </tr>
+        <tr>
+          <td><strong>Derecho</strong></td>
+          <td><span class="pill pendiente">Pendiente</span></td>
+          <td>Inicio pendiente para el resto del año</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
+          <td style="color:#aaa">—</td>
+        </tr>
+        <tr>
+          <td><strong>Humanidades</strong></td>
+          <td><span class="pill pendiente">Pendiente</span></td>
+          <td>Inicio pendiente para el resto del año</td>
+          <td><div class="progress-wrap"><div class="progress-track"><div class="progress-fill fill-verde" style="width:0%"></div></div><span class="progress-pct" style="color:#aaa">—</span></div></td>
+          <td style="color:#aaa">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="nota">📌 Se solicitó incorporar <strong>Criminalística</strong> al cronograma. Rectorado tiene resoluciones pendientes de años anteriores a 2017.</div>
+  </div>
+
+  <!-- PRODUCCIÓN + SISTEMAS -->
+  <div class="two-col" style="margin-top:20px;">
+
+    <div class="card">
+      <div class="card-title">📊 Producción histórica de resoluciones por año</div>
+      <div class="bar-list">
+        <div class="bar-item">
+          <span class="bar-label">Cs. Veterinarias</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"><span>1.400</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Medicina</span>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"><span>1.200</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Arquitectura</span>
+          <div class="bar-track"><div class="bar-fill" style="width:82%"><span>1.150</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Cs. Económicas</span>
+          <div class="bar-track"><div class="bar-fill" style="width:81%"><span>1.141</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Odontología</span>
+          <div class="bar-track"><div class="bar-fill" style="width:78%"><span>1.100</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Ingeniería</span>
+          <div class="bar-track"><div class="bar-fill" style="width:67%"><span>950</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">FADYCC</span>
+          <div class="bar-track"><div class="bar-fill" style="width:45%"><span>630</span></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-label">Cs. Agrarias</span>
+          <div class="bar-track"><div class="bar-fill" style="width:23%"><span>330</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💻 Infraestructura y sistemas</div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
+          <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ IA UNNE — Operativa</div>
+          <div style="font-size:12px; color:var(--gris-md);">Reuniones realizadas en el PTC. La IA institucional está apta para uso y carga de documentos.</div>
+        </div>
+        <div style="background:var(--verde-cl); border-radius:8px; padding:14px; border-left:3px solid var(--verde);">
+          <div style="font-weight:700; font-size:12px; color:var(--verde); margin-bottom:4px;">✅ Repositorios — Operativos</div>
+          <div style="font-size:12px; color:var(--gris-md);">Archivematica y AtoM aptos para carga. Documentos se remiten para firma de autoridades via Huarpe.</div>
+        </div>
+        <div style="background:var(--naranja-cl); border-radius:8px; padding:14px; border-left:3px solid var(--naranja);">
+          <div style="font-weight:700; font-size:12px; color:var(--naranja); margin-bottom:4px;">⏳ Firma y autorización — En trámite</div>
+          <div style="font-size:12px; color:var(--gris-md);">Se envían lotes a firmas de autoridades por facultad para habilitar la carga oficial en Archivematica.</div>
+        </div>
+        <div style="background:var(--azul-cl); border-radius:8px; padding:14px; border-left:3px solid var(--azul-md);">
+          <div style="font-weight:700; font-size:12px; color:var(--azul); margin-bottom:4px;">📌 Pendientes resto del año</div>
+          <div style="font-size:12px; color:var(--gris-md);">FACENA · Derecho · Humanidades · Resto de Rectorado · Criminalística (a incorporar)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  Elaborado por la <strong style="color:var(--azul)">Dirección General de Organización e Innovación Administrativa</strong> · Secretaría General de Planeamiento · UNNE &nbsp;·&nbsp; Junio 2026
+</div>
+
+</body>
+</html>
