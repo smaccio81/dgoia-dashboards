@@ -1,0 +1,253 @@
+﻿<mxfile host="app.diagrams.net" agent="DGOIA-UNNE">
+  <diagram id="cursograma_PE_TEMPO_04" name="PE.TEMPO.04">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1350" pageHeight="2030" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg0" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0f7f3;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="180" x="-1320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bg1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="200" x="-1140" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bg2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0f7f3;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="250" x="-940" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bg3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="220" x="-690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bg4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0f7f3;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="200" x="-470" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bg5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="1630" width="220" x="-270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_unne" parent="1" style="text;html=1;strokeColor=none;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=14;fontStyle=1;" value="TEMBI&#39;U PORA — Casa de Agroindustrias ERAGIA — Universidad Nacional del Nordeste" vertex="1">
+          <mxGeometry height="40" width="1270" x="-1320" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_titulo" parent="1" style="text;html=1;strokeColor=#1F7145;fillColor=#e8f4ee;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#1F7145;fontSize=12;fontStyle=1;" value="CURSOGRAMA — ELABORACION DE QUESOS" vertex="1">
+          <mxGeometry height="30" width="760" x="-1320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_cod" parent="1" style="text;html=1;strokeColor=#1F7145;fillColor=#e8f4ee;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#1F7145;fontSize=10;" value="Codigo: PE.TEMPO.04" vertex="1">
+          <mxGeometry height="30" width="170" x="-560" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_ver" parent="1" style="text;html=1;strokeColor=#1F7145;fillColor=#e8f4ee;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#1F7145;fontSize=10;" value="Version: 1" vertex="1">
+          <mxGeometry height="30" width="170" x="-390" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_fecha" parent="1" style="text;html=1;strokeColor=#1F7145;fillColor=#e8f4ee;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#1F7145;fontSize=10;" value="Fecha: Mayo 2026" vertex="1">
+          <mxGeometry height="30" width="170" x="-220" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_0" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="INGRESO LECHE" vertex="1">
+          <mxGeometry height="50" width="180" x="-1320" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_1" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="SALA DE PASTEURIZACION" vertex="1">
+          <mxGeometry height="50" width="200" x="-1140" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_2" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="SALA DE LACTEOS" vertex="1">
+          <mxGeometry height="50" width="250" x="-940" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_3" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="CAMARA REFRIGERADA" vertex="1">
+          <mxGeometry height="50" width="220" x="-690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_4" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="ZONA DE ENVASADO" vertex="1">
+          <mxGeometry height="50" width="200" x="-470" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="col_hdr_5" parent="1" style="text;html=1;strokeColor=#0d5230;fillColor=#1F7145;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="REGISTROS" vertex="1">
+          <mxGeometry height="50" width="220" x="-270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="border_top" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#0d5230;strokeWidth=3;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1320" y="130" as="sourcePoint" />
+            <mxPoint x="-50" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="border_left" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#0d5230;strokeWidth=3;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1320" y="80" as="sourcePoint" />
+            <mxPoint x="-1320" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="border_right" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#0d5230;strokeWidth=3;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-50" y="80" as="sourcePoint" />
+            <mxPoint x="-50" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div1" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#1F7145;strokeWidth=2.5;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1140" y="80" as="sourcePoint" />
+            <mxPoint x="-1140" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div2" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#1F7145;strokeWidth=2.5;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-940" y="80" as="sourcePoint" />
+            <mxPoint x="-940" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div3" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#1F7145;strokeWidth=2.5;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-690" y="80" as="sourcePoint" />
+            <mxPoint x="-690" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div4" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#1F7145;strokeWidth=2.5;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-470" y="80" as="sourcePoint" />
+            <mxPoint x="-470" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="div5" edge="1" parent="1" style="endArrow=none;html=1;strokeColor=#1F7145;strokeWidth=2.5;dashed=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-270" y="80" as="sourcePoint" />
+            <mxPoint x="-270" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ini" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontStyle=1;fontSize=12;strokeWidth=2;" value="&lt;b&gt;INICIO&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Recepcion leche cruda&lt;br&gt;(PE.TEMPO.R03)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="44" width="110" x="-1285" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#c0392b;fontColor=#c0392b;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;1. PCC — Pasteurizacion&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Pasteurizadora&lt;br&gt;[Tº 70 °C / 15 min]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="-1130" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_pcc_lbl" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=#8b0000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;strokeWidth=2;" value="PCC-1" vertex="1">
+          <mxGeometry height="36" width="54" x="-1190" y="307" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;2. Transferencia a tinas&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos&lt;br&gt;[Volumen por tina ___ l]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;3. Inoculacion fermentos&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Cantidad diaria&lt;br&gt;[Tipo, Tº inoculacion ___ °C]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;4. Cuajo + coagulacion&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos&lt;br&gt;[Cantidad, Tº ___ °C, tiempo ___ min]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;5. Corte de cuajada&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Liras&lt;br&gt;[Tamaño corte: ___ cm]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;6. Desuerado&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Mesa desuerado&lt;br&gt;Suero a ricota&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="p7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;7. Moldeo&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos&lt;br&gt;[Tipo molde, peso ___ g]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="955" as="geometry" />
+        </mxCell>
+        <mxCell id="p8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;8. Prensado&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Prensa neumatica&lt;br&gt;[Presion ___ kg, 24 hs]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="1065" as="geometry" />
+        </mxCell>
+        <mxCell id="p9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;9. Desmoldado&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos&lt;br&gt;Manual&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="230" x="-930" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="p10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#c0392b;fontColor=#c0392b;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;10. PCC — Salmuera&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Pileta salmuera&lt;br&gt;[Concentracion ___% / Tº 15°C / 24 hs]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="-680" y="1285" as="geometry" />
+        </mxCell>
+        <mxCell id="p10_pcc_lbl" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=#8b0000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;strokeWidth=2;" value="PCC-2" vertex="1">
+          <mxGeometry height="36" width="54" x="-740" y="1297" as="geometry" />
+        </mxCell>
+        <mxCell id="p11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;11. Maduracion&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos | Camara maduracion&lt;br&gt;[Tº, humedad, dias segun tipo]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="-680" y="1395" as="geometry" />
+        </mxCell>
+        <mxCell id="p12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="&lt;b&gt;12. Envasado al vacio + Etiquetado&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Op. Lacteos / Envasado&lt;br&gt;Bolsas poliamida/PE | Rotulo CAA&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="-460" y="1505" as="geometry" />
+        </mxCell>
+        <mxCell id="fin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontStyle=1;fontSize=12;strokeWidth=2;" value="&lt;b&gt;FIN&lt;/b&gt;&lt;br&gt;&lt;font style=&#39;font-size:9px&#39;&gt;Entrega a&lt;br&gt;Almacen PT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="44" width="110" x="-425" y="1623" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#c0392b;fontSize=9;fontColor=#c0392b;strokeWidth=1.5;" value="RG.PE.TEMPO.04.01&lt;br&gt;Control PCC&lt;br&gt;Pasteurizacion" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#b8860b;fontSize=9;fontColor=#5a4a00;strokeWidth=1.5;" value="RG.PE.TEMPO.04.02&lt;br&gt;Planilla de lote&lt;br&gt;(coagulacion, corte)" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#b8860b;fontSize=9;fontColor=#5a4a00;strokeWidth=1.5;" value="RG.PE.TEMPO.04.02&lt;br&gt;Planilla de lote&lt;br&gt;(prensado)" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="r10" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#c0392b;fontSize=9;fontColor=#c0392b;strokeWidth=1.5;" value="RG.PE.TEMPO.04.03&lt;br&gt;Control PCC&lt;br&gt;Salmuera" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="1290" as="geometry" />
+        </mxCell>
+        <mxCell id="r11_lote" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#b8860b;fontSize=9;fontColor=#5a4a00;strokeWidth=1.5;" value="RG.PE.TEMPO.04.02&lt;br&gt;Planilla de lote&lt;br&gt;(maduracion)" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="1400" as="geometry" />
+        </mxCell>
+        <mxCell id="r12" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#b8860b;fontSize=9;fontColor=#5a4a00;strokeWidth=1.5;" value="RG.PE.TEMPO.04.04&lt;br&gt;Etiquetado /&lt;br&gt;Trazabilidad" vertex="1">
+          <mxGeometry height="50" width="170" x="-245" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ini" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" target="p1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="p1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" target="p2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="p2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="p3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="p4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="p5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="p6" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p7" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="p7" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="p8" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="p9" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" target="p10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="p10" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#c0392b;strokeWidth=2;" target="p11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="p11" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="p12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="p12" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1F7145;strokeWidth=2;" target="fin" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r1" edge="1" parent="1" source="p1" style="endArrow=open;endSize=8;html=1;strokeColor=#c0392b;strokeWidth=1.5;dashed=1;" target="r1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r4" edge="1" parent="1" source="p4" style="endArrow=open;endSize=8;html=1;strokeColor=#b8860b;strokeWidth=1.5;dashed=1;" target="r4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r8" edge="1" parent="1" source="p8" style="endArrow=open;endSize=8;html=1;strokeColor=#b8860b;strokeWidth=1.5;dashed=1;" target="r8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r10" edge="1" parent="1" source="p10" style="endArrow=open;endSize=8;html=1;strokeColor=#c0392b;strokeWidth=1.5;dashed=1;" target="r10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r11" edge="1" parent="1" source="p11" style="endArrow=open;endSize=8;html=1;strokeColor=#b8860b;strokeWidth=1.5;dashed=1;" target="r11_lote" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er_r12" edge="1" parent="1" source="p12" style="endArrow=open;endSize=8;html=1;strokeColor=#b8860b;strokeWidth=1.5;dashed=1;" target="r12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ley_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#1F7145;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="80" width="700" x="-1320" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="ley_titulo" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontColor=#1F7145;fontSize=10;fontStyle=1;" value="LEYENDA / REFERENCIAS" vertex="1">
+          <mxGeometry height="24" width="200" x="-1310" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="ley1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#1F7145;fontColor=#1F7145;fontSize=10;arcSize=8;strokeWidth=2;" value="Actividad / Operacion" vertex="1">
+          <mxGeometry height="28" width="150" x="-1310" y="1798" as="geometry" />
+        </mxCell>
+        <mxCell id="ley2" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b8860b;fontColor=#5a4a00;fontSize=11;strokeWidth=2;" value="Decision / Control" vertex="1">
+          <mxGeometry height="40" width="120" x="-1145" y="1794" as="geometry" />
+        </mxCell>
+        <mxCell id="ley3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#c0392b;fontColor=#c0392b;fontSize=10;arcSize=8;strokeWidth=2;" value="PCC — Punto Critico de Control" vertex="1">
+          <mxGeometry height="28" width="200" x="-1010" y="1798" as="geometry" />
+        </mxCell>
+        <mxCell id="ley4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFF00;strokeColor=#1F7145;fontColor=#1F7145;fontSize=9;arcSize=8;strokeWidth=1.5;" value="[Amarillo] = Completar en relevamiento" vertex="1">
+          <mxGeometry height="28" width="165" x="-795" y="1798" as="geometry" />
+        </mxCell>
+        <mxCell id="notas" parent="1" style="text;html=1;strokeColor=#1F7145;fillColor=#e8f4ee;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontColor=#1F7145;fontSize=9;spacingLeft=8;spacingTop=6;strokeWidth=2;" value="&lt;b&gt;NOTAS DEL CURSOGRAMA&lt;/b&gt;&lt;br&gt;1. Cursograma del procedimiento PE.TEMPO.04 V1 — Mayo 2026.&lt;br&gt;2. El alcance del PE finaliza en la entrega del producto envasado y etiquetado al Almacen de PT.&lt;br&gt;3. El almacenamiento, control de estabilidad y despacho del producto terminado se gestionan en el procedimiento de Almacenamiento y Stock de PT (codigo a definir).&lt;br&gt;4. Los campos en amarillo se completan durante el relevamiento en planta.&lt;br&gt;5. Los registros (RG) se incorporan a las planillas tipo del Anexo B." vertex="1">
+          <mxGeometry height="110" width="700" x="-1320" y="1870" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

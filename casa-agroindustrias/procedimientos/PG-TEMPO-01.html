@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PG.TEMPO.01 — Ingreso y Egreso a Planta BPH · Tembi'u Porá</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde:    #2B5530;
+    --verde-md: #3d7344;
+    --verde-lt: #e8f0e8;
+    --naranja:  #E8611A;
+    --texto:    #1a1a1a;
+    --gris:     #f5f5f3;
+    --borde:    #d0d0cc;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--verde);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 4px solid var(--naranja);
+  }
+  .topbar a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .topbar a:hover { color: #fff; text-decoration: underline; }
+  .topbar .sep { color: rgba(255,255,255,0.35); }
+  .topbar .brand { font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: linear-gradient(135deg, var(--verde) 0%, #1a3a1e 100%);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+  .doc-header .logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .doc-header .logo-row img { height: 60px; }
+  .doc-header .logo-unne { filter: invert(1) brightness(2); }
+  .doc-header .divider-v { width: 1px; height: 50px; background: rgba(255,255,255,0.3); }
+  .doc-header .badge {
+    display: inline-block;
+    background: var(--naranja);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 0.6rem;
+  }
+  .doc-header h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+  .doc-header .subtitle {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── META TABLE ── */
+  .meta-wrap {
+    max-width: 860px;
+    margin: -1.5rem auto 0;
+    padding: 0 1.5rem;
+  }
+  .meta-table {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    border-top: 4px solid var(--naranja);
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.8rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .meta-item label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.1rem;
+  }
+  .meta-item span {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--verde);
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 860px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* ── SECTION ── */
+  .sec {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .sec-header {
+    background: var(--verde-lt);
+    border-bottom: 2px solid var(--verde);
+    padding: 0.6rem 1.2rem;
+  }
+  .sec-header h2 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--verde);
+  }
+  .sec-body { padding: 1.2rem 1.5rem; }
+
+  /* ── SUBSECTION ── */
+  .subsec { margin-bottom: 1.4rem; }
+  .subsec:last-child { margin-bottom: 0; }
+  .subsec h3 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--verde-md);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  /* ── DEFINITION TABLE ── */
+  .def-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  .def-table th {
+    background: var(--verde);
+    color: #fff;
+    padding: 0.45rem 0.8rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .def-table td { padding: 0.45rem 0.8rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  .def-table tr:last-child td { border-bottom: none; }
+  .def-table tr:nth-child(even) td { background: var(--gris); }
+  .def-table td:first-child { font-weight: 700; color: var(--verde-md); white-space: nowrap; }
+
+  /* ── PROCEDURE TABLE ── */
+  .proc-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  .proc-table th {
+    background: var(--verde);
+    color: #fff;
+    padding: 0.45rem 0.8rem;
+    text-align: left;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .proc-table th:first-child { width: 3rem; text-align: center; }
+  .proc-table th:nth-child(2) { width: 9rem; }
+  .proc-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  .proc-table tr:last-child td { border-bottom: none; }
+  .proc-table tr:nth-child(even) td { background: #fafaf8; }
+  .proc-table td:first-child { text-align: center; font-weight: 700; color: var(--naranja); }
+  .proc-table td:nth-child(2) { font-weight: 600; font-size: 0.80rem; color: var(--verde-md); }
+
+  /* ── RECORDS TABLE ── */
+  .reg-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .reg-table th {
+    background: var(--verde);
+    color: #fff;
+    padding: 0.4rem 0.7rem;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .reg-table td { padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  .reg-table tr:last-child td { border-bottom: none; }
+  .reg-table tr:nth-child(even) td { background: #fafaf8; }
+  .reg-table td:first-child { font-weight: 700; color: var(--verde-md); font-size: 0.78rem; }
+
+  /* ── SECTOR CARD ── */
+  .sector-card {
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--naranja);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .sector-card:last-child { margin-bottom: 0; }
+  .sector-card .sc-head {
+    background: #fafaf8;
+    border-bottom: 1px solid var(--borde);
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--verde);
+  }
+  .sector-card .sc-body { padding: 0.8rem 1rem; }
+  .sc-row { display: grid; grid-template-columns: 9rem 1fr; gap: 0.4rem 1rem; margin-bottom: 0.6rem; }
+  .sc-row:last-child { margin-bottom: 0; }
+  .sc-label { font-size: 0.75rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 0.05rem; }
+  .sc-value { font-size: 0.86rem; }
+
+  /* ── ALERT ── */
+  .alert {
+    background: #fff8e1;
+    border: 1px solid #f5c518;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.86rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── POLICY LIST ── */
+  .policy-list { list-style: none; padding: 0; }
+  .policy-list li {
+    padding: 0.45rem 0 0.45rem 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--borde);
+    font-size: 0.87rem;
+  }
+  .policy-list li:last-child { border-bottom: none; }
+  .policy-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--naranja);
+    font-size: 0.75rem;
+    top: 0.5rem;
+  }
+
+  /* ── PROHIBITIONS ── */
+  .prohib-list { list-style: none; padding: 0; }
+  .prohib-list li {
+    padding: 0.4rem 0 0.4rem 1.8rem;
+    position: relative;
+    border-bottom: 1px solid var(--borde);
+    font-size: 0.86rem;
+  }
+  .prohib-list li:last-child { border-bottom: none; }
+  .prohib-list li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #c0392b;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  /* ── REFERENCES ── */
+  .ref-list { list-style: none; padding: 0; counter-reset: ref; }
+  .ref-list li {
+    padding: 0.4rem 0 0.4rem 2rem;
+    position: relative;
+    border-bottom: 1px solid var(--borde);
+    font-size: 0.85rem;
+    counter-increment: ref;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list li::before {
+    content: counter(ref) '.';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--verde-md);
+    font-size: 0.8rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    letter-spacing: 0.03em;
+    margin-top: 1rem;
+  }
+
+  /* ── TOC ── */
+  .toc { background: var(--verde-lt); border-radius: 6px; padding: 1rem 1.5rem; }
+  .toc h3 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--verde); margin-bottom: 0.6rem; }
+  .toc ol { margin: 0; padding-left: 1.4rem; }
+  .toc li { font-size: 0.83rem; padding: 0.15rem 0; }
+  .toc a { color: var(--verde-md); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── REVISION TABLE ── */
+  .rev-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .rev-table th { background: var(--verde); color: #fff; padding: 0.4rem 0.7rem; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .rev-table td { padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--borde); vertical-align: top; }
+  .rev-table tr:last-child td { border-bottom: none; }
+  .rev-table tr:nth-child(even) td { background: #fafaf8; }
+
+  @media (max-width: 600px) {
+    .meta-table { grid-template-columns: 1fr 1fr; }
+    .sc-row { grid-template-columns: 1fr; gap: 0.1rem; }
+    .sc-label { color: var(--verde); }
+    .proc-table th:nth-child(2), .proc-table td:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="../../index.html">← Portal DGOIA</a>
+  <span class="sep">|</span>
+  <a href="../index.html">← Casa de Agroindustrias</a>
+  <span class="sep">|</span>
+  <span class="brand">Procedimientos</span>
+</div>
+
+<!-- HEADER -->
+<div class="doc-header">
+  <div class="logo-row">
+    <img class="logo-unne" src="../../../unne + logo 70 años (2).png" alt="UNNE">
+    <div class="divider-v"></div>
+    <img src="../logo-tembiu.jpeg" alt="Tembi'u Porá" style="background:#fff;padding:4px 8px;border-radius:4px;">
+  </div>
+  <div class="badge">Procedimiento General · PG.TEMPO.01</div>
+  <h1>Ingreso y Egreso a Planta<br>Buenas Prácticas de Higiene (BPH)</h1>
+  <div class="subtitle">Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · UNNE</div>
+</div>
+
+<!-- META TABLE -->
+<div class="meta-wrap">
+  <div class="meta-table">
+    <div class="meta-item"><label>Código</label><span>PG.TEMPO.01</span></div>
+    <div class="meta-item"><label>Versión</label><span>1</span></div>
+    <div class="meta-item"><label>Fecha</label><span>Junio 2026</span></div>
+    <div class="meta-item"><label>Proceso</label><span>BPH — Transversal a toda la planta</span></div>
+    <div class="meta-item"><label>Aplica a</label><span>Personal, visitantes y proveedores</span></div>
+    <div class="meta-item"><label>Vigente desde</label><span>01/06/2026</span></div>
+    <div class="meta-item"><label>Elaborado por</label><span>M. Gomez Contardi, S. Maccio, P. Romero Vidomlansky</span></div>
+    <div class="meta-item"><label>Revisado por</label><span>Mara Gomez Contardi</span></div>
+    <div class="meta-item"><label>Aprobado por</label><span>Patricia Romero Vidomlansky</span></div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- TOC -->
+  <div class="sec">
+    <div class="sec-header"><h2>I. Identificación y Contenido</h2></div>
+    <div class="sec-body">
+      <div class="toc">
+        <h3>Contenido del documento</h3>
+        <ol>
+          <li><a href="#sec-identificacion">Identificación y contenido</a></li>
+          <li><a href="#sec-descripcion">Descripción (Objetivo, Alcance, Definiciones)</a></li>
+          <li><a href="#sec-politicas">Políticas</a></li>
+          <li><a href="#sec-desarrollo">Desarrollo</a></li>
+          <li><a href="#sec-referencias">Referencias</a></li>
+          <li><a href="#sec-entradas">Entradas y salidas</a></li>
+          <li><a href="#sec-registros">Registros</a></li>
+          <li><a href="#sec-historico">Histórico de revisiones</a></li>
+          <li><a href="#sec-anexos">Anexos</a></li>
+          <li><a href="#sec-creditos">Créditos</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- II. DESCRIPCIÓN -->
+  <div class="sec" id="sec-descripcion">
+    <div class="sec-header"><h2>II. Descripción</h2></div>
+    <div class="sec-body">
+
+      <div class="subsec">
+        <h3>Objetivo</h3>
+        <p>Establecer las condiciones, requisitos y secuencia de actividades que debe cumplir toda persona (personal de planta, visitantes y proveedores) al ingresar y egresar de las instalaciones de la planta TEMBI'Ú PORÁ, garantizando el cumplimiento de las Buenas Prácticas de Higiene (BPH) y previniendo la contaminación de los productos, las materias primas, los equipos y las áreas productivas.</p>
+      </div>
+
+      <div class="subsec">
+        <h3>Alcance</h3>
+        <p>Aplica a todas las personas que ingresan a las áreas de producción, almacenamiento y laboratorio. Regula también el ingreso de materias primas, insumos y envases por sus accesos diferenciados, y el tránsito del personal entre sectores.</p>
+        <p style="margin-top:0.6rem; font-weight:600; font-size:0.85rem; color:var(--verde-md);">Zonas involucradas:</p>
+        <ul style="list-style:disc; padding-left:1.4rem; font-size:0.86rem; margin-top:0.3rem;">
+          <li>Acceso principal de personas</li>
+          <li>Hall de Distribución</li>
+          <li>Vestuarios con lockers, toilets y ducha</li>
+          <li>Filtros sanitarios (dos, según plano)</li>
+          <li>Dirección / Administración (sin acceso directo a producción)</li>
+          <li>Ingresos diferenciados de MP: envases, ingredientes, leches, materia prima seca cárnicos, carnes</li>
+          <li>Salida de Producto Terminado</li>
+          <li>Salas de producción: Conservas, Farináceos, Lácteos, Cárnicos, Laboratorio</li>
+        </ul>
+      </div>
+
+      <div class="subsec">
+        <h3>Definiciones y terminología</h3>
+        <table class="def-table">
+          <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td>BPH</td><td>Buenas Prácticas de Higiene. Condiciones y medidas necesarias para asegurar la inocuidad y aptitud de los alimentos en todas las fases de la cadena alimentaria.</td></tr>
+            <tr><td>Filtro sanitario</td><td>Punto de paso obligatorio donde el personal realiza la higienización de manos y calzado antes de ingresar a las áreas de producción. Incluye lavamanos, dispensador de jabón, secador/toallas, dispensador de sanitizante y pediluvio.</td></tr>
+            <tr><td>Pediluvio</td><td>Recipiente o bandeja con solución desinfectante donde se sumerge o pisa el calzado para desinfectarlo antes de ingresar a zonas de producción. Se renueva diariamente al finalizar los trabajos.</td></tr>
+            <tr><td>Indumentaria de trabajo</td><td>Vestimenta exclusiva de planta: ambo, cofia, barbijo, delantal plástico (si aplica), botas de seguridad. No se utiliza fuera de las instalaciones.</td></tr>
+            <tr><td>Contaminación cruzada</td><td>Transferencia de carga microbiana o contaminantes desde personas, superficies, ambiente o alimentos contaminados hacia alimentos limpios o superficies en contacto con alimentos.</td></tr>
+            <tr><td>Visitante</td><td>Persona ajena al personal habitual de planta: autoridades, auditores, docentes, estudiantes, inspectores, etc.</td></tr>
+            <tr><td>Proveedor</td><td>Persona que ingresa para entregar materia prima, insumos, envases o prestar un servicio (mantenimiento, fumigación, etc.).</td></tr>
+            <tr><td>Zona limpia / Zona sucia</td><td>Clasificación de áreas según nivel de higiene requerido. Zonas limpias (salas de producción, envasado) requieren máximo control de ingreso.</td></tr>
+            <tr><td>Tránsito entre sectores</td><td>Desplazamiento de un operario de una sala a otra. Requiere repetir el protocolo completo de filtro sanitario en cada cambio de sector.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- III. POLÍTICAS -->
+  <div class="sec" id="sec-politicas">
+    <div class="sec-header"><h2>III. Políticas</h2></div>
+    <div class="sec-body">
+      <ul class="policy-list">
+        <li>Toda persona que ingresa a las áreas de producción debe pasar obligatoriamente por el filtro sanitario.</li>
+        <li>No se permite el ingreso a áreas de producción con ropa de calle, joyas, relojes, celulares, alimentos o bebidas personales.</li>
+        <li>El personal utiliza exclusivamente la indumentaria de trabajo provista por el establecimiento, que se coloca en los vestuarios antes de ingresar a producción.</li>
+        <li>Los visitantes y proveedores que necesiten acceder a áreas de producción deben ser autorizados y acompañados por personal de planta, y cumplir las mismas normas de higiene.</li>
+        <li>Los proveedores que solo entregan materia prima en las zonas de recepción no necesitan acceder a las salas de producción.</li>
+        <li>Las materias primas ingresan exclusivamente por los accesos diferenciados según tipo (envases, ingredientes, leches, carnes), nunca por el acceso de personas.</li>
+        <li>El producto terminado sale exclusivamente por la Salida de Producto Terminado, sin cruzarse con el ingreso de MP ni de personas.</li>
+        <li>El personal con heridas expuestas, enfermedades infecciosas, síntomas gastrointestinales o afecciones respiratorias no ingresa a las áreas de producción hasta su recuperación.</li>
+        <li>El área de Dirección/Administración no tiene acceso directo a las salas de producción.</li>
+        <li>Todo operario que transite de un sector a otro debe repetir el protocolo completo de filtro sanitario antes de ingresar al nuevo sector.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IV. DESARROLLO -->
+  <div class="sec" id="sec-desarrollo">
+    <div class="sec-header"><h2>IV. Desarrollo</h2></div>
+    <div class="sec-body">
+
+      <div class="subsec">
+        <h3>IV.1. Ingreso de personal de planta — Protocolo base</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:0.8rem;">Secuencia que cumple el personal al inicio de cada jornada o al reingresar a las áreas de producción. Las variantes específicas por sector se detallan en IV.2.</p>
+        <table class="proc-table">
+          <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Personal de planta</td><td>Ingresa a la planta por el Acceso principal. No porta alimentos, bebidas ni objetos personales innecesarios.</td></tr>
+            <tr><td>2</td><td>Personal de planta</td><td>Se dirige al Hall de Distribución y de allí a los Vestuarios. Guarda sus pertenencias personales en el locker asignado con llave.</td></tr>
+            <tr><td>3</td><td>Personal de planta</td><td>Se retira la ropa de calle. Se coloca la indumentaria de trabajo limpia: ambo (pantalón y chaqueta), cofia cubriendo todo el cabello, barbijo. Calza botas de seguridad exclusivas de planta.</td></tr>
+            <tr><td>4</td><td>Personal de planta</td><td>Se retira joyas, relojes, aros, anillos, pulseras y cualquier elemento que pueda desprenderse o dificultar la higiene. No se permite uñas largas ni esmalte de uñas.</td></tr>
+            <tr><td>5</td><td>Personal de planta</td><td>Se dirige al Filtro Sanitario. Realiza el lavado de manos completo: moja las manos → aplica jabón antibacteriano → fricciona palmas, dorso, entre dedos, uñas y muñecas durante al menos 20 segundos → enjuaga → seca con toalla descartable → aplica solución sanitizante.</td></tr>
+            <tr><td>6</td><td>Personal de planta</td><td>Pasa por el pediluvio sumergiendo o pisando el calzado en la solución desinfectante. (Recambio diario al finalizar los trabajos.)</td></tr>
+            <tr><td>7</td><td>Personal de planta</td><td>Se coloca guantes, cofia y barbijo adicionales si corresponde al sector (ver IV.2). Ingresa a la sala de producción asignada sin tocar la puerta o picaporte con las manos desnudas.</td></tr>
+          </tbody>
+        </table>
+        <div class="alert" style="margin-top:0.8rem;">
+          El lavado de manos se repite obligatoriamente: al ingresar a la sala, después de usar el baño, después de tocar residuos o superficies no sanitizadas, después de tocarse el rostro/cabello, y cada vez que se reingresa a la zona de producción.
+        </div>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.2. Variantes por sector de producción</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:0.8rem;">El protocolo base (IV.1) aplica a todos los sectores. Las variantes especifican diferencias o requisitos adicionales.</p>
+
+        <div class="sector-card">
+          <div class="sc-head">Sección A — Conservas</div>
+          <div class="sc-body">
+            <div class="sc-row"><div class="sc-label">Indumentaria adicional</div><div class="sc-value">Delantal plástico obligatorio (protección ante salpicaduras de líquidos calientes, ácidos y soluciones de vinagre). Manoplas y guantes de vinilo para manipulación de frutas/hortalizas.</div></div>
+            <div class="sc-row"><div class="sc-label">Condición especial</div><div class="sc-value">Al manipular frutas con sustancias irritantes (ej: papaína en mamón verde), el uso de guantes es obligatorio.</div></div>
+            <div class="sc-row"><div class="sc-label">Sin diferencias en</div><div class="sc-value">Protocolo de lavado de manos, pediluvio, cofia y barbijo — igual al protocolo base.</div></div>
+          </div>
+        </div>
+
+        <div class="sector-card">
+          <div class="sc-head">Sección B — Farináceos</div>
+          <div class="sc-body">
+            <div class="sc-row"><div class="sc-label">Indumentaria adicional</div><div class="sc-value">Ambo completo estándar. No se requiere delantal plástico como norma general, salvo tareas específicas con líquidos.</div></div>
+            <div class="sc-row"><div class="sc-label">Condición especial — harina</div><div class="sc-value">El operario que manipule bolsas de harina debe mudar de ropa luego de esa tarea y lavarse las manos con protocolo sanitario antes de continuar con otros ingredientes o productos, para prevenir contaminación cruzada por polvo de harina.</div></div>
+            <div class="sc-row"><div class="sc-label">Sin diferencias en</div><div class="sc-value">Protocolo de lavado de manos, pediluvio, cofia y barbijo — igual al protocolo base.</div></div>
+          </div>
+        </div>
+
+        <div class="sector-card">
+          <div class="sc-head">Sección C — Lácteos</div>
+          <div class="sc-body">
+            <div class="sc-row"><div class="sc-label">Indumentaria adicional</div><div class="sc-value">Ambo completo estándar. El personal que opera en área exterior de recepción de leche trabaja bajo techo o alero (zona exterior).</div></div>
+            <div class="sc-row"><div class="sc-label">Condición especial — fermentos</div><div class="sc-value">Los fermentos se pesan e ingresan diariamente en envases plásticos cerrados. El operario que los manipula debe tener las manos correctamente higienizadas y usar guantes si lo indica PE.TEMPO.04.</div></div>
+            <div class="sc-row"><div class="sc-label">Sin diferencias en</div><div class="sc-value">Protocolo de lavado de manos, pediluvio, cofia y barbijo — igual al protocolo base.</div></div>
+          </div>
+        </div>
+
+        <div class="sector-card">
+          <div class="sc-head">Sección D — Cárnicos</div>
+          <div class="sc-body">
+            <div class="sc-row"><div class="sc-label">Indumentaria adicional</div><div class="sc-value">Delantal plástico obligatorio (contacto con carnes, grasas y líquidos). Ambo, guantes, cofia, barbijo, botas y delantal plástico.</div></div>
+            <div class="sc-row"><div class="sc-label">Estado de salud — énfasis crítico</div><div class="sc-value">Por el riesgo microbiológico (Salmonella, Listeria, E. coli), el control del estado de salud es especialmente crítico. Cualquier síntoma activo excluye al operario de este sector hasta su recuperación completa y alta médica.</div></div>
+            <div class="sc-row"><div class="sc-label">Heridas expuestas</div><div class="sc-value">Deben cubrirse con vendaje impermeable de color visible más guante. El Responsable de Producción evalúa si el operario puede continuar en el sector.</div></div>
+            <div class="sc-row"><div class="sc-label">Sin diferencias en</div><div class="sc-value">Protocolo de lavado de manos, pediluvio, cofia y barbijo — igual al protocolo base.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.3. Tránsito de personal entre sectores</h3>
+        <div class="alert">⚠ Todo operario que deba trasladarse de un sector a otro debe repetir el protocolo completo de filtro sanitario (IV.1, pasos 5 a 7) antes de ingresar al nuevo sector. No se admite el ingreso directo entre salas sin higienización intermedia.</div>
+        <table class="proc-table">
+          <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Personal de planta</td><td>Sale de la sala de origen. No lleva consigo utensilios, materiales ni indumentaria contaminada al nuevo sector.</td></tr>
+            <tr><td>2</td><td>Personal de planta</td><td>Si el sector de destino requiere indumentaria adicional diferente (ej: delantal plástico en Cárnicos que no usaba en Farináceos), se dirige a la zona de vestuario habilitada para realizar el cambio.</td></tr>
+            <tr><td>3</td><td>Personal de planta</td><td>Realiza nuevamente el protocolo completo de filtro sanitario: lavado de manos (paso 5) + pediluvio (paso 6).</td></tr>
+            <tr><td>4</td><td>Personal de planta</td><td>Se coloca la indumentaria específica del sector de destino si corresponde (ver IV.2).</td></tr>
+            <tr><td>5</td><td>Personal de planta</td><td>Ingresa al nuevo sector sin tocar puertas o picaportes con las manos desnudas.</td></tr>
+            <tr><td>6</td><td>Resp. Producción</td><td>Registra el motivo del tránsito entre sectores si corresponde (auditorías internas, necesidades operativas excepcionales). El tránsito frecuente entre sectores debe minimizarse para reducir riesgo de contaminación cruzada.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.4. Ingreso de visitantes y proveedores a áreas de producción</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:0.8rem;">Aplica cuando un visitante o proveedor necesita ingresar a las salas de producción (auditorías, inspecciones, visitas educativas, servicios de mantenimiento, etc.).</p>
+        <table class="proc-table">
+          <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Resp. Producción / Adm.</td><td>Autoriza el ingreso. Registra nombre, DNI, motivo de visita y hora de ingreso en RG.PG.TEMPO.01.01.</td></tr>
+            <tr><td>2</td><td>Resp. Producción</td><td>Informa las normas de higiene. Entrega indumentaria descartable: cofia, barbijo, guardapolvo o ambo descartable, cubre-calzado.</td></tr>
+            <tr><td>3</td><td>Visitante / Proveedor</td><td>Se coloca la indumentaria provista. Se retira joyas, relojes y objetos personales innecesarios.</td></tr>
+            <tr><td>4</td><td>Visitante / Proveedor</td><td>Realiza el lavado de manos en el Filtro Sanitario según el protocolo establecido. Pasa por el pediluvio.</td></tr>
+            <tr><td>5</td><td>Resp. Producción o designado</td><td>Acompaña al visitante durante toda la permanencia. El visitante no circula solo por la planta.</td></tr>
+            <tr><td>6</td><td>Resp. Producción</td><td>Al egresar, registra hora de salida en RG.PG.TEMPO.01.01. El visitante descarta la indumentaria descartable en el recipiente designado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.5. Ingreso de proveedores para entrega de materia prima</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:0.8rem;">Aplica cuando el proveedor solo entrega MP en las zonas de recepción, sin necesidad de acceder a las salas de producción.</p>
+        <table class="proc-table">
+          <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Proveedor</td><td>Se dirige al acceso de recepción de MP correspondiente según el tipo de producto: Envases / Ingredientes / Leches / MP Seca Cárnicos / Carnes.</td></tr>
+            <tr><td>2</td><td>Resp. Almacén / Recepción</td><td>Recibe la MP en la zona de recepción correspondiente. El proveedor no ingresa a las salas de producción. La entrega se realiza en la zona de transferencia (límite exterior/interior).</td></tr>
+            <tr><td>3</td><td>Resp. Almacén</td><td>Realiza el control de recepción según el procedimiento específico del producto (PG.TEMPO.00 — Anexos por sector).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.6. Egreso de la planta</h3>
+        <table class="proc-table">
+          <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Personal de planta</td><td>Sale de la sala de producción y se dirige a los Vestuarios.</td></tr>
+            <tr><td>2</td><td>Personal de planta</td><td>Se retira la indumentaria de trabajo. La deposita en el recipiente/área destinada a indumentaria sucia para su lavado.</td></tr>
+            <tr><td>3</td><td>Personal de planta</td><td>Se coloca la ropa de calle. Retira sus pertenencias del locker.</td></tr>
+            <tr><td>4</td><td>Personal de planta</td><td>Se lava las manos. Egresa por el Acceso principal.</td></tr>
+          </tbody>
+        </table>
+        <div class="alert" style="margin-top:0.8rem;">La indumentaria de trabajo no sale de las instalaciones de la planta bajo ninguna circunstancia.</div>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.7. Salida de Producto Terminado</h3>
+        <p>El producto terminado sale exclusivamente por la Salida de Producto Terminado, separada físicamente de los accesos de personas y de los ingresos de materia prima. El despacho se realiza según lo establecido en cada procedimiento específico de elaboración (PE.TEMPO.xx).</p>
+      </div>
+
+      <div class="subsec">
+        <h3>IV.8. Restricciones y prohibiciones</h3>
+        <p style="font-size:0.85rem; color:#555; margin-bottom:0.7rem;">Dentro de las áreas de producción, almacenamiento y laboratorio está <strong>prohibido</strong>:</p>
+        <ul class="prohib-list">
+          <li>Comer, beber, mascar chicle o fumar.</li>
+          <li>Escupir o sonarse la nariz sobre superficies o productos.</li>
+          <li>Portar celulares, auriculares u objetos electrónicos personales.</li>
+          <li>Usar joyas, relojes, piercings visibles, uñas largas o con esmalte.</li>
+          <li>Ingresar con ropa de calle o calzado de calle.</li>
+          <li>Circular por sectores que no correspondan a la tarea asignada sin realizar el protocolo de filtro sanitario.</li>
+          <li>Ingresar con heridas expuestas sin protección (vendaje impermeable + guante).</li>
+          <li>Manipular alimentos estando enfermo (síntomas gastrointestinales, respiratorios, cutáneos).</li>
+        </ul>
+        <p style="margin-top:0.6rem; font-size:0.84rem; color:#555;">Todo incumplimiento se registra como no conformidad y se comunica al Responsable de Producción.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- V. DIAGRAMA -->
+  <div class="sec">
+    <div class="sec-header"><h2>V. Diagrama de Flujo</h2></div>
+    <div class="sec-body">
+      <p style="font-size:0.86rem; color:#666; font-style:italic;">El diagrama de flujo del recorrido de ingreso/egreso se elaborará como Anexo B, utilizando el plano general de la planta como base.</p>
+      <div style="background:var(--verde-lt); border-radius:6px; padding:1rem 1.2rem; margin-top:0.8rem; font-size:0.84rem; line-height:1.8;">
+        <strong>Recorrido personal:</strong> Acceso principal → Hall de Distribución → Vestuarios → Filtro Sanitario → Sala asignada<br>
+        <strong>Tránsito entre sectores:</strong> Sala origen → Filtro Sanitario → Cambio indumentaria (si aplica) → Sala destino<br>
+        <strong>Egreso:</strong> Sala de Producción → Vestuarios → Hall → Acceso principal<br>
+        <strong>Flujo MP:</strong> Ingresos diferenciados por tipo → Zona de recepción → Almacén/Sala<br>
+        <strong>Flujo PT:</strong> Sala de elaboración → Almacén PT → Salida de Producto Terminado
+      </div>
+    </div>
+  </div>
+
+  <!-- VI. REFERENCIAS -->
+  <div class="sec" id="sec-referencias">
+    <div class="sec-header"><h2>VI. Referencias</h2></div>
+    <div class="sec-body">
+      <ol class="ref-list">
+        <li>Código Alimentario Argentino (CAA) — Capítulo II: Condiciones generales de las fábricas y comercios de alimentos.</li>
+        <li>Resolución GMC N° 80/96 — Buenas Prácticas de Manufactura.</li>
+        <li>ISO 9001:2015 — Sistemas de Gestión de la Calidad (cláusula 7.1.4 Ambiente para la operación de los procesos).</li>
+        <li>Codex Alimentarius — Principios generales de higiene de los alimentos (CAC/RCP 1-1969, Rev. 2020).</li>
+        <li>Manual de BPM TEMBI'Ú PORÁ — Versión 1, Marzo 2026 (Patricia Romero Vidomlansky).</li>
+        <li>PG.RECT.01 — Guía para la elaboración de procedimientos UNNE (Res. 2903/23-R).</li>
+        <li>Plano General con Equipamiento — Planta Agroindustria ERAGIA (Marzo 2026).</li>
+        <li>PG.TEMPO.00 — Procedimientos específicos de recepción de MP por sector.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- IX. ENTRADAS Y SALIDAS -->
+  <div class="sec" id="sec-entradas">
+    <div class="sec-header"><h2>IX. Entradas y Salidas</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table class="def-table">
+          <thead><tr><th>Proveedor</th><th>Requisitos de entrada</th><th>Receptor</th><th>Requisitos de salida</th></tr></thead>
+          <tbody>
+            <tr><td>Personal de planta</td><td>Capacitado en BPH, sin síntomas de enfermedad, libreta sanitaria vigente.</td><td>Áreas de producción</td><td>Personal higienizado, con indumentaria completa, habiendo pasado por filtro sanitario.</td></tr>
+            <tr><td>Visitantes / Proveedores</td><td>Autorizados, identificados, informados de las normas.</td><td>Registro de visitantes</td><td>Visita documentada, acompañada, con indumentaria provista.</td></tr>
+            <tr><td>Proveedores de MP (sin acceso a producción)</td><td>Entrega en zona de recepción, sin ingreso a salas.</td><td>PG.TEMPO.00 — Anexo</td><td>MP controlada y registrada según procedimiento específico.</td></tr>
+            <tr><td>Personal en tránsito entre sectores</td><td>Sale de sala de origen sin materiales contaminantes.</td><td>Filtro sanitario / sala destino</td><td>Personal rehigienizado con protocolo completo antes de ingresar al nuevo sector.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- X. REGISTROS -->
+  <div class="sec" id="sec-registros">
+    <div class="sec-header"><h2>X. Registros</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table class="reg-table">
+          <thead><tr><th>Código</th><th>Nombre</th><th>Responsable</th><th>Frecuencia</th><th>Retención</th></tr></thead>
+          <tbody>
+            <tr><td>RG.PG.TEMPO.01.01</td><td>Registro de visitantes y proveedores</td><td>—</td><td>C/visita</td><td>24 meses</td></tr>
+            <tr><td>RG.PG.TEMPO.01.02</td><td>Control de higiene del personal (verificación)</td><td>—</td><td>Diario/semanal</td><td>24 meses</td></tr>
+            <tr><td>RG.PG.TEMPO.01.03</td><td>Registro de no conformidades de higiene personal</td><td>—</td><td>C/evento</td><td>24 meses</td></tr>
+            <tr><td>RG.PG.TEMPO.01.04</td><td>Control de pediluvio (recambio solución)</td><td>—</td><td>—</td><td>24 meses</td></tr>
+            <tr><td>RG.PG.TEMPO.01.05</td><td>Registro de tránsito entre sectores (cuando aplique)</td><td>Resp. Producción</td><td>C/evento</td><td>24 meses</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- XI. HISTÓRICO -->
+  <div class="sec" id="sec-historico">
+    <div class="sec-header"><h2>XI. Histórico de Revisiones</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table class="rev-table">
+          <thead><tr><th>N°</th><th>Fecha</th><th>Sección</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>Marzo 2026</td><td>Todas</td><td>Emisión inicial — Borrador</td></tr>
+            <tr><td>0.1</td><td>Abril 2026</td><td>IV, IX, X, VI</td><td>Incorporación de variantes por sector (IV.2), tránsito entre sectores (IV.3), actualización de referencias a PG.TEMPO.00, registro RG.PG.TEMPO.01.05, incorporación de Patricia Romero Vidomlansky como elaboradora.</td></tr>
+            <tr><td>1</td><td>Junio 2026</td><td>Todas</td><td>Versión vigente.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- XII. FIRMAS -->
+  <div class="sec">
+    <div class="sec-header"><h2>XII. Firmas de Autorización</h2></div>
+    <div class="sec-body">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+        <div style="border:1px solid var(--borde); border-radius:6px; padding:1rem; font-size:0.84rem;">
+          <div style="font-weight:700; color:var(--verde-md); margin-bottom:0.5rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Propone</div>
+          <div style="color:#888; line-height:2.2;">
+            Nombre y cargo: ___________________<br>
+            Firma: ____________________<br>
+            Fecha de propuesta: ____________________
+          </div>
+        </div>
+        <div style="border:1px solid var(--borde); border-radius:6px; padding:1rem; font-size:0.84rem;">
+          <div style="font-weight:700; color:var(--verde-md); margin-bottom:0.5rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Autoriza</div>
+          <div style="color:#888; line-height:2.2;">
+            Nombre y cargo: ___________________<br>
+            Firma: ____________________<br>
+            Fecha de autorización: ________________<br>
+            Fecha de entrada en vigencia: _________
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XIII. ANEXOS -->
+  <div class="sec" id="sec-anexos">
+    <div class="sec-header"><h2>XIII. Anexos</h2></div>
+    <div class="sec-body">
+      <ul style="list-style:disc; padding-left:1.4rem; font-size:0.87rem; line-height:2;">
+        <li><strong>Anexo A:</strong> Plano general de la planta con equipamiento (referencia de accesos y recorridos).</li>
+        <li><strong>Anexo B:</strong> Diagrama de flujo del recorrido de ingreso/egreso y tránsito entre sectores (a elaborar en Draw.io).</li>
+        <li><strong>Anexo C:</strong> Protocolo de lavado de manos (cartel visual para filtro sanitario).</li>
+        <li><strong>Anexo D:</strong> Modelos de planillas de registro RG.PG.TEMPO.01.01 a PG01.05.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- XIV. CRÉDITOS -->
+  <div class="sec" id="sec-creditos">
+    <div class="sec-header"><h2>XIV. Créditos</h2></div>
+    <div class="sec-body" style="font-size:0.86rem; color:#555; line-height:1.75;">
+      <p>La elaboración del presente procedimiento estuvo a cargo de <strong>Mara Gomez Contardi</strong>, <strong>Sebastián Maccio</strong> y <strong>Patricia Romero Vidomlansky</strong>, con el apoyo de la Dirección General de Organización e Innovación Administrativa (DGOIA) de la Secretaría General de Planeamiento de la UNNE, como apoyo al proceso de documentación y gestión de calidad de la Casa de Agroindustrias ERAGIA / TEMBI'Ú PORÁ.</p>
+      <p style="margin-top:0.5rem; font-size:0.80rem; color:#aaa;">Versión 1 · Junio 2026</p>
+    </div>
+  </div>
+
+  <footer>Universidad Nacional del Nordeste · DGOIA · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · 2026</footer>
+</div>
+
+</body>
+</html>

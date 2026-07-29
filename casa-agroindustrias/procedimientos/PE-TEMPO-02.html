@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PE.TEMPO.02 — Mamón en Almíbar · Tembi'u Porá</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --verde:    #2B5530;
+    --verde-md: #3d7344;
+    --verde-lt: #e8f0e8;
+    --naranja:  #E8611A;
+    --texto:    #1a1a1a;
+    --gris:     #f5f5f3;
+    --borde:    #d0d0cc;
+    --pcc:      #c0392b;
+    --pcc-lt:   #fdf2f0;
+  }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--gris); color:var(--texto); font-size:0.92rem; line-height:1.65; }
+
+  .topbar { background:var(--verde); color:#fff; padding:0.75rem 2rem; display:flex; align-items:center; gap:1rem; border-bottom:4px solid var(--naranja); }
+  .topbar a { color:rgba(255,255,255,0.82); text-decoration:none; font-size:0.82rem; letter-spacing:0.03em; }
+  .topbar a:hover { color:#fff; text-decoration:underline; }
+  .topbar .sep { color:rgba(255,255,255,0.35); }
+  .topbar .brand { font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-transform:uppercase; }
+
+  .doc-header { background:linear-gradient(135deg,var(--verde) 0%,#1a3a1e 100%); color:#fff; padding:2.5rem 2rem 2rem; text-align:center; }
+  .doc-header .logo-row { display:flex; justify-content:center; align-items:center; gap:1.5rem; margin-bottom:1.2rem; }
+  .doc-header .logo-row img { height:60px; }
+  .doc-header .logo-unne { filter:invert(1) brightness(2); }
+  .doc-header .divider-v { width:1px; height:50px; background:rgba(255,255,255,0.3); }
+  .doc-header .badge { display:inline-block; background:var(--naranja); color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.7rem; border-radius:3px; margin-bottom:0.6rem; }
+  .doc-header h1 { font-size:1.45rem; font-weight:700; line-height:1.3; margin-bottom:0.3rem; }
+  .doc-header .subtitle { font-size:0.88rem; color:rgba(255,255,255,0.75); letter-spacing:0.03em; }
+
+  .meta-wrap { max-width:900px; margin:-1.5rem auto 0; padding:0 1.5rem; }
+  .meta-table { background:#fff; border-radius:8px; border:1px solid var(--borde); border-top:4px solid var(--naranja); padding:1.2rem 1.5rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0.8rem 1.5rem; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+  .meta-item label { display:block; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#888; margin-bottom:0.1rem; }
+  .meta-item span { font-size:0.88rem; font-weight:600; color:var(--verde); }
+
+  .content { max-width:900px; margin:2rem auto; padding:0 1.5rem 4rem; }
+
+  .sec { background:#fff; border-radius:8px; border:1px solid var(--borde); margin-bottom:1.5rem; overflow:hidden; }
+  .sec-header { background:var(--verde-lt); border-bottom:2px solid var(--verde); padding:0.6rem 1.2rem; }
+  .sec-header h2 { font-size:0.82rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--verde); }
+  .sec-body { padding:1.2rem 1.5rem; }
+
+  .subsec { margin-bottom:1.4rem; }
+  .subsec:last-child { margin-bottom:0; }
+  .subsec h3 { font-size:0.88rem; font-weight:700; color:var(--verde-md); margin-bottom:0.5rem; padding-bottom:0.25rem; border-bottom:1px solid var(--borde); }
+
+  table { width:100%; border-collapse:collapse; font-size:0.86rem; }
+  th { background:var(--verde); color:#fff; padding:0.45rem 0.8rem; text-align:left; font-size:0.73rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+  td { padding:0.45rem 0.8rem; border-bottom:1px solid var(--borde); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#fafaf8; }
+
+  .proc-table td:first-child { text-align:center; font-weight:700; color:var(--naranja); width:3rem; }
+  .proc-table td:nth-child(2) { font-weight:600; font-size:0.80rem; color:var(--verde-md); width:9rem; }
+
+  .flujo { display:flex; flex-wrap:wrap; gap:0.3rem; align-items:center; }
+  .flujo-step { background:var(--verde-lt); border:1px solid var(--verde); border-radius:4px; padding:0.35rem 0.7rem; font-size:0.8rem; font-weight:600; color:var(--verde); white-space:nowrap; }
+  .flujo-step.pcc { background:#fdf2f0; border-color:var(--pcc); color:var(--pcc); }
+  .flujo-arrow { color:#aaa; font-size:0.85rem; }
+
+  .pcc-card { border:1px solid var(--pcc); border-left:4px solid var(--pcc); border-radius:0 6px 6px 0; background:var(--pcc-lt); padding:0.8rem 1rem; margin-bottom:0.8rem; }
+  .pcc-card:last-child { margin-bottom:0; }
+  .pcc-card .pcc-title { font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--pcc); margin-bottom:0.5rem; }
+  .pcc-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 1rem; font-size:0.83rem; }
+  .pcc-label { font-size:0.72rem; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:0.05em; }
+  .pcc-value { font-size:0.84rem; }
+
+  .alert { background:#fff8e1; border:1px solid #f5c518; border-left:4px solid #e8a000; border-radius:4px; padding:0.75rem 1rem; font-size:0.86rem; margin-bottom:1rem; }
+
+  .cursograma-wrap { border:1px solid var(--borde); border-radius:6px; overflow:hidden; }
+  .cursograma-label { background:var(--verde); color:#fff; padding:0.5rem 1rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; display:flex; align-items:center; justify-content:space-between; }
+  .cursograma-label a { color:rgba(255,255,255,0.8); font-size:0.72rem; text-decoration:none; }
+  .cursograma-label a:hover { color:#fff; text-decoration:underline; }
+  .cursograma-iframe { width:100%; height:600px; border:none; display:block; background:#fafaf8; }
+  .cursograma-fallback { padding:1.5rem; text-align:center; font-size:0.84rem; color:#666; }
+
+  ul.bullets { list-style:disc; padding-left:1.4rem; font-size:0.87rem; }
+  ul.bullets li { padding:0.2rem 0; }
+  ul.policy { list-style:none; padding:0; }
+  ul.policy li { padding:0.45rem 0 0.45rem 1.5rem; position:relative; border-bottom:1px solid var(--borde); font-size:0.87rem; }
+  ul.policy li:last-child { border-bottom:none; }
+  ul.policy li::before { content:'▸'; position:absolute; left:0; color:var(--naranja); font-size:0.75rem; top:0.5rem; }
+  ol.refs { margin:0; padding-left:1.4rem; font-size:0.85rem; }
+  ol.refs li { padding:0.3rem 0; border-bottom:1px solid var(--borde); }
+  ol.refs li:last-child { border-bottom:none; }
+
+  .rev-table th { font-size:0.72rem; }
+  .rev-table td:first-child, .rev-table td:nth-child(2) { white-space:nowrap; }
+
+  footer { text-align:center; font-size:0.75rem; color:#aaa; letter-spacing:0.03em; margin-top:1rem; }
+
+  @media(max-width:600px){
+    .meta-table{grid-template-columns:1fr 1fr;}
+    .pcc-grid{grid-template-columns:1fr;}
+    .flujo{flex-direction:column; align-items:flex-start;}
+    .flujo-arrow{transform:rotate(90deg);}
+    .proc-table td:nth-child(2){display:none;}
+    .cursograma-iframe{height:350px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">← Portal DGOIA</a>
+  <span class="sep">|</span>
+  <a href="../index.html">← Casa de Agroindustrias</a>
+  <span class="sep">|</span>
+  <span class="brand">PE.TEMPO.02 · Mamón en Almíbar</span>
+</div>
+
+<div class="doc-header">
+  <div class="logo-row">
+    <img class="logo-unne" src="../../../unne + logo 70 años (2).png" alt="UNNE">
+    <div class="divider-v"></div>
+    <img src="../logo-tembiu.jpeg" alt="Tembi'u Porá" style="background:#fff;padding:4px 8px;border-radius:4px;">
+  </div>
+  <div class="badge">Procedimiento Específico · PE.TEMPO.02</div>
+  <h1>Elaboración de Mamón en Almíbar</h1>
+  <div class="subtitle">Sección A — Conservas · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · UNNE</div>
+</div>
+
+<div class="meta-wrap">
+  <div class="meta-table">
+    <div class="meta-item"><label>Código</label><span>PE.TEMPO.02</span></div>
+    <div class="meta-item"><label>Versión</label><span>1</span></div>
+    <div class="meta-item"><label>Fecha</label><span>Mayo 2026</span></div>
+    <div class="meta-item"><label>Área / Sección</label><span>Sección A — Conservas</span></div>
+    <div class="meta-item"><label>Vigente desde</label><span>04/05/2026</span></div>
+    <div class="meta-item"><label>Elaborado por</label><span>M. Gomez Contardi, S. Maccio, P. Romero Vidomlansky</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- II. DESCRIPCIÓN -->
+  <div class="sec">
+    <div class="sec-header"><h2>II. Descripción</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Objetivo</h3>
+        <p>Establecer las actividades, responsabilidades y controles necesarios para la elaboración de Mamón en Almíbar en el establecimiento TEMBI'Ú PORÁ, garantizando la inocuidad, calidad y trazabilidad del producto conforme al Código Alimentario Argentino, las Buenas Prácticas de Manufactura y los principios del sistema de gestión de calidad ISO 9001:2015.</p>
+      </div>
+      <div class="subsec">
+        <h3>Alcance</h3>
+        <p>Inicia con el lavado y preparación de la fruta y finaliza con la entrega del producto envasado, etiquetado y embalado al Almacén de Producto Terminado. Sectores que intervienen: Depósito/Almacén de MP, Laboratorio, Sala de Conservas, Zona de Envasado, Zona de Pasteurización, Sala de Etiquetado y Embalaje.</p>
+      </div>
+      <div class="subsec">
+        <h3>Definiciones</h3>
+        <table>
+          <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--verde-md)">BPM</td><td>Buenas Prácticas de Manufactura.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">°Brix</td><td>Contenido de sólidos solubles medido con refractómetro.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Almíbar</td><td>Solución de azúcar y agua utilizada para conservar frutas.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Método Appert</td><td>Pasteurización: producto envasado sumergido en agua hirviendo.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Papaína</td><td>Enzima irritante presente en el mamón verde; requiere guantes de vinilo durante el pelado.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PCC</td><td>Punto Crítico de Control. Etapa donde se aplica un control esencial para prevenir, eliminar o reducir a nivel aceptable un peligro de inocuidad.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PEPS</td><td>Primero en Entrar, Primero en Salir. Principio de rotación de stock.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">HACCP</td><td>Análisis de Peligros y Puntos Críticos de Control.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- III. POLÍTICAS -->
+  <div class="sec">
+    <div class="sec-header"><h2>III. Políticas</h2></div>
+    <div class="sec-body">
+      <ul class="policy">
+        <li>La recepción, verificación e ingreso de MP e insumos se realiza conforme al PG.TEMPO.00.</li>
+        <li>El personal cumple el PG.TEMPO.01 y el Manual BPM TEMBI'Ú PORÁ. Indumentaria obligatoria: ambo, cofia, barbijo, delantal plástico, botas y guantes de vinilo (obligatorios durante el pelado por la papaína).</li>
+        <li>Las operaciones de limpieza y desinfección se realizan según PG.TEMPO.02.</li>
+        <li>Los frascos son pasteurizados a 100°C durante 1 hora antes de su uso.</li>
+        <li>Todo producto envasado es pasteurizado por el Método Appert.</li>
+        <li>No se admiten registros retroactivos.</li>
+        <li>Se aplica el principio PEPS en el almacenamiento de materias primas.</li>
+        <li>Los equipos e instrumentos de medición se mantienen calibrados según el plan de mantenimiento preventivo.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IV. FLUJO DE PROCESO -->
+  <div class="sec">
+    <div class="sec-header"><h2>IV. Flujo de Proceso</h2></div>
+    <div class="sec-body">
+      <div class="flujo">
+        <span class="flujo-step">Lavado / Enjuague</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Pesado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Pelado / Desemillado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Corte</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Pesado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Cocción / Azucarado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Medición °Brix (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Envasado en caliente</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Pasteurización Appert (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Enfriado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Verificación sellado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Etiquetado y embalaje</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Entrega Almacén PT</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V. FORMULACIÓN BASE -->
+  <div class="sec">
+    <div class="sec-header"><h2>V. Formulación Base</h2></div>
+    <div class="sec-body">
+      <p style="font-size:0.85rem;color:#666;font-style:italic;margin-bottom:0.8rem;">Por kg de fruta limpia. Rendimiento: 1,33 frascos de 660cc / kg de fruta limpia.</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Ingrediente</th><th>Cantidad</th><th>Especificaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Mamón</td><td>1000 g</td><td>Variedad red lady / maradol, verde</td></tr>
+            <tr><td>Azúcar</td><td>660 g</td><td>Refinada, 66% sobre peso fruta limpia</td></tr>
+            <tr><td>Agua potable</td><td>50 ml</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:0.8rem;font-size:0.84rem;"><strong>Envases disponibles:</strong> Frasco grande 660cc tapa axial N°82 (Estrella, 850g neto) · Frasco grande 660cc tapa N°70 (Alba, 850g neto) · Frasco chico 360cc tapa N°63 (Amanecer, 455g neto).</p>
+    </div>
+  </div>
+
+  <!-- VI. EQUIPAMIENTO -->
+  <div class="sec">
+    <div class="sec-header"><h2>VI. Equipamiento</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Sector</th><th>Equipo / Utensilio</th><th>Marca / Modelo</th><th>Observaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Sala Conservas</td><td>Pailas / Ollas</td><td>—</td><td>Paila 300L / Ollas 100L</td></tr>
+            <tr><td>Sala Conservas</td><td>Cuchillos, pelador, encendedor, jarras</td><td>—</td><td>—</td></tr>
+            <tr><td>Sala Conservas</td><td>Quemadores a gas</td><td>Calabro</td><td>24.000 cal</td></tr>
+            <tr><td>Sala Conservas</td><td>Balanza</td><td>KRETZ / AUNEB30P</td><td>Cap. max 30 kg</td></tr>
+            <tr><td>Laboratorio</td><td>Refractómetro de mano</td><td>—</td><td>Para medición °Brix</td></tr>
+            <tr><td>Laboratorio</td><td>Termómetro</td><td>—</td><td>—</td></tr>
+            <tr><td>Envasado</td><td>Pinzas / embudos</td><td>—</td><td>Para frascos tapa rosca</td></tr>
+            <tr><td>Pasteurización</td><td>Paila método Appert / canastos</td><td>—</td><td>Temp. agua 100°C</td></tr>
+            <tr><td>Sala Etiquetado</td><td>Impresora etiquetas</td><td>KRETZ / PIC80VIC-US</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- VII. DESARROLLO -->
+  <div class="sec">
+    <div class="sec-header"><h2>VII. Desarrollo</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>VII.1. Descripción de actividades</h3>
+        <div style="overflow-x:auto;">
+          <table class="proc-table">
+            <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>1</td><td>Auxiliar</td>
+                <td><strong>Lavado / Enjuague:</strong> Lava y enjuaga el mamón con agua potable. Para fruta proveniente de ERAGIA ya lavada, realiza un enjuague de verificación.</td>
+              </tr>
+              <tr>
+                <td>2</td><td>Encargado</td>
+                <td><strong>Pesado e ingredientes:</strong> Pesa la fruta lavada. Determina la cantidad de azúcar (66% sobre peso fruta limpia). Separa el azúcar en porciones según protocolo de azucarado. Registra en <em>RG.TEMPO.02.01</em>.</td>
+              </tr>
+              <tr>
+                <td>3</td><td>Auxiliar</td>
+                <td><strong>Pelado / Desemillado:</strong> Pela el mamón manualmente con <strong>guantes de vinilo (uso OBLIGATORIO por la papaína)</strong>. Descarta cáscara y semillas. Descarte estimado: ~20%.</td>
+              </tr>
+              <tr>
+                <td>4</td><td>Auxiliar / Encargado</td>
+                <td><strong>Corte:</strong> Corta en cubos de 1,5 cm aprox. para lograr cocción pareja.</td>
+              </tr>
+              <tr>
+                <td>5</td><td>Encargado</td>
+                <td><strong>Cocción:</strong> Cocina hasta ablandar. Tº: 100°C, tiempo estimado: 1 hora. Equipo: paila/olla.</td>
+              </tr>
+              <tr>
+                <td>6</td><td>Encargado</td>
+                <td><strong>Azucarado:</strong> Azucara en agregados sucesivos (3 agregados, 200 g azúcar / 1 kg fruta por agregado) luego de bajar la intensidad del calor.</td>
+              </tr>
+              <tr>
+                <td>7</td><td>Encargado</td>
+                <td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Medición °Brix:</strong> Enfría muestra hasta ~20°C. Mide °Brix con refractómetro. Corrige con azúcar si es necesario. °Brix objetivo: 65°. Registra en <em>RG.TEMPO.02.01</em>.</td>
+              </tr>
+              <tr>
+                <td>8</td><td>Auxiliar</td>
+                <td><strong>Envasado en caliente:</strong> Envasa la fruta a mano en frascos pasteurizados. Calienta el almíbar. Añade dejando 1 cm de altura de cabeza. Limpia el cuello del frasco con paño humedecido en alcohol. Tapa y ajusta. Invierte los frascos sobre bandejas para favorecer el sellado por vacío.</td>
+              </tr>
+              <tr>
+                <td>9</td><td>Auxiliar / Encargado</td>
+                <td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Pasteurización Appert:</strong> Esteriliza sumergiendo frascos sellados en agua hirviendo: 45 min para frascos de 660cc y 30 min para frascos de 360cc. Retira y deja enfriar lentamente sobre superficie de madera/tela, evitando corrientes de aire. Registra Tº y tiempo en <em>RG.TEMPO.02.02</em>.</td>
+              </tr>
+              <tr>
+                <td>10</td><td>Encargado</td>
+                <td><strong>Verificación de sellado:</strong> Verifica sellado (tapa cóncava, sin movimiento al presionar). Descarta frascos con sellado deficiente. Registra en <em>RG.TEMPO.02.02</em>.</td>
+              </tr>
+              <tr>
+                <td>11</td><td>Auxiliar</td>
+                <td><strong>Etiquetado:</strong> Limpia y seca cada frasco. Coloca etiquetas (tapa + envase) y cinta de seguridad. Rótulos con código de barras según CAA.</td>
+              </tr>
+              <tr>
+                <td>12</td><td>Auxiliar</td>
+                <td><strong>Embalaje y entrega:</strong> Coloca en cajas de embalaje y entrega al Almacén de PT conforme a PG.TEMPO.04.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIII. PCC -->
+  <div class="sec">
+    <div class="sec-header"><h2>VIII. Puntos Críticos de Control</h2></div>
+    <div class="sec-body">
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-1 — Medición °Brix (Paso 7)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">°Brix insuficiente para la conservación del producto.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value">°Brix mínimo: <strong>60°</strong>.</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Refractómetro calibrado, cada lote. Registrar en RG.TEMPO.02.01.</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Corregir con azúcar; si no alcanza el límite crítico, no envasar. Registrar en RG.TEMPO.02.01.</div></div>
+        </div>
+      </div>
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-2 — Pasteurización Appert (Paso 9)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">Supervivencia de microorganismos por pasteurización insuficiente.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value"><strong>100°C / 45 min</strong> (frascos 660cc) · <strong>100°C / 30 min</strong> (frascos 360cc).</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Tº del agua y tiempo, cada lote. Registrar en RG.TEMPO.02.02.</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Extender tiempo; reprocesar si no alcanza; segregar producto sospechoso; registrar en RG.TEMPO.02.02.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IX. REFERENCIAS -->
+  <div class="sec">
+    <div class="sec-header"><h2>IX. Referencias</h2></div>
+    <div class="sec-body">
+      <ol class="refs">
+        <li>Código Alimentario Argentino (CAA) — Capítulo X.</li>
+        <li>Resolución GMC N° 80/96 — Buenas Prácticas de Manufactura.</li>
+        <li>ISO 9001:2015 — Sistemas de Gestión de la Calidad.</li>
+        <li>Codex Alimentarius — Norma para confituras, jaleas y mermeladas.</li>
+        <li>Manual de BPM TEMBI'Ú PORÁ — Versión 1, Marzo 2026.</li>
+        <li>PG.RECT.01 — Guía para la elaboración de procedimientos UNNE (Res. 2903/23-R).</li>
+        <li>PG.TEMPO.00 — Recepción de MP e Insumos.</li>
+        <li>PG.TEMPO.01 — Buenas Prácticas de Higiene e Ingreso/Egreso a Planta.</li>
+        <li>PG.TEMPO.02 — Limpieza y Desinfección (POES).</li>
+        <li>PG.TEMPO.04 — Almacenamiento y Stock de Producto Terminado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- XII. ENTRADAS Y SALIDAS -->
+  <div class="sec">
+    <div class="sec-header"><h2>XII. Entradas y Salidas</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Proveedor</th><th>Requisitos de entrada</th><th>Receptor</th><th>Requisitos de salida</th></tr></thead>
+          <tbody>
+            <tr><td>Mamón verde (ERAGIA / externos) + azúcar / frascos / tapas</td><td>MP con fecha de vto. vigente, en buen estado, con rótulo. Fruta seleccionada, sin podredumbre.</td><td>Almacén de Producto Terminado</td><td>Mamón en almíbar inocuo, frascos pasteurizados, rotulado completo (lote, fecha elab., fecha vto.).</td></tr>
+            <tr><td>Proceso de limpieza y desinfección (POES)</td><td>Salas, equipos y utensilios limpios y desinfectados antes de iniciar producción.</td><td>Proceso de gestión de residuos</td><td>Cáscaras y semillas dispuestas según protocolo de residuos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- XIII. REGISTROS -->
+  <div class="sec">
+    <div class="sec-header"><h2>XIII. Registros</h2></div>
+    <div class="sec-body">
+      <table>
+        <thead><tr><th>Código</th><th>Nombre del registro</th><th>Responsable</th><th>Frecuencia</th><th>Retención</th></tr></thead>
+        <tbody>
+          <tr><td>RG.TEMPO.02.01</td><td>Planilla de lote (pesado, producción, °Brix)</td><td>Encargado</td><td>C/lote</td><td>60 meses</td></tr>
+          <tr><td>RG.TEMPO.02.02</td><td>Control PCC Pasteurización Appert y verificación de sellado</td><td>Encargado</td><td>C/lote</td><td>60 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- XIV. HISTÓRICO -->
+  <div class="sec">
+    <div class="sec-header"><h2>XIV. Histórico de Revisiones</h2></div>
+    <div class="sec-body">
+      <table class="rev-table">
+        <thead><tr><th>N°</th><th>Fecha</th><th>Sección</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>Abril 2026</td><td>Todas</td><td>Versión inicial (base multi-producto: mamón, calabaza, quinotos, mermeladas).</td></tr>
+          <tr><td>1</td><td>Mayo 2026</td><td>Alcance, VII, XII</td><td>Alcance acotado a Mamón en Almíbar específicamente; variantes pasan a PE.TEMPO.03 y siguientes. Se elimina bloque almacenamiento/despacho que pasa a PG.TEMPO.04.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- XV. FIRMAS -->
+  <div class="sec">
+    <div class="sec-header"><h2>XV. Firmas de Autorización</h2></div>
+    <div class="sec-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Propone</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de propuesta: ____________________</div>
+        </div>
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Autoriza</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de autorización: ________________<br>Vigente desde: _________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- XVI. ANEXOS — CURSOGRAMA -->
+  <div class="sec">
+    <div class="sec-header"><h2>XVI. Anexos</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Anexo A — Cursograma del Proceso (PE_TEMPO_02)</h3>
+        <div class="cursograma-wrap">
+          <div class="cursograma-label">
+            <span>Diagrama de flujo por sectores · PE.TEMPO.02 Mamón en Almíbar</span>
+            <a href="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_02_Cursograma.drawio" target="_blank">Abrir en pantalla completa ↗</a>
+          </div>
+          <iframe
+            class="cursograma-iframe"
+            src="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_02_Cursograma.drawio&toolbar=false&nav=false"
+            title="Cursograma PE.TEMPO.02"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p style="margin-top:0.6rem;font-size:0.78rem;color:#888;">Elaborado en draw.io · Casa de Agroindustrias ERAGIA – TEMBI'Ú PORÁ – UNNE. El diagrama requiere conexión a Internet para visualizarse.</p>
+      </div>
+      <div class="subsec">
+        <h3>Anexo B — Modelos de planillas de registro</h3>
+        <ul class="bullets">
+          <li>RG.TEMPO.02.01 — Planilla de lote (pesado, producción, °Brix)</li>
+          <li>RG.TEMPO.02.02 — Control PCC Pasteurización Appert y verificación de sellado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- XVII. CRÉDITOS -->
+  <div class="sec">
+    <div class="sec-header"><h2>XVII. Créditos</h2></div>
+    <div class="sec-body" style="font-size:0.86rem;color:#555;line-height:1.75;">
+      <p>La elaboración del presente procedimiento estuvo a cargo de <strong>Mara Gomez Contardi</strong>, <strong>Sebastián Maccio</strong> y <strong>Patricia Romero Vidomlansky</strong>, con el apoyo de la Dirección General de Organización e Innovación Administrativa (DGOIA) de la Secretaría General de Planeamiento de la UNNE, como apoyo al proceso de documentación y gestión de calidad de la Casa de Agroindustrias ERAGIA / TEMBI'Ú PORÁ.</p>
+      <p style="margin-top:0.5rem;font-size:0.80rem;color:#aaa;">Versión 1 · Mayo 2026</p>
+    </div>
+  </div>
+
+  <footer>Universidad Nacional del Nordeste · DGOIA · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · 2026</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PE.TEMPO.06 — Bondiola y Solomillo Curados · Tembi'u Porá</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --verde:#2B5530; --verde-md:#3d7344; --verde-lt:#e8f0e8; --naranja:#E8611A; --texto:#1a1a1a; --gris:#f5f5f3; --borde:#d0d0cc; --pcc:#c0392b; --pcc-lt:#fdf2f0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--gris); color:var(--texto); font-size:0.92rem; line-height:1.65; }
+  .topbar { background:var(--verde); color:#fff; padding:0.75rem 2rem; display:flex; align-items:center; gap:1rem; border-bottom:4px solid var(--naranja); }
+  .topbar a { color:rgba(255,255,255,0.82); text-decoration:none; font-size:0.82rem; letter-spacing:0.03em; }
+  .topbar a:hover { color:#fff; text-decoration:underline; }
+  .topbar .sep { color:rgba(255,255,255,0.35); }
+  .topbar .brand { font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-transform:uppercase; }
+  .doc-header { background:linear-gradient(135deg,var(--verde) 0%,#1a3a1e 100%); color:#fff; padding:2.5rem 2rem 2rem; text-align:center; }
+  .doc-header .logo-row { display:flex; justify-content:center; align-items:center; gap:1.5rem; margin-bottom:1.2rem; }
+  .doc-header .logo-row img { height:60px; }
+  .doc-header .logo-unne { filter:invert(1) brightness(2); }
+  .doc-header .divider-v { width:1px; height:50px; background:rgba(255,255,255,0.3); }
+  .doc-header .badge { display:inline-block; background:var(--naranja); color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.7rem; border-radius:3px; margin-bottom:0.6rem; }
+  .doc-header h1 { font-size:1.45rem; font-weight:700; line-height:1.3; margin-bottom:0.3rem; }
+  .doc-header .subtitle { font-size:0.88rem; color:rgba(255,255,255,0.75); letter-spacing:0.03em; }
+  .meta-wrap { max-width:900px; margin:-1.5rem auto 0; padding:0 1.5rem; }
+  .meta-table { background:#fff; border-radius:8px; border:1px solid var(--borde); border-top:4px solid var(--naranja); padding:1.2rem 1.5rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0.8rem 1.5rem; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+  .meta-item label { display:block; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#888; margin-bottom:0.1rem; }
+  .meta-item span { font-size:0.88rem; font-weight:600; color:var(--verde); }
+  .content { max-width:900px; margin:2rem auto; padding:0 1.5rem 4rem; }
+  .sec { background:#fff; border-radius:8px; border:1px solid var(--borde); margin-bottom:1.5rem; overflow:hidden; }
+  .sec-header { background:var(--verde-lt); border-bottom:2px solid var(--verde); padding:0.6rem 1.2rem; }
+  .sec-header h2 { font-size:0.82rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--verde); }
+  .sec-body { padding:1.2rem 1.5rem; }
+  .subsec { margin-bottom:1.4rem; }
+  .subsec:last-child { margin-bottom:0; }
+  .subsec h3 { font-size:0.88rem; font-weight:700; color:var(--verde-md); margin-bottom:0.5rem; padding-bottom:0.25rem; border-bottom:1px solid var(--borde); }
+  table { width:100%; border-collapse:collapse; font-size:0.86rem; }
+  th { background:var(--verde); color:#fff; padding:0.45rem 0.8rem; text-align:left; font-size:0.73rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+  td { padding:0.45rem 0.8rem; border-bottom:1px solid var(--borde); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#fafaf8; }
+  .proc-table td:first-child { text-align:center; font-weight:700; color:var(--naranja); width:3rem; }
+  .proc-table td:nth-child(2) { font-weight:600; font-size:0.80rem; color:var(--verde-md); width:9rem; }
+  .flujo { display:flex; flex-wrap:wrap; gap:0.3rem; align-items:center; }
+  .flujo-step { background:var(--verde-lt); border:1px solid var(--verde); border-radius:4px; padding:0.35rem 0.7rem; font-size:0.8rem; font-weight:600; color:var(--verde); white-space:nowrap; }
+  .flujo-step.pcc { background:#fdf2f0; border-color:var(--pcc); color:var(--pcc); }
+  .flujo-arrow { color:#aaa; font-size:0.85rem; }
+  .pcc-card { border:1px solid var(--pcc); border-left:4px solid var(--pcc); border-radius:0 6px 6px 0; background:var(--pcc-lt); padding:0.8rem 1rem; margin-bottom:0.8rem; }
+  .pcc-card:last-child { margin-bottom:0; }
+  .pcc-card .pcc-title { font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--pcc); margin-bottom:0.5rem; }
+  .pcc-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 1rem; font-size:0.83rem; }
+  .pcc-label { font-size:0.72rem; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:0.05em; }
+  .pcc-value { font-size:0.84rem; }
+  .cursograma-wrap { border:1px solid var(--borde); border-radius:6px; overflow:hidden; }
+  .cursograma-label { background:var(--verde); color:#fff; padding:0.5rem 1rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; display:flex; align-items:center; justify-content:space-between; }
+  .cursograma-label a { color:rgba(255,255,255,0.8); font-size:0.72rem; text-decoration:none; }
+  .cursograma-label a:hover { color:#fff; text-decoration:underline; }
+  .cursograma-iframe { width:100%; height:600px; border:none; display:block; background:#fafaf8; }
+  ul.bullets { list-style:disc; padding-left:1.4rem; font-size:0.87rem; }
+  ul.bullets li { padding:0.2rem 0; }
+  ul.policy { list-style:none; padding:0; }
+  ul.policy li { padding:0.45rem 0 0.45rem 1.5rem; position:relative; border-bottom:1px solid var(--borde); font-size:0.87rem; }
+  ul.policy li:last-child { border-bottom:none; }
+  ul.policy li::before { content:'▸'; position:absolute; left:0; color:var(--naranja); font-size:0.75rem; top:0.5rem; }
+  ol.refs { margin:0; padding-left:1.4rem; font-size:0.85rem; }
+  ol.refs li { padding:0.3rem 0; border-bottom:1px solid var(--borde); }
+  ol.refs li:last-child { border-bottom:none; }
+  .rev-table th { font-size:0.72rem; }
+  .rev-table td:first-child, .rev-table td:nth-child(2) { white-space:nowrap; }
+  footer { text-align:center; font-size:0.75rem; color:#aaa; letter-spacing:0.03em; margin-top:1rem; }
+  @media(max-width:600px){ .meta-table{grid-template-columns:1fr 1fr;} .pcc-grid{grid-template-columns:1fr;} .flujo{flex-direction:column;align-items:flex-start;} .flujo-arrow{transform:rotate(90deg);} .proc-table td:nth-child(2){display:none;} .cursograma-iframe{height:350px;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">← Portal DGOIA</a>
+  <span class="sep">|</span>
+  <a href="../index.html">← Casa de Agroindustrias</a>
+  <span class="sep">|</span>
+  <span class="brand">PE.TEMPO.06 · Bondiola y Solomillo Curados</span>
+</div>
+
+<div class="doc-header">
+  <div class="logo-row">
+    <img class="logo-unne" src="../../../unne + logo 70 años (2).png" alt="UNNE">
+    <div class="divider-v"></div>
+    <img src="../logo-tembiu.jpeg" alt="Tembi'u Porá" style="background:#fff;padding:4px 8px;border-radius:4px;">
+  </div>
+  <div class="badge">Procedimiento Específico · PE.TEMPO.06</div>
+  <h1>Bondiola y Solomillo Curados</h1>
+  <div class="subtitle">Sección D — Cárnicos · Chacinados no embutidos · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · UNNE</div>
+</div>
+
+<div class="meta-wrap">
+  <div class="meta-table">
+    <div class="meta-item"><label>Código</label><span>PE.TEMPO.06</span></div>
+    <div class="meta-item"><label>Versión</label><span>1</span></div>
+    <div class="meta-item"><label>Fecha</label><span>Mayo 2026</span></div>
+    <div class="meta-item"><label>Área / Sección</label><span>Sección D — Cárnicos</span></div>
+    <div class="meta-item"><label>Productos</label><span>Bondiola curada · Solomillo curado</span></div>
+    <div class="meta-item"><label>Vigente desde</label><span>04/05/2026</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="sec">
+    <div class="sec-header"><h2>II. Descripción</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Objetivo</h3>
+        <p>Establecer las actividades, responsabilidades y controles para la elaboración de bondiola y solomillo curados en TEMBI'Ú PORÁ, garantizando inocuidad, calidad y trazabilidad conforme al CAA, BPM e ISO 9001:2015.</p>
+      </div>
+      <div class="subsec">
+        <h3>Alcance</h3>
+        <p>Inicia con la preparación de la mezcla de curado y el acondicionamiento de la carne, y finaliza con la entrega al Almacén de PT. Sectores: Depósito/Almacén MP, Sala Cárnicos, Cámara de Refrigeración (curado/maduración), Zona de Envasado, Sala de Etiquetado.</p>
+      </div>
+      <div class="subsec">
+        <h3>Definiciones</h3>
+        <table>
+          <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--verde-md)">BPM</td><td>Buenas Prácticas de Manufactura.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Bondiola</td><td>Músculo del cogote de cerdo sometido a salazón, adobo, masajeo y maduración.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Solomillo</td><td>Lomo de cerdo, con proceso similar al de la bondiola.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Salazón / Curado</td><td>Conservación mediante sal e ingredientes que inhiben microorganismos.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Adobo</td><td>Mezcla de especias, condimentos y líquidos para sabor y conservación.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Masajeo</td><td>Acción mecánica manual para favorecer la penetración de la salmuera y el adobo.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Papel microporoso</td><td>Envoltura permeable que permite la deshidratación gradual de la pieza durante la maduración.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PCC</td><td>Punto Crítico de Control.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PEPS</td><td>Primero en Entrar, Primero en Salir. Principio de rotación de stock.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>III. Políticas</h2></div>
+    <div class="sec-body">
+      <ul class="policy">
+        <li>La recepción de MP se realiza conforme al PG.TEMPO.00. Solo se admite carne porcina fresca de proveedores habilitados.</li>
+        <li>La carne se mantiene a ≤5°C desde la recepción hasta el inicio del curado.</li>
+        <li>Los ingredientes de curado y adobo se pesan con precisión.</li>
+        <li>El personal cumple el Manual BPM y PG.TEMPO.01. Indumentaria: ambo, guantes, cofia, barbijo, delantal plástico, botas.</li>
+        <li>Las cámaras tienen Tº y humedad controladas y registradas durante todo el proceso.</li>
+        <li>El Manual BPM indica: maduración final hasta el 70% del peso (aprox. 15 días).</li>
+        <li>Las operaciones de limpieza se realizan según PG.TEMPO.02. Se aplica el principio PEPS.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>IV. Flujo de Proceso</h2></div>
+    <div class="sec-body">
+      <div class="flujo">
+        <span class="flujo-step">Recepción MP</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Almacenamiento refrigerado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Desgrasado de la carne</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Preparación mezcla curado (sal + azúcar)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Salazón / Curado en cámara 3 días (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Escurrido y enjuague</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Preparación de adobo</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Adobo y masajeo</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Envuelto en papel microporoso y atado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Maduración en cámara a 15°C hasta 70% del peso (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Envasado al vacío</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Etiquetado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Entrega Almacén PT</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>V. Formulación Base</h2></div>
+    <div class="sec-body">
+      <p style="font-size:0.85rem;color:#666;font-style:italic;margin-bottom:0.8rem;">Pérdida esperada en maduración: ~30%. Producto final ≈ 70% del peso inicial.</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Ingrediente</th><th>Cantidad / Proporción</th><th>Observaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Pieza de cerdo (cogote / lomo)</td><td>Variable por lote</td><td>Tº ≤5°C</td></tr>
+            <tr><td>Sal gruesa</td><td>10 kg por lote</td><td>Para salazón</td></tr>
+            <tr><td>Azúcar</td><td>1 kg por lote</td><td>Manual BPM: 10 kg sal + 1 kg azúcar</td></tr>
+            <tr><td>Sal de cura (nitritos)</td><td>Según formulación</td><td>Si aplica</td></tr>
+            <tr><td>Pimentón dulce / ahumado</td><td>Al gusto</td><td>—</td></tr>
+            <tr><td>Pimienta negra / blanca</td><td>Al gusto</td><td>—</td></tr>
+            <tr><td>Ajo fresco / polvo</td><td>Al gusto</td><td>—</td></tr>
+            <tr><td>Condimentos comerciales</td><td>Al gusto</td><td>—</td></tr>
+            <tr><td>Vino / Vinagre</td><td>Al gusto</td><td>Para adobo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VI. Equipamiento</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Sector</th><th>Equipo / Utensilio</th><th>Observaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Sala Cárnicos</td><td>Balanza</td><td>—</td></tr>
+            <tr><td>Sala Cárnicos</td><td>Bateas / recipientes para salazón</td><td>Material apto alimentario</td></tr>
+            <tr><td>Sala Cárnicos</td><td>Mesa de trabajo / bandejas</td><td>—</td></tr>
+            <tr><td>Sala Cárnicos</td><td>Hilo / red para atado</td><td>Grado alimentario</td></tr>
+            <tr><td>Cámara refrigerada</td><td>Cámara de maduración a 15°C</td><td>Con zorras para colgado</td></tr>
+            <tr><td>Envasado</td><td>Envasadora al vacío</td><td>Bolsas poliamida/PE libres de BPA</td></tr>
+            <tr><td>Laboratorio</td><td>Termómetro, higrómetro</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VII. Desarrollo</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>VII.1. Descripción de actividades</h3>
+        <div style="overflow-x:auto;">
+          <table class="proc-table">
+            <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Operario</td><td><strong>Desgrasado y preparación mezcla:</strong> Desgrasa la carne (excedente de grasa superficial). Prepara mezcla de curado: combina sal y azúcar según formulación (10 kg sal + 1 kg azúcar) para generar la mezcla que provocará el intercambio osmótico de agua en la carne. Registra en <em>RG.TEMPO.06.01</em>.</td></tr>
+              <tr><td>2</td><td>Operario</td><td><strong>Inicio del curado:</strong> Acomoda la mezcla s/a en el fondo de la batea. Coloca la carne y la cubre con la mezcla. Tapa la batea.</td></tr>
+              <tr><td>3</td><td>Operario</td><td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Salazón / Curado en cámara:</strong> Coloca la batea en cámara de maduración a <strong>15°C durante 3 días</strong>. Una vez al día realiza el recambio de la batea y la mezcla s/a. Descarta el agua de escurrido (aprox. 1 kg agua/día). Registra Tº y humedad en <em>RG.TEMPO.06.02</em>.</td></tr>
+              <tr><td>4</td><td>Operario</td><td><strong>Escurrido y enjuague:</strong> Al tercer día retira la pieza del curado. Enjuaga con agua. Seca con papel absorbente.</td></tr>
+              <tr><td>5</td><td>Operario</td><td><strong>Adobo y masajeo:</strong> Incorpora condimentos a la superficie de la carne según sabor final deseado. Masajea manualmente para facilitar el ingreso del sabor al volumen de la pieza.</td></tr>
+              <tr><td>6</td><td>Operario</td><td><strong>Envuelto y pesado:</strong> Envuelve la pieza en papel microporoso y ata con hilo. Realiza pesado inicial del producto. Registra peso en <em>RG.TEMPO.06.01</em>.</td></tr>
+              <tr><td>7</td><td>Operario</td><td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Maduración final:</strong> Coloca piezas en zorras para colgado en cámara de maduración a <strong>15°C</strong> hasta lograr disminución de peso al 70% del producto (aprox. 15 días). Inspección organoléptica diaria. Registra Tº, humedad y peso periódico en <em>RG.TEMPO.06.02</em>.</td></tr>
+              <tr><td>8</td><td>Operario</td><td><strong>Envasado:</strong> Retira del secadero. Envasa en empacadora al vacío (bolsas PA/PE libres BPA). Verifica sellado. Descarta envases deficientes.</td></tr>
+              <tr><td>9</td><td>Operario</td><td><strong>Etiquetado y entrega:</strong> Etiqueta: denominación, peso neto, lote, fecha elaboración, fecha vencimiento y condiciones de conservación (CAA). Entrega al Almacén de PT conforme al procedimiento de Almacenamiento y Stock de PT.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VIII. Puntos Críticos de Control</h2></div>
+    <div class="sec-body">
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-1 — Salazón / Curado en cámara (Paso 3)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">Proliferación microbiana por Tº inadecuada durante el curado.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value">Tº cámara <strong>15°C</strong> (Manual BPM).</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Termómetro e higrómetro calibrados, registro diario (RG.TEMPO.06.02).</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Ajustar equipo de frío; si Tº fuera de rango evaluar producto y segregar si necesario; registrar en RG.TEMPO.06.02.</div></div>
+        </div>
+      </div>
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-2 — Maduración final en cámara (Paso 7)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">Proliferación microbiana por Tº o humedad inadecuadas.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value">Tº <strong>15°C</strong> / humedad controlada / tiempo ~15 días / peso final ≥70% del inicial.</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Termómetro e higrómetro, registro diario; control de peso periódico (RG.TEMPO.06.02).</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Ajustar condiciones; extender maduración si no alcanza 70% de peso; no liberar producto fuera de rango; registrar.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>IX. Referencias</h2></div>
+    <div class="sec-body">
+      <ol class="refs">
+        <li>Código Alimentario Argentino (CAA).</li>
+        <li>Resolución GMC N° 80/96 — Buenas Prácticas de Manufactura.</li>
+        <li>ISO 9001:2015 — Sistemas de Gestión de la Calidad.</li>
+        <li>Manual de BPM TEMBI'Ú PORÁ — Versión 1, Marzo 2026.</li>
+        <li>PG.RECT.01 — Guía para la elaboración de procedimientos UNNE.</li>
+        <li>PG.TEMPO.00 — Recepción de MP e Insumos.</li>
+        <li>PG.TEMPO.01 — Buenas Prácticas de Higiene e Ingreso/Egreso a Planta.</li>
+        <li>PG.TEMPO.02 — Limpieza y Desinfección (POES).</li>
+        <li>PG.TEMPO.04 — Almacenamiento y Stock de Producto Terminado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XII. Entradas y Salidas</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Proveedor</th><th>Requisitos de entrada</th><th>Receptor</th><th>Requisitos de salida</th></tr></thead>
+          <tbody>
+            <tr><td>Pieza de cerdo + sal / azúcar / condimentos</td><td>Carne fresca a ≤5°C, de proveedores habilitados. Ingredientes aptos y pesados con precisión.</td><td>Almacén de PT</td><td>Bondiola / solomillo curado, envasado al vacío, rotulado completo (CAA), peso ≥70% del inicial.</td></tr>
+            <tr><td>Proceso de limpieza y desinfección (POES)</td><td>Sala y equipos limpios antes de iniciar.</td><td>Gestión de residuos</td><td>Agua de escurrido y residuos dispuestos según protocolo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XIII. Registros</h2></div>
+    <div class="sec-body">
+      <table>
+        <thead><tr><th>Código</th><th>Nombre del registro</th><th>Responsable</th><th>Frecuencia</th><th>Retención</th></tr></thead>
+        <tbody>
+          <tr><td>RG.TEMPO.06.01</td><td>Planilla de lote (desgrasado, curado, pesado inicial y periódico)</td><td>Operario</td><td>C/lote + Diario</td><td>60 meses</td></tr>
+          <tr><td>RG.TEMPO.06.02</td><td>Control PCC Maduración (Tº, humedad, peso)</td><td>Operario</td><td>Diario</td><td>60 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XIV. Histórico de Revisiones</h2></div>
+    <div class="sec-body">
+      <table class="rev-table">
+        <thead><tr><th>N°</th><th>Fecha</th><th>Sección</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Mayo 2026</td><td>Todas</td><td>Versión inicial.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XV. Firmas de Autorización</h2></div>
+    <div class="sec-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Propone</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de propuesta: ____________________</div>
+        </div>
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Autoriza</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de autorización: ________________<br>Vigente desde: _________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XVI. Anexos</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Anexo A — Cursograma del Proceso (PE_TEMPO_06)</h3>
+        <div class="cursograma-wrap">
+          <div class="cursograma-label">
+            <span>Diagrama de flujo por sectores · PE.TEMPO.06 Bondiola y Solomillo Curados</span>
+            <a href="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_06_Cursograma.drawio" target="_blank">Abrir en pantalla completa ↗</a>
+          </div>
+          <iframe class="cursograma-iframe"
+            src="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_06_Cursograma.drawio&toolbar=false&nav=false"
+            title="Cursograma PE.TEMPO.06" loading="lazy"></iframe>
+        </div>
+        <p style="margin-top:0.6rem;font-size:0.78rem;color:#888;">Elaborado en draw.io · El diagrama requiere conexión a Internet para visualizarse.</p>
+      </div>
+      <div class="subsec">
+        <h3>Anexo B — Modelos de planillas de registro</h3>
+        <ul class="bullets">
+          <li>RG.TEMPO.06.01 — Planilla de lote</li>
+          <li>RG.TEMPO.06.02 — Control PCC Maduración</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XVII. Créditos</h2></div>
+    <div class="sec-body" style="font-size:0.86rem;color:#555;line-height:1.75;">
+      <p>La elaboración del presente procedimiento estuvo a cargo de <strong>Mara Gomez Contardi</strong>, <strong>Sebastián Maccio</strong> y <strong>Patricia Romero Vidomlansky</strong>, con el apoyo de la DGOIA — Secretaría General de Planeamiento de la UNNE.</p>
+      <p style="margin-top:0.5rem;font-size:0.80rem;color:#aaa;">Versión 1 · Mayo 2026</p>
+    </div>
+  </div>
+
+  <footer>Universidad Nacional del Nordeste · DGOIA · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · 2026</footer>
+</div>
+</body>
+</html>

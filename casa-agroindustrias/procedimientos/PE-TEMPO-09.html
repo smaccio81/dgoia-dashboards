@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PE.TEMPO.09 — Dulces de Frutas y Mermeladas · Tembi'u Porá</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --verde:#2B5530; --verde-md:#3d7344; --verde-lt:#e8f0e8; --naranja:#E8611A; --texto:#1a1a1a; --gris:#f5f5f3; --borde:#d0d0cc; --pcc:#c0392b; --pcc-lt:#fdf2f0; }
+  body { font-family:'Segoe UI',Arial,sans-serif; background:var(--gris); color:var(--texto); font-size:0.92rem; line-height:1.65; }
+  .topbar { background:var(--verde); color:#fff; padding:0.75rem 2rem; display:flex; align-items:center; gap:1rem; border-bottom:4px solid var(--naranja); }
+  .topbar a { color:rgba(255,255,255,0.82); text-decoration:none; font-size:0.82rem; letter-spacing:0.03em; }
+  .topbar a:hover { color:#fff; text-decoration:underline; }
+  .topbar .sep { color:rgba(255,255,255,0.35); }
+  .topbar .brand { font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-transform:uppercase; }
+  .doc-header { background:linear-gradient(135deg,var(--verde) 0%,#1a3a1e 100%); color:#fff; padding:2.5rem 2rem 2rem; text-align:center; }
+  .doc-header .logo-row { display:flex; justify-content:center; align-items:center; gap:1.5rem; margin-bottom:1.2rem; }
+  .doc-header .logo-row img { height:60px; }
+  .doc-header .logo-unne { filter:invert(1) brightness(2); }
+  .doc-header .divider-v { width:1px; height:50px; background:rgba(255,255,255,0.3); }
+  .doc-header .badge { display:inline-block; background:var(--naranja); color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.2rem 0.7rem; border-radius:3px; margin-bottom:0.6rem; }
+  .doc-header h1 { font-size:1.45rem; font-weight:700; line-height:1.3; margin-bottom:0.3rem; }
+  .doc-header .subtitle { font-size:0.88rem; color:rgba(255,255,255,0.75); letter-spacing:0.03em; }
+  .meta-wrap { max-width:900px; margin:-1.5rem auto 0; padding:0 1.5rem; }
+  .meta-table { background:#fff; border-radius:8px; border:1px solid var(--borde); border-top:4px solid var(--naranja); padding:1.2rem 1.5rem; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:0.8rem 1.5rem; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+  .meta-item label { display:block; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#888; margin-bottom:0.1rem; }
+  .meta-item span { font-size:0.88rem; font-weight:600; color:var(--verde); }
+  .content { max-width:900px; margin:2rem auto; padding:0 1.5rem 4rem; }
+  .sec { background:#fff; border-radius:8px; border:1px solid var(--borde); margin-bottom:1.5rem; overflow:hidden; }
+  .sec-header { background:var(--verde-lt); border-bottom:2px solid var(--verde); padding:0.6rem 1.2rem; }
+  .sec-header h2 { font-size:0.82rem; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--verde); }
+  .sec-body { padding:1.2rem 1.5rem; }
+  .subsec { margin-bottom:1.4rem; }
+  .subsec:last-child { margin-bottom:0; }
+  .subsec h3 { font-size:0.88rem; font-weight:700; color:var(--verde-md); margin-bottom:0.5rem; padding-bottom:0.25rem; border-bottom:1px solid var(--borde); }
+  table { width:100%; border-collapse:collapse; font-size:0.86rem; }
+  th { background:var(--verde); color:#fff; padding:0.45rem 0.8rem; text-align:left; font-size:0.73rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+  td { padding:0.45rem 0.8rem; border-bottom:1px solid var(--borde); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  tr:nth-child(even) td { background:#fafaf8; }
+  .proc-table td:first-child { text-align:center; font-weight:700; color:var(--naranja); width:3rem; }
+  .proc-table td:nth-child(2) { font-weight:600; font-size:0.80rem; color:var(--verde-md); width:9rem; }
+  .flujo { display:flex; flex-wrap:wrap; gap:0.3rem; align-items:center; }
+  .flujo-step { background:var(--verde-lt); border:1px solid var(--verde); border-radius:4px; padding:0.35rem 0.7rem; font-size:0.8rem; font-weight:600; color:var(--verde); white-space:nowrap; }
+  .flujo-step.pcc { background:#fdf2f0; border-color:var(--pcc); color:var(--pcc); }
+  .flujo-arrow { color:#aaa; font-size:0.85rem; }
+  .pcc-card { border:1px solid var(--pcc); border-left:4px solid var(--pcc); border-radius:0 6px 6px 0; background:var(--pcc-lt); padding:0.8rem 1rem; margin-bottom:0.8rem; }
+  .pcc-card:last-child { margin-bottom:0; }
+  .pcc-card .pcc-title { font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--pcc); margin-bottom:0.5rem; }
+  .pcc-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 1rem; font-size:0.83rem; }
+  .pcc-label { font-size:0.72rem; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:0.05em; }
+  .pcc-value { font-size:0.84rem; }
+  .cursograma-wrap { border:1px solid var(--borde); border-radius:6px; overflow:hidden; }
+  .cursograma-label { background:var(--verde); color:#fff; padding:0.5rem 1rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; display:flex; align-items:center; justify-content:space-between; }
+  .cursograma-label a { color:rgba(255,255,255,0.8); font-size:0.72rem; text-decoration:none; }
+  .cursograma-label a:hover { color:#fff; text-decoration:underline; }
+  .cursograma-iframe { width:100%; height:600px; border:none; display:block; background:#fafaf8; }
+  ul.bullets { list-style:disc; padding-left:1.4rem; font-size:0.87rem; }
+  ul.bullets li { padding:0.2rem 0; }
+  ul.policy { list-style:none; padding:0; }
+  ul.policy li { padding:0.45rem 0 0.45rem 1.5rem; position:relative; border-bottom:1px solid var(--borde); font-size:0.87rem; }
+  ul.policy li:last-child { border-bottom:none; }
+  ul.policy li::before { content:'▸'; position:absolute; left:0; color:var(--naranja); font-size:0.75rem; top:0.5rem; }
+  ol.refs { margin:0; padding-left:1.4rem; font-size:0.85rem; }
+  ol.refs li { padding:0.3rem 0; border-bottom:1px solid var(--borde); }
+  ol.refs li:last-child { border-bottom:none; }
+  .rev-table th { font-size:0.72rem; }
+  .rev-table td:first-child, .rev-table td:nth-child(2) { white-space:nowrap; }
+  footer { text-align:center; font-size:0.75rem; color:#aaa; letter-spacing:0.03em; margin-top:1rem; }
+  @media(max-width:600px){ .meta-table{grid-template-columns:1fr 1fr;} .pcc-grid{grid-template-columns:1fr;} .flujo{flex-direction:column;align-items:flex-start;} .flujo-arrow{transform:rotate(90deg);} .proc-table td:nth-child(2){display:none;} .cursograma-iframe{height:350px;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">← Portal DGOIA</a>
+  <span class="sep">|</span>
+  <a href="../index.html">← Casa de Agroindustrias</a>
+  <span class="sep">|</span>
+  <span class="brand">PE.TEMPO.09 · Dulces de Frutas y Mermeladas</span>
+</div>
+
+<div class="doc-header">
+  <div class="logo-row">
+    <img class="logo-unne" src="../../../unne + logo 70 años (2).png" alt="UNNE">
+    <div class="divider-v"></div>
+    <img src="../logo-tembiu.jpeg" alt="Tembi'u Porá" style="background:#fff;padding:4px 8px;border-radius:4px;">
+  </div>
+  <div class="badge">Procedimiento Específico · PE.TEMPO.09</div>
+  <h1>Dulces de Frutas y Mermeladas</h1>
+  <div class="subtitle">Sección A — Conservas · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · UNNE</div>
+</div>
+
+<div class="meta-wrap">
+  <div class="meta-table">
+    <div class="meta-item"><label>Código</label><span>PE.TEMPO.09</span></div>
+    <div class="meta-item"><label>Versión</label><span>1</span></div>
+    <div class="meta-item"><label>Fecha</label><span>Mayo 2026</span></div>
+    <div class="meta-item"><label>Área / Sección</label><span>Sección A — Conservas</span></div>
+    <div class="meta-item"><label>Productos</label><span>Dulces en almíbar (calabaza, quinotos, frutas estación) · Mermeladas de cítricos</span></div>
+    <div class="meta-item"><label>Vigente desde</label><span>04/05/2026</span></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="sec">
+    <div class="sec-header"><h2>II. Descripción</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Objetivo</h3>
+        <p>Establecer las actividades, responsabilidades y controles para la elaboración de dulces de frutas en almíbar y mermeladas de cítricos en TEMBI'Ú PORÁ, garantizando inocuidad, calidad y trazabilidad conforme al CAA, BPM e ISO 9001:2015. El dulce de mamón en almíbar se gestiona en PE.TEMPO.02.</p>
+      </div>
+      <div class="subsec">
+        <h3>Alcance</h3>
+        <p>Inicia con el lavado y preparación de la fruta y finaliza con la entrega al Almacén de Producto Terminado. Sectores: Depósito/Almacén MP, Laboratorio, Sala Conservas, Zona de Envasado, Zona de Pasteurización, Sala de Etiquetado y Embalaje.</p>
+      </div>
+      <div class="subsec">
+        <h3>Definiciones</h3>
+        <table>
+          <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:700;color:var(--verde-md)">BPM</td><td>Buenas Prácticas de Manufactura.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">°Brix</td><td>Contenido de sólidos solubles medido con refractómetro.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Almíbar</td><td>Solución de azúcar y agua utilizada para conservar frutas.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Encalado</td><td>Inmersión en hidróxido de calcio para endurecer la superficie de la calabaza mediante formación de pectato de calcio.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">Método Appert</td><td>Pasteurización: producto envasado sumergido en agua hirviendo.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PCC</td><td>Punto Crítico de Control.</td></tr>
+            <tr><td style="font-weight:700;color:var(--verde-md)">PEPS</td><td>Primero en Entrar, Primero en Salir. Principio de rotación de stock.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>III. Políticas</h2></div>
+    <div class="sec-body">
+      <ul class="policy">
+        <li>La recepción de MP se realiza conforme al PG.TEMPO.00.</li>
+        <li>El personal cumple el PG.TEMPO.01 y el Manual BPM. Indumentaria obligatoria: ambo, cofia, barbijo, delantal plástico, botas y guantes de vinilo (obligatorios en frutas con látex).</li>
+        <li>Las operaciones de limpieza y desinfección se realizan según PG.TEMPO.02.</li>
+        <li>Los frascos son pasteurizados a 100°C durante 1 hora antes de su uso.</li>
+        <li>Todo producto envasado es pasteurizado por el Método Appert.</li>
+        <li>No se admiten registros retroactivos. Se aplica el principio PEPS.</li>
+        <li>Los equipos e instrumentos de medición se mantienen calibrados.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>IV. Flujo de Proceso</h2></div>
+    <div class="sec-body">
+      <div class="flujo">
+        <span class="flujo-step">Recepción MP</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Lavado / Enjuague</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Pesado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Pelado [+ variante si aplica]</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Corte</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Cocción / Azucarado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Medición °Brix (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Envasado en caliente</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step pcc">🔴 Pasteurización Appert (PCC)</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Enfriado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Verificación sellado</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Etiquetado y embalaje</span><span class="flujo-arrow">→</span>
+        <span class="flujo-step">Entrega Almacén PT</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>V. Formulación Base</h2></div>
+    <div class="sec-body">
+      <p style="font-size:0.85rem;color:#666;font-style:italic;margin-bottom:0.8rem;">Ingredientes base comunes. Rendimiento variable según fruta y formato de frasco.</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Ingrediente</th><th>Observaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Fruta (tipo según producto)</td><td>Descarte ~25% (depende de la variedad)</td></tr>
+            <tr><td>Azúcar</td><td>% sobre peso de fruta; se agrega en 2 mitades (ver desarrollo)</td></tr>
+            <tr><td>Agua potable</td><td>300–500 ml / kg de fruta limpia (mermeladas)</td></tr>
+            <tr><td>Hidróxido de calcio</td><td>Grado alimentario; solo para encalado de calabaza (20 g/litro)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VI. Equipamiento</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Sector</th><th>Equipo / Utensilio</th><th>Marca / Modelo</th><th>Observaciones</th></tr></thead>
+          <tbody>
+            <tr><td>Sala Conservas</td><td>Pailas / Ollas</td><td>—</td><td>Pailas 300L / Ollas 100L</td></tr>
+            <tr><td>Sala Conservas</td><td>Quemadores a gas</td><td>Calabro</td><td>24.000 cal</td></tr>
+            <tr><td>Sala Conservas</td><td>Balanza</td><td>KRETZ / AUNEB30P</td><td>Cap. max 30 kg</td></tr>
+            <tr><td>Sala Conservas</td><td>Trituradora</td><td>Meat mincer 2200w</td><td>Para mermeladas</td></tr>
+            <tr><td>Laboratorio</td><td>Refractómetro, termómetro, tiras pH</td><td>—</td><td>—</td></tr>
+            <tr><td>Envasado</td><td>Llenadora frascos / embudos / tapadora</td><td>—</td><td>—</td></tr>
+            <tr><td>Pasteurización</td><td>Paila Appert + canastos</td><td>—</td><td>100°C</td></tr>
+            <tr><td>Sala Etiquetado</td><td>Impresora etiquetas</td><td>KRETZ / PIC80VIC-US</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VII. Desarrollo</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>VII.1. Proceso general (base común a todos los dulces)</h3>
+        <div style="overflow-x:auto;">
+          <table class="proc-table">
+            <thead><tr><th>N°</th><th>Responsable</th><th>Descripción de la actividad</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Operario</td><td><strong>Lavado / Enjuague:</strong> Lava y enjuaga la fruta con agua potable. Para frutas de ERAGIA ya lavadas, realiza enjuague de verificación.</td></tr>
+              <tr><td>2</td><td>Operario</td><td><strong>Pesado:</strong> Pesa la fruta lavada. Determina la cantidad de azúcar y la separa en 2 mitades (1° para paso 5: luego del pelado; 2° para paso 7: después de la primera hora de cocción). Registra en <em>RG.TEMPO.09.01</em>.</td></tr>
+              <tr><td>3</td><td>Operario</td><td><strong>Pelado:</strong> Pela la fruta manualmente con guantes de vinilo (obligatorio en frutas con látex). Descarta cáscara y semillas (~25%; depende de la variedad).<br><em>Ver variantes específicas para calabaza y quinotos entre pasos 3 y 5.</em></td></tr>
+              <tr><td>4</td><td>Operario</td><td><strong>Corte:</strong> Corta en cubos de 1,5 cm aprox. para cocción pareja.<br><em>Para mermeladas: ver variante específica.</em></td></tr>
+              <tr><td>5</td><td>Operario</td><td><strong>Primer azucarado:</strong> Azucara con la primera mitad del azúcar calculada en el paso 2.</td></tr>
+              <tr><td>6</td><td>Operario</td><td><strong>Cocción:</strong> Cocina hasta ablandar. Tº: 90–100°C, tiempo estimado 1 hora aprox. Cuida distribución del calor.</td></tr>
+              <tr><td>7</td><td>Operario</td><td><strong>Segundo azucarado:</strong> Azucara con la segunda mitad del azúcar en 2 a 3 incorporaciones con intervalos de 10–15 min y mezcla suave hasta disolución completa. Continúa cocción hasta consistencia esperada.</td></tr>
+              <tr><td>8</td><td>Operario</td><td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Medición °Brix:</strong> Enfría muestra hasta aprox. 50°C. Mide °Brix con refractómetro. Corrige con azúcar si es necesario. °Brix objetivo mínimo <strong>65°</strong>, rango operativo recomendado 65–68°Brix. Registra en <em>RG.TEMPO.09.01</em>.</td></tr>
+              <tr><td>9</td><td>Operario</td><td><strong>Envasado en caliente:</strong> Envasa la fruta a mano en frascos pasteurizados. Calienta almíbar. Añade dejando 1 cm de cabeza. Limpia cuello con paño en alcohol. Tapa y ajusta. Invierte sobre bandejas para crear vacío.<br><em>Para mermeladas: envasado mediante llenadora/envasadora para cremas.</em></td></tr>
+              <tr><td>10</td><td>Operario</td><td style="background:#fdf2f0"><strong style="color:var(--pcc)">🔴 PCC — Pasteurización Appert:</strong> Sumerge frascos sellados en agua hirviendo: <strong>45 min</strong> (660cc) o <strong>30 min</strong> (360cc). Retira y deja enfriar lentamente sobre madera/tela, evitando corrientes de viento. Registra Tº y tiempo en <em>RG.TEMPO.09.02</em>.</td></tr>
+              <tr><td>11</td><td>Operario</td><td><strong>Verificación sellado:</strong> Verifica sellado (tapa cóncava, sin movimiento al presionar). Descarta frascos deficientes. Registra en <em>RG.TEMPO.09.02</em>.</td></tr>
+              <tr><td>12</td><td>Operario</td><td><strong>Etiquetado:</strong> Limpia y seca. Coloca etiquetas (tapa + envase) y cinta de seguridad. Rótulos CAA.</td></tr>
+              <tr><td>13</td><td>Operario</td><td><strong>Embalaje y entrega:</strong> Coloca en cajas y entrega al Almacén PT conforme PG.TEMPO.04.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="subsec">
+        <h3>VII.2. Variantes específicas</h3>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th>Producto</th><th>Pasos adicionales / Modificaciones</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700;color:var(--verde-md)">Calabaza en almíbar</td>
+                <td>Entre pasos 4 y 5: <br>
+                  <strong>4.a Encalado:</strong> Sumerge cubos en solución de hidróxido de calcio (20 g/L) durante 40 min para endurecer superficie (pectato de calcio).<br>
+                  <strong>4.b Enjuague:</strong> Enjuaga los cubos con agua potable abundante para eliminar exceso de hidróxido de calcio.
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--verde-md)">Quinotos en almíbar</td>
+                <td>Se procesan enteros. Entre pasos 1 y 6:<br>
+                  <strong>3.a Corte de cáscara:</strong> Realiza perforaciones con punzón en el ecuador, o pequeña cruz en el extremo opuesto al pedúnculo.<br>
+                  <strong>3.b Equilibrar sabores:</strong> Hierve y enjuaga los quinotos 3 veces para reducir sabor amargo y ácido.
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--verde-md)">Mermeladas de cítricos (mandarina, naranja, lima, pomelo, limón)</td>
+                <td>
+                  <strong>3.a:</strong> Corta la fruta a la mitad y separa semillas y jugo sin dañar la pulpa.<br>
+                  <strong>3.b Equilibrar sabores:</strong> Hierve y enjuaga para reducir amargor y acidez. Número de hervidos: mandarina 1–2 · naranja 2 · lima 2–3 · pomelo 3 · limón 3.<br>
+                  <strong>Cocción (paso 6 variante):</strong> Tº 90–100°C, tiempo 45–90 min según fruta y consistencia. Agua/fruta: 300–500 ml / kg. Remueve periódicamente.<br>
+                  <strong>Envasado (paso 9 variante):</strong> Envasa la mermelada caliente mediante envasadora para cremas/llenadora. Llena dejando 1 cm de cabeza, limpia cuello, tapa de inmediato.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>VIII. Puntos Críticos de Control</h2></div>
+    <div class="sec-body">
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-1 — Medición °Brix (Paso 8)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">°Brix insuficiente para la conservación del producto.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value">°Brix mínimo <strong>65°</strong> / rango operativo recomendado 65–68°Brix.</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Refractómetro calibrado, cada lote. Registrar en RG.TEMPO.09.01.</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Corregir con azúcar; si no alcanza el límite crítico, no envasar; registrar en RG.TEMPO.09.01.</div></div>
+        </div>
+      </div>
+      <div class="pcc-card">
+        <div class="pcc-title">🔴 PCC-2 — Pasteurización Appert (Paso 10)</div>
+        <div class="pcc-grid">
+          <div><div class="pcc-label">Peligro</div><div class="pcc-value">Supervivencia de microorganismos por pasteurización insuficiente.</div></div>
+          <div><div class="pcc-label">Límite crítico</div><div class="pcc-value"><strong>100°C / 45 min</strong> (frascos 660cc) · <strong>100°C / 30 min</strong> (frascos 360cc).</div></div>
+          <div><div class="pcc-label">Monitoreo</div><div class="pcc-value">Tº y tiempo, cada lote. Registrar en RG.TEMPO.09.02.</div></div>
+          <div><div class="pcc-label">Acción correctiva</div><div class="pcc-value">Extender tiempo; reprocesar; segregar producto sospechoso; registrar en RG.TEMPO.09.02.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>IX. Referencias</h2></div>
+    <div class="sec-body">
+      <ol class="refs">
+        <li>Código Alimentario Argentino (CAA) — Capítulo X.</li>
+        <li>Resolución GMC N° 80/96 — Buenas Prácticas de Manufactura.</li>
+        <li>ISO 9001:2015 — Sistemas de Gestión de la Calidad.</li>
+        <li>Codex Alimentarius — Norma para confituras, jaleas y mermeladas.</li>
+        <li>Manual de BPM TEMBI'Ú PORÁ — Versión 1, Marzo 2026.</li>
+        <li>PG.RECT.01 — Guía para la elaboración de procedimientos UNNE (Res. 2903/23-R).</li>
+        <li>PG.TEMPO.00 — Recepción de MP e Insumos.</li>
+        <li>PG.TEMPO.01 — Buenas Prácticas de Higiene e Ingreso/Egreso a Planta.</li>
+        <li>PG.TEMPO.02 — Limpieza y Desinfección (POES).</li>
+        <li>PG.TEMPO.04 — Almacenamiento y Stock de Producto Terminado.</li>
+        <li>PE.TEMPO.02 — Elaboración de Mamón en Almíbar (procedimiento hermano).</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XII. Entradas y Salidas</h2></div>
+    <div class="sec-body">
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Proveedor</th><th>Requisitos de entrada</th><th>Receptor</th><th>Requisitos de salida</th></tr></thead>
+          <tbody>
+            <tr><td>Fruta (ERAGIA / externos) + azúcar / frascos / tapas</td><td>MP con fecha de vto. vigente, en buen estado, sin podredumbre. Frutas seleccionadas.</td><td>Almacén de PT</td><td>Dulce / mermelada inocuo, pasteurizado, °Brix ≥65, rotulado completo (CAA).</td></tr>
+            <tr><td>Proceso de limpieza y desinfección (POES)</td><td>Salas, equipos y utensilios limpios antes de iniciar producción.</td><td>Gestión de residuos</td><td>Cáscaras, semillas y residuos dispuestos según protocolo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XIII. Registros</h2></div>
+    <div class="sec-body">
+      <table>
+        <thead><tr><th>Código</th><th>Nombre del registro</th><th>Responsable</th><th>Frecuencia</th><th>Retención</th></tr></thead>
+        <tbody>
+          <tr><td>RG.TEMPO.09.01</td><td>Planilla de lote (pesado, producción, °Brix)</td><td>Encargado</td><td>C/lote</td><td>60 meses</td></tr>
+          <tr><td>RG.TEMPO.09.02</td><td>Control PCC Pasteurización (Tº, tiempo) y verificación de sellado</td><td>Encargado</td><td>C/lote</td><td>60 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XIV. Histórico de Revisiones</h2></div>
+    <div class="sec-body">
+      <table class="rev-table">
+        <thead><tr><th>N°</th><th>Fecha</th><th>Sección</th><th>Descripción</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>Abril 2026</td><td>Todas</td><td>Versión inicial (código PE.TEMPO.02 multi-producto).</td></tr>
+          <tr><td>1</td><td>Mayo 2026</td><td>Alcance, VII, XII</td><td>Reasignación código PE.TEMPO.09. Mamón pasa a PE.TEMPO.02 mono-producto. Se elimina bloque control estabilidad/almacenamiento/despacho que pasan a PG.TEMPO.04. Aportes de Joaquín (Casa de Agroindustrias): descarte ~25%, azúcar en 2 mitades, pasteurización Appert con tiempos diferenciados.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XV. Firmas de Autorización</h2></div>
+    <div class="sec-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Propone</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de propuesta: ____________________</div>
+        </div>
+        <div style="border:1px solid var(--borde);border-radius:6px;padding:1rem;font-size:0.84rem;">
+          <div style="font-weight:700;color:var(--verde-md);margin-bottom:0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;">Autoriza</div>
+          <div style="color:#888;line-height:2.2;">Nombre y cargo: ___________________<br>Firma: ____________________<br>Fecha de autorización: ________________<br>Vigente desde: _________</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XVI. Anexos</h2></div>
+    <div class="sec-body">
+      <div class="subsec">
+        <h3>Anexo A — Cursograma del Proceso (PE_TEMPO_09)</h3>
+        <div class="cursograma-wrap">
+          <div class="cursograma-label">
+            <span>Diagrama de flujo por sectores · PE.TEMPO.09 Dulces de Frutas y Mermeladas</span>
+            <a href="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_09_Cursograma.drawio" target="_blank">Abrir en pantalla completa ↗</a>
+          </div>
+          <iframe class="cursograma-iframe"
+            src="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/smaccio81/dgoia-dashboards/main/casa-agroindustrias/procedimientos/cursogramas/PE_TEMPO_09_Cursograma.drawio&toolbar=false&nav=false"
+            title="Cursograma PE.TEMPO.09" loading="lazy"></iframe>
+        </div>
+        <p style="margin-top:0.6rem;font-size:0.78rem;color:#888;">Elaborado en draw.io · Casa de Agroindustrias ERAGIA – TEMBI'Ú PORÁ – UNNE. El diagrama requiere conexión a Internet para visualizarse.</p>
+      </div>
+      <div class="subsec">
+        <h3>Anexo B — Modelos de planillas de registro</h3>
+        <ul class="bullets">
+          <li>RG.TEMPO.09.01 — Planilla de lote (pesado, producción, °Brix)</li>
+          <li>RG.TEMPO.09.02 — Control PCC Pasteurización y verificación de sellado</li>
+        </ul>
+      </div>
+      <div class="subsec">
+        <h3>Anexo C — Productos cubiertos por este procedimiento</h3>
+        <ul class="bullets">
+          <li>Dulce de calabaza en almíbar (con variante de encalado)</li>
+          <li>Dulce de quinotos en almíbar (procesados enteros)</li>
+          <li>Dulces de otras frutas de estación en almíbar</li>
+          <li>Mermelada de mandarina · naranja · lima · pomelo · limón</li>
+          <li><em>Nota: Dulce de mamón en almíbar → ver PE.TEMPO.02</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-header"><h2>XVII. Créditos</h2></div>
+    <div class="sec-body" style="font-size:0.86rem;color:#555;line-height:1.75;">
+      <p>La elaboración del presente procedimiento estuvo a cargo de <strong>Mara Gomez Contardi</strong>, <strong>Sebastián Maccio</strong> y <strong>Patricia Romero Vidomlansky</strong>, con aportes de <strong>Joaquín</strong> (Casa de Agroindustrias) y el apoyo de la DGOIA — Secretaría General de Planeamiento de la UNNE.</p>
+      <p style="margin-top:0.5rem;font-size:0.80rem;color:#aaa;">Versión 1 · Mayo 2026</p>
+    </div>
+  </div>
+
+  <footer>Universidad Nacional del Nordeste · DGOIA · Casa de Agroindustrias ERAGIA — TEMBI'Ú PORÁ · 2026</footer>
+</div>
+</body>
+</html>
