@@ -452,7 +452,7 @@
     <div class="card" style="margin-bottom:0;">
       <p class="card-title">Avance por área temática</p>
       <div style="position:relative;height:200px;">
-        <canvas id="chartAvance" role="img" aria-label="Barras de avance por área temática">Estructura y roles 100%, Procedimientos 95%, Propiedad intelectual 85%, Registros 90%, Sistema de gestión 40%.</canvas>
+        <canvas id="chartAvance" role="img" aria-label="Barras de avance por área temática">Estructura y roles 100%, Procedimientos 95%, Propiedad intelectual 85%, Registros 90%, Parametrización del sistema 100%.</canvas>
       </div>
     </div>
     <div class="card" style="margin-bottom:0;">
@@ -512,10 +512,10 @@
 new Chart(document.getElementById('chartAvance'), {
   type: 'bar',
   data: {
-    labels: ['Estructura y roles', 'Procedimientos gral.', 'Propiedad intelectual', 'Registros y matrices', 'Sistema de gestión'],
+    labels: ['Estructura y roles', 'Procedimientos gral.', 'Propiedad intelectual', 'Registros y matrices', 'Parametrización del sistema'],
     datasets: [{
-      data: [100, 95, 85, 90, 40],
-      backgroundColor: ['#1D9E75','#1D9E75','#1D9E75','#1D9E75','#E24B4A'],
+      data: [100, 95, 85, 90, 100],
+      backgroundColor: ['#1D9E75','#1D9E75','#1D9E75','#1D9E75','#1D9E75'],
       borderWidth: 0,
       borderRadius: 4
     }]
