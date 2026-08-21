@@ -42,10 +42,11 @@
   .header::after {
     content: '';
     position: absolute;
-    right: -60px; top: -60px;
+    right: -60px; bottom: -60px;
     width: 260px; height: 260px;
     border-radius: 50%;
     background: rgba(232,97,26,0.08);
+    pointer-events: none;
   }
   .header-top {
     display: flex;
@@ -602,7 +603,7 @@
       <div style="width:1px; height:44px; background:rgba(255,255,255,0.3);"></div>
       <img src="logo-tembiu.jpeg" alt="Logo Tembi'u Porá" style="height:54px; background:white; border-radius:6px; padding:3px;">
     </div>
-    <a href="https://smaccio81.github.io/dgoia-dashboards/" style="font-size:11px; color:rgba(255,255,255,0.7); text-decoration:none; font-weight:500; border:1px solid rgba(255,255,255,0.3); padding:3px 12px; border-radius:20px;">← Portal</a>
+    <a href="https://smaccio81.github.io/dgoia-dashboards/" style="position:relative; z-index:100; font-size:11px; color:rgba(255,255,255,0.7); text-decoration:none; font-weight:500; border:1px solid rgba(255,255,255,0.3); padding:3px 12px; border-radius:20px;">← Portal</a>
   </div>
   <div style="text-align:center;">
     <div class="institución">Universidad Nacional del Nordeste · Secretaría General de Planeamiento · DGOIA</div>
