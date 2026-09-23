@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoja de ruta de calidad — TEMBI'Ú PORÁ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
+<style>
+  :root {
+    --bg:#eef2f0; --blanco:#ffffff; --gris-cl:#f3f6f4; --borde:#d9e2dc;
+    --gris-os:#1f2a24; --gris-md:#55615a;
+    --verde:#1f6b3a; --verde-cl:#e8f5ee;
+    --dorado:#a37a08; --dorado-cl:#fdf3d8;
+    --azul:#1a5276; --azul-cl:#d6eaf8;
+    --rojo:#b03a2e; --rojo-cl:#fbe9e7;
+    --head-a:#1f6b3a; --head-b:#145229;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg:#0f1512; --blanco:#18211c; --gris-cl:#1e2923; --borde:#2c3a32;
+      --gris-os:#e2eae5; --gris-md:#9db0a5;
+      --verde:#6cc491; --verde-cl:#1d3326;
+      --dorado:#e2b64d; --dorado-cl:#3a3117;
+      --azul:#8bbde3; --azul-cl:#1c2d3c;
+      --rojo:#f0917f; --rojo-cl:#3a1f1b;
+      --head-a:#17482b; --head-b:#0f3320;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0f1512; --blanco:#18211c; --gris-cl:#1e2923; --borde:#2c3a32;
+    --gris-os:#e2eae5; --gris-md:#9db0a5;
+    --verde:#6cc491; --verde-cl:#1d3326;
+    --dorado:#e2b64d; --dorado-cl:#3a3117;
+    --azul:#8bbde3; --azul-cl:#1c2d3c;
+    --rojo:#f0917f; --rojo-cl:#3a1f1b;
+    --head-a:#17482b; --head-b:#0f3320;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Roboto','Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--gris-os); font-size:15px; line-height:1.55; }
+  a { color:var(--azul); }
+  a:focus-visible { outline:2px solid var(--verde); outline-offset:2px; }
+
+  .header { background:linear-gradient(135deg,var(--head-a) 0%,var(--head-b) 100%); color:#fff; padding-block:28px 26px; padding-inline:max(16px, calc((100% - 1040px) / 2)); }
+  .sitebar { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px; }
+  .logos { display:flex; align-items:center; gap:14px; }
+  .logos .sep { width:1px; height:40px; background:rgba(255,255,255,0.3); }
+  .logo-unne { height:48px; filter:brightness(0) invert(1); }
+  .logo-tembiu { height:48px; background:#fff; border-radius:6px; padding:3px; }
+  .navlinks { display:flex; gap:8px; flex-wrap:wrap; }
+  .navlinks a { font-size:11px; color:rgba(255,255,255,0.85); text-decoration:none; font-weight:500; border:1px solid rgba(255,255,255,0.3); padding:3px 12px; border-radius:20px; }
+  .navlinks a:hover { background:rgba(255,255,255,.15); }
+  .inst { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:.8; margin-bottom:6px; }
+  .header h1 { font-size:clamp(24px,4.5vw,32px); font-weight:800; line-height:1.15; text-wrap:balance; }
+  .header p { margin-top:10px; max-width:680px; opacity:.9; font-size:14px; }
+  .indice { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .indice a { color:#fff; text-decoration:none; font-size:12px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:14px; padding:4px 12px; }
+
+  .main { padding-block:10px 30px; padding-inline:max(16px, calc((100% - 1040px) / 2)); }
+  .parte { display:flex; align-items:baseline; gap:12px; margin:34px 0 6px; scroll-margin-top:12px; flex-wrap:wrap; }
+  .parte .tag { font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--blanco); background:var(--verde); border-radius:4px; padding:3px 8px; }
+  .parte.b .tag { background:var(--azul); }
+  .parte h2 { font-size:22px; font-weight:700; text-wrap:balance; }
+  .parte-intro { color:var(--gris-md); max-width:70ch; margin-bottom:6px; }
+
+  h3 { font-size:16px; font-weight:700; color:var(--verde); margin:26px 0 10px; scroll-margin-top:12px; }
+  .b h3, .seccion-b h3 { color:var(--azul); }
+  .card { background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:18px 20px; }
+  .muted { color:var(--gris-md); font-size:13px; }
+  code, .cod { font-family:ui-monospace,'Cascadia Mono',Consolas,monospace; font-size:12.5px; background:var(--gris-cl); border:1px solid var(--borde); border-radius:4px; padding:0 5px; white-space:nowrap; }
+
+  /* momentos del dia */
+  .momentos { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; }
+  .momento { background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:16px 18px; }
+  .momento h4 { font-size:14px; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .momento h4 .hora { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--verde); background:var(--verde-cl); border-radius:4px; padding:2px 7px; }
+  .momento ul { list-style:none; display:grid; gap:9px; }
+  .momento li { font-size:13.5px; line-height:1.45; padding-left:14px; position:relative; }
+  .momento li::before { content:''; position:absolute; left:0; top:.55em; width:6px; height:6px; border-radius:50%; background:var(--verde); }
+  .momento li .cod { font-size:11.5px; }
+
+  /* reglas */
+  .reglas { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+  .regla { background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:14px 16px; }
+  .regla b { display:block; margin-bottom:4px; font-size:14px; }
+  .regla span { font-size:13px; color:var(--gris-md); }
+
+  /* pasos numerados (secuencias reales) */
+  .pasos { list-style:none; counter-reset:paso; display:grid; gap:10px; }
+  .pasos li { counter-increment:paso; display:grid; grid-template-columns:34px 1fr; gap:12px; align-items:start; background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:12px 14px; }
+  .pasos li::before { content:counter(paso); width:30px; height:30px; border-radius:50%; background:var(--verde); color:var(--blanco); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center; }
+  .pasos.azul li::before { background:var(--azul); }
+  .pasos li b { display:block; font-size:14px; margin-bottom:2px; }
+  .pasos li span { font-size:13.5px; color:var(--gris-md); }
+  .alerta { border-left:4px solid var(--rojo); background:var(--rojo-cl); border-radius:0 8px 8px 0; padding:12px 16px; margin-bottom:12px; font-size:14px; }
+  .alerta b { color:var(--rojo); }
+
+  /* tablas */
+  .tbl-wrap { overflow-x:auto; background:var(--blanco); border:1px solid var(--borde); border-radius:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; min-width:560px; }
+  th { background:var(--azul-cl); color:var(--azul); font-size:10.5px; text-transform:uppercase; letter-spacing:.8px; padding:8px 10px; text-align:left; }
+  td { padding:9px 10px; border-top:1px solid var(--gris-cl); vertical-align:top; line-height:1.45; }
+  td:first-child { font-weight:600; white-space:nowrap; }
+
+  .codigos { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
+  .codigo { background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:12px 14px; }
+  .codigo .cod { font-size:13px; font-weight:700; }
+  .codigo p { font-size:13px; color:var(--gris-md); margin-top:6px; }
+
+  .decision { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+  .decision > div { background:var(--blanco); border:1px solid var(--borde); border-radius:10px; padding:14px 16px; }
+  .decision h4 { font-size:14px; margin-bottom:8px; }
+  .decision ul { margin-left:18px; font-size:13.5px; display:grid; gap:4px; }
+
+  .footer { text-align:center; padding-block:22px; padding-inline:16px; font-size:12px; color:var(--gris-md); border-top:1px solid var(--borde); margin-top:20px; }
+  .footer strong { color:var(--verde); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="sitebar">
+    <div class="logos">
+      <img class="logo-unne" src="../unne + logo 70 años (2).png" alt="Logo UNNE">
+      <div class="sep"></div>
+      <img class="logo-tembiu" src="logo-tembiu.jpeg" alt="Logo Tembi'u Porá">
+    </div>
+    <div class="navlinks">
+      <a href="index.html">← Dashboard</a>
+      <a href="https://smaccio81.github.io/dgoia-dashboards/">Portal</a>
+    </div>
+  </div>
+  <div class="inst">Casa de Agroindustrias TEMBI'Ú PORÁ · ERAGIA · UNNE</div>
+  <h1>Hoja de ruta: cómo se trabaja con los procedimientos y la calidad</h1>
+  <p>Guía práctica para usar el sistema documental todos los días y mantenerlo vivo. La primera parte es para todo el personal de planta; la segunda, para la conducción y el área de calidad.</p>
+  <div class="indice">
+    <a href="#dia">El día en planta</a>
+    <a href="#reglas">Reglas de los registros</a>
+    <a href="#desvios">Cuando algo sale mal</a>
+    <a href="#codigos">Cómo se ordena el sistema</a>
+    <a href="#ciclo">Ciclo de un documento</a>
+    <a href="#validar">Validar y mejorar</a>
+    <a href="#nuevo">Producto nuevo</a>
+    <a href="#calendario">Calendario de control</a>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ═════════ PARTE A ═════════ -->
+  <div class="parte" id="parte-a"><span class="tag">Parte A</span><h2>Para todo el personal: el día a día</h2></div>
+  <p class="parte-intro">Cada producción deja rastro en papel. Si no está registrado, para una inspección no se hizo.</p>
+
+  <h3 id="dia">Un día en planta, paso a paso</h3>
+  <div class="momentos">
+    <div class="momento">
+      <h4><span class="hora">Antes</span> de empezar</h4>
+      <ul>
+        <li>Recibir la <b>Orden de Producción</b> firmada: qué, cuánto y para cuándo. <span class="cod">RG.PG.TEMPO.05.02</span></li>
+        <li>Ingresar por el filtro sanitario: ropa de trabajo, cofia, barbijo, sin joyas, lavado de manos y pediluvio. <span class="cod">PG.TEMPO.01</span></li>
+        <li>El encargado marca el control de higiene del personal. <span class="cod">RG.PG.TEMPO.01.02</span></li>
+        <li>Inspección pre-operacional de la sala: si algo no está limpio, se vuelve a sanitizar antes de arrancar. <span class="cod">RG.PG.TEMPO.02.01</span></li>
+        <li>Tener a mano el procedimiento del producto (PE) y la planilla de lote.</li>
+      </ul>
+    </div>
+    <div class="momento">
+      <h4><span class="hora">Durante</span> la producción</h4>
+      <ul>
+        <li>Seguir el <b>procedimiento del producto</b> paso por paso, con las cantidades y tiempos que indica. <span class="cod">PE.TEMPO.xx</span></li>
+        <li>Completar la <b>planilla de lote</b> en el momento: pesos reales, horas, temperaturas y lote de cada materia prima. <span class="cod">RG.PE.TEMPO.xx.01</span></li>
+        <li>En cada <b>Punto Crítico de Control</b> (casillas rojas) medir y anotar. Si el valor está fuera del límite, ver <a href="#desvios">Cuando algo sale mal</a>.</li>
+        <li>Si alguien pasa de una sala a otra, repite el filtro sanitario y lo anota. <span class="cod">RG.PG.TEMPO.01.05</span></li>
+      </ul>
+    </div>
+    <div class="momento">
+      <h4><span class="hora">Al terminar</span> el lote y la jornada</h4>
+      <ul>
+        <li>Limpiar y desinfectar equipos y utensilios del lote. <span class="cod">RG.PG.TEMPO.02.03</span></li>
+        <li>Entregar el producto terminado al almacén, identificado por lote. <span class="cod">PG.TEMPO.04</span></li>
+        <li>El personal de limpieza anota sus iniciales en la grilla de salas y de baños. <span class="cod">RG.PG.TEMPO.02.02 / 02.04</span></li>
+        <li>Recambiar la solución del pediluvio. <span class="cod">RG.PG.TEMPO.01.04</span></li>
+        <li>Revisar que las planillas del día estén completas y firmadas, y dejarlas en la carpeta del sector.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 id="reglas">Reglas de oro de los registros</h3>
+  <div class="reglas">
+    <div class="regla"><b>En el momento</b><span>Se anota cuando se hace, no al final del día ni de memoria.</span></div>
+    <div class="regla"><b>Con birome, nunca lápiz</b><span>Un registro de calidad no se puede borrar.</span></div>
+    <div class="regla"><b>Sin casillas vacías</b><span>Si un dato no corresponde, se pone una raya (—). Un casillero vacío parece un olvido.</span></div>
+    <div class="regla"><b>Corregir sin tapar</b><span>Un error se tacha con una sola línea, se escribe al lado el dato correcto y se ponen las iniciales. Nada de corrector.</span></div>
+    <div class="regla"><b>Siempre el lote</b><span>Cada planilla lleva fecha y número de lote: es lo que permite la trazabilidad.</span></div>
+    <div class="regla"><b>Se guarda 24 meses</b><span>Los registros completos se archivan por mes y por sector durante dos años.</span></div>
+  </div>
+
+  <h3 id="desvios">Cuando algo sale mal</h3>
+  <div class="alerta"><b>Un Punto Crítico fuera de límite no se deja pasar.</b> Primero se frena y se separa; después se registra.</div>
+  <ol class="pasos">
+    <li><div><b>Detectar y frenar</b><span>Temperatura, °Brix, pH o tiempo fuera de rango; materia prima en mal estado; equipo que falla. Se detiene el paso o el equipo.</span></div></li>
+    <li><div><b>Separar e identificar</b><span>El producto o material afectado se aparta con un cartel <b>EN CUARENTENA</b> o <b>RECHAZADO</b>. No se mezcla con lo demás.</span></div></li>
+    <li><div><b>Avisar al encargado</b><span>El encargado decide: corregir (por ejemplo, prolongar la cocción), reprocesar o descartar. Si hay riesgo para la inocuidad, avisa a la Gerencia.</span></div></li>
+    <li><div><b>Registrar</b><span>En la planilla del proceso (columna de acción) y en el registro que corresponda: <span class="cod">RG.TEMPO.NC.01</span> no conformidades generales, <span class="cod">RG.PG.TEMPO.01.03</span> faltas de higiene, <span class="cod">RG.PG.TEMPO.03.04</span> fallas de equipos.</span></div></li>
+    <li><div><b>Corregir la causa y cerrar</b><span>Se define qué se cambia para que no se repita (capacitación, mantenimiento, ajuste del procedimiento) y se anota la fecha de cierre.</span></div></li>
+  </ol>
+
+  <!-- ═════════ PARTE B ═════════ -->
+  <div class="parte b seccion-b" id="parte-b"><span class="tag">Parte B</span><h2>Para la conducción y calidad: mantener el sistema vivo</h2></div>
+  <p class="parte-intro">Un sistema de calidad no es una carpeta terminada: se revisa, se corrige y se amplía. Estas son las reglas para hacerlo sin perder el orden.</p>
+
+  <div class="seccion-b">
+  <h3 id="codigos">Cómo se ordena el sistema</h3>
+  <div class="codigos">
+    <div class="codigo"><span class="cod">PG.TEMPO.xx</span><p>Procedimiento general: aplica a toda la planta (recepción, higiene, limpieza, mantenimiento, producto terminado, compras).</p></div>
+    <div class="codigo"><span class="cod">PE.TEMPO.xx</span><p>Procedimiento específico de elaboración: uno por producto (pan, mamón, quesos, medallones…).</p></div>
+    <div class="codigo"><span class="cod">RG.PG.TEMPO.xx.yy</span><p>Registro de un procedimiento general. El número del medio es el de su procedimiento.</p></div>
+    <div class="codigo"><span class="cod">RG.PE.TEMPO.xx.yy</span><p>Registro de elaboración: .01 es la planilla de lote; los siguientes, los controles de PCC.</p></div>
+    <div class="codigo"><span class="cod">DOC / GUIA.TEMPO</span><p>Documentos de soporte: Manual de Misiones y Funciones, guía de indicadores.</p></div>
+    <div class="codigo"><span class="cod">V1, V2…</span><p>La versión va en el nombre del archivo y en el encabezado. Solo una versión por documento en VIGENTES.</p></div>
+  </div>
+
+  <h3 id="ciclo">Ciclo de vida de un documento</h3>
+  <ol class="pasos azul">
+    <li><div><b>Necesidad</b><span>Un proceso nuevo, un cambio en planta, una no conformidad que se repite o una observación de inspección.</span></div></li>
+    <li><div><b>Borrador</b><span>Se redacta con el formato de la casa (identificación, objetivo, alcance, responsabilidades, desarrollo, PCC, registros e histórico). Para elaboración se parte del procedimiento de un producto parecido.</span></div></li>
+    <li><div><b>Validación en planta</b><span>Se contrasta con el proceso real antes de ponerlo en uso (ver <a href="#validar">Validar y mejorar</a>).</span></div></li>
+    <li><div><b>Registro y cursograma</b><span>Cada procedimiento sale con sus planillas y su diagrama de flujo, con los mismos códigos y pasos.</span></div></li>
+    <li><div><b>Publicación</b><span>El documento va a la carpeta <b>VIGENTES</b>; la versión anterior pasa a <b>NO VIGENTE</b> (nunca se borra) y se actualiza el dashboard.</span></div></li>
+    <li><div><b>Capacitación</b><span>Se explica el cambio a las personas que lo aplican antes de que empiece a regir.</span></div></li>
+  </ol>
+
+  <div class="decision" style="margin-top:14px;">
+    <div>
+      <h4>Cambia la versión (V1 → V2) cuando…</h4>
+      <ul>
+        <li>cambia un parámetro: temperatura, tiempo, cantidad, límite de un PCC;</li>
+        <li>cambia el orden de los pasos o se agrega uno;</li>
+        <li>cambia un equipo, un responsable o un registro.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Alcanza con una corrección editorial cuando…</h4>
+      <ul>
+        <li>es un error de tipeo o de formato;</li>
+        <li>se actualiza una referencia a otro documento o un código;</li>
+        <li>no cambia nada de lo que hace el operario.</li>
+      </ul>
+      <p class="muted" style="margin-top:8px;">En los dos casos se anota en el histórico de revisiones del documento.</p>
+    </div>
+  </div>
+
+  <h3 id="validar">Cómo validar y mejorar un procedimiento</h3>
+  <p class="muted" style="margin-bottom:10px;">Es la metodología que se usó en el proyecto con mamón, pan integral y quesos.</p>
+  <ol class="pasos azul">
+    <li><div><b>Observar una producción real</b><span>Acompañar un lote completo, con el procedimiento en la mano. Grabar o anotar tiempos, temperaturas, cantidades y quién hace cada paso.</span></div></li>
+    <li><div><b>Contrastar paso por paso</b><span>Marcar dónde el procedimiento dice una cosa y la planta hace otra (en quesos: prensado de 30 min según el papel, 24 h en la realidad).</span></div></li>
+    <li><div><b>Acordar con el responsable</b><span>Decidir qué se corrige: el documento (si la práctica es correcta) o la práctica (si el documento es el correcto).</span></div></li>
+    <li><div><b>Informe de modificaciones</b><span>Un documento breve que dice qué cambió y por qué.</span></div></li>
+    <li><div><b>Nueva versión y registros</b><span>Se emite la nueva versión y se alinean su registro y su cursograma.</span></div></li>
+  </ol>
+
+  <h3 id="nuevo">Cómo incorporar un producto nuevo</h3>
+  <ol class="pasos azul">
+    <li><div><b>Código</b><span>Tomar el siguiente número libre: el próximo producto es <span class="cod">PE.TEMPO.11</span>.</span></div></li>
+    <li><div><b>Procedimiento</b><span>Partir del PE de un producto de la misma línea (farináceos, conservas, lácteos o cárnicos) y ajustar formulación, pasos y PCC.</span></div></li>
+    <li><div><b>Registro y cursograma</b><span>Planilla de lote más una hoja por PCC, y el cursograma a partir del modelo <span class="cod">PE.TEMPO.XX</span>.</span></div></li>
+    <li><div><b>Validar y publicar</b><span>Validar en planta, sumarlo a la lista de productos de la Orden de Producción y agregarlo al dashboard.</span></div></li>
+  </ol>
+
+  <h3 id="calendario">Calendario de control</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Frecuencia</th><th>Qué se revisa</th><th>Registro</th><th>Quién</th></tr></thead>
+      <tbody>
+        <tr><td>Diaria</td><td>Control pre-operacional, higiene del personal, PCC de cada lote, limpieza de salas y equipos, pediluvio.</td><td>RG.PG.02.01 · 01.02 · 01.04 · 02.02 · 02.03 · RG.PE</td><td>Encargados de sector · L&amp;D</td></tr>
+        <tr><td>Semanal</td><td>Cierre de la planilla semanal de higiene; verificación de termómetros de cámara con patrón; revisión de planillas completas.</td><td>RG.PG.01.02 · 03.05</td><td>Subgerencia de Operaciones</td></tr>
+        <tr><td>Mensual</td><td>Cumplimiento del plan de mantenimiento preventivo; no conformidades abiertas; faltantes en registros.</td><td>RG.PG.03.03 · NC.01</td><td>Gerencia · Calidad</td></tr>
+        <tr><td>Semestral</td><td>Calibración externa de termómetros, refractómetro y pH-metro.</td><td>RG.PG.03.05</td><td>Gerencia / Administración</td></tr>
+        <tr><td>Anual</td><td>Plan de mantenimiento con los proveedores, listado y evaluación de proveedores, revisión general de procedimientos, indicadores de gestión.</td><td>RG.PG.03.01 · 03.06 · GUIA.TEMPO.01</td><td>Gerencia · Calidad</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Elaborado por la <strong>Dirección General de Organización e Innovación Administrativa</strong> · Secretaría General de Planeamiento · UNNE · Septiembre 2026<br>
+  Complementa el <a href="index.html">dashboard de cierre y repositorio documental</a> de la Casa de Agroindustrias TEMBI'Ú PORÁ.
+</div>
+
+</body>
+</html>
