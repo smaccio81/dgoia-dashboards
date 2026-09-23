@@ -4,364 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Casa de Agroindustrias TEMBI'Ú PORÁ</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap">
 <style>
   :root {
-    --verde:    #2B5530;
-    --verde-cl: #e8f0e9;
-    --verde-md: #3a7a45;
-    --dorado:   #E8611A;
-    --dorado-cl:#fde8d8;
-    --gris-os:  #2c2c2c;
-    --gris-md:  #555;
-    --gris-cl:  #f5f5f5;
-    --borde:    #ddd;
-    --blanco:   #fff;
-    --azul:     #1a5276;
-    --azul-cl:  #d6eaf8;
-    --rojo-cl:  #fdecea;
-    --rojo:     #c0392b;
+    --bg:#eef2f0; --blanco:#ffffff; --gris-cl:#f3f6f4; --borde:#d9e2dc;
+    --gris-os:#1f2a24; --gris-md:#55615a;
+    --verde:#1f6b3a; --verde-cl:#e8f5ee; --verde-val:#d4efdf; --verde-val-tx:#145229;
+    --dorado:#a37a08; --dorado-cl:#fdf3d8;
+    --azul:#1a5276; --azul-cl:#d6eaf8;
+    --head-a:#1f6b3a; --head-b:#145229;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
-    background: #eef2f0;
-    color: var(--gris-os);
-    font-size: 14px;
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg:#0f1512; --blanco:#18211c; --gris-cl:#1e2923; --borde:#2c3a32;
+      --gris-os:#e2eae5; --gris-md:#9db0a5;
+      --verde:#6cc491; --verde-cl:#1d3326; --verde-val:#1f3d2b; --verde-val-tx:#9fe0b8;
+      --dorado:#e2b64d; --dorado-cl:#3a3117;
+      --azul:#8bbde3; --azul-cl:#1c2d3c;
+      --head-a:#17482b; --head-b:#0f3320;
+    }
   }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0f1512; --blanco:#18211c; --gris-cl:#1e2923; --borde:#2c3a32;
+    --gris-os:#e2eae5; --gris-md:#9db0a5;
+    --verde:#6cc491; --verde-cl:#1d3326; --verde-val:#1f3d2b; --verde-val-tx:#9fe0b8;
+    --dorado:#e2b64d; --dorado-cl:#3a3117;
+    --azul:#8bbde3; --azul-cl:#1c2d3c;
+    --head-a:#17482b; --head-b:#0f3320;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Roboto','Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--gris-os); font-size:14px; }
+  a { color:var(--azul); }
+  a:focus-visible, input:focus-visible { outline:2px solid var(--verde); outline-offset:2px; }
 
-  /* ── HEADER ── */
-  .header {
-    background: linear-gradient(135deg, #2B5530 0%, #1a3a1e 100%);
-    color: var(--blanco);
-    padding: 36px 48px 28px;
-    position: relative;
-    overflow: hidden;
-    border-top: 5px solid #E8611A;
-  }
-  .header::after {
-    content: '';
-    position: absolute;
-    right: -60px; bottom: -60px;
-    width: 260px; height: 260px;
-    border-radius: 50%;
-    background: rgba(232,97,26,0.08);
-    pointer-events: none;
-  }
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .institución {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    opacity: .75;
-    margin-bottom: 6px;
-  }
-  .header h1 {
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-  .header h1 span { color: #a8d5b5; }
-  .header-sub {
-    font-size: 13px;
-    opacity: .8;
-    margin-top: 6px;
-  }
-  .badge-fecha {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 12px;
-    white-space: nowrap;
-  }
-  .tagline {
-    margin-top: 20px;
-    border-left: 3px solid #a8d5b5;
-    padding-left: 14px;
-    font-size: 14px;
-    font-style: italic;
-    opacity: .9;
-    max-width: 680px;
-    line-height: 1.5;
-  }
+  .header { background:linear-gradient(135deg,var(--head-a) 0%,var(--head-b) 100%); color:#fff; padding-block:32px 24px; padding-inline:max(16px, calc((100% - 1160px) / 2)); }
+  .header-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+  .inst { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:.8; margin-bottom:6px; }
+  .header h1 { font-size:clamp(22px,4vw,28px); font-weight:700; line-height:1.2; text-wrap:balance; }
+  .header h1 span { color:#a8d5b5; }
+  .header-sub { font-size:13px; opacity:.88; margin-top:6px; }
+  .badge-fecha { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); border-radius:20px; padding:6px 16px; font-size:12px; white-space:nowrap; }
+  .tagline { margin-top:18px; border-left:3px solid #a8d5b5; padding-left:14px; font-size:14px; font-style:italic; opacity:.92; max-width:720px; line-height:1.5; }
+  .nav { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .nav a { color:#fff; text-decoration:none; font-size:12px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:14px; padding:4px 12px; }
+  .nav a:hover { background:rgba(255,255,255,.25); }
 
-  /* ── LAYOUT ── */
-  .main { padding: 28px 40px; max-width: 1200px; margin: 0 auto; }
-  .section-title {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--verde);
-    font-weight: 700;
-    margin-bottom: 14px;
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--borde);
-  }
+  .main { padding-block:8px 24px; padding-inline:max(16px, calc((100% - 1160px) / 2)); }
+  .section-title { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--verde); font-weight:700; margin:30px 0 14px; display:flex; align-items:center; gap:8px; scroll-margin-top:12px; }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--borde); }
+  .card { background:var(--blanco); border-radius:10px; padding:18px 20px; box-shadow:0 1px 3px rgba(0,0,0,.06); border:1px solid var(--borde); }
+  .stack { display:grid; gap:14px; }
+  .card-title { font-size:13px; font-weight:700; color:var(--verde); margin-bottom:12px; display:flex; align-items:baseline; gap:8px; justify-content:space-between; flex-wrap:wrap; }
+  .card-title small { font-weight:400; color:var(--gris-md); font-size:11px; }
+  .two-col { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
 
-  /* ── KPI CARDS ── */
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 14px;
-    margin-bottom: 4px;
-  }
-  .kpi-card {
-    background: var(--blanco);
-    border-radius: 10px;
-    padding: 20px 18px 16px;
-    border-left: 4px solid var(--verde);
-    box-shadow: 0 1px 4px rgba(0,0,0,.07);
-    position: relative;
-    overflow: hidden;
-    transition: transform .15s;
-  }
-  .kpi-card:hover { transform: translateY(-2px); }
-  .kpi-card.dorado  { border-left-color: var(--dorado); }
-  .kpi-card.azul    { border-left-color: var(--azul); }
-  .kpi-card.verde-md{ border-left-color: var(--verde-md); }
-  .kpi-num {
-    font-size: 38px;
-    font-weight: 800;
-    color: var(--verde);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .kpi-card.dorado  .kpi-num { color: var(--dorado); }
-  .kpi-card.azul    .kpi-num { color: var(--azul); }
-  .kpi-card.verde-md .kpi-num { color: var(--verde-md); }
-  .kpi-label {
-    font-size: 12px;
-    color: var(--gris-md);
-    line-height: 1.4;
-  }
-  .kpi-icon {
-    position: absolute;
-    right: 12px; top: 12px;
-    font-size: 22px;
-    opacity: .12;
-  }
+  .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+  .kpi-card { background:var(--blanco); border-radius:10px; padding:16px; border:1px solid var(--borde); border-top:3px solid var(--verde); }
+  .kpi-card.dorado{border-top-color:var(--dorado)} .kpi-card.azul{border-top-color:var(--azul)}
+  .kpi-num { font-size:32px; font-weight:800; color:var(--verde); line-height:1; margin-bottom:6px; font-variant-numeric:tabular-nums; }
+  .kpi-card.dorado .kpi-num{color:var(--dorado)} .kpi-card.azul .kpi-num{color:var(--azul)}
+  .kpi-label { font-size:12px; color:var(--gris-md); line-height:1.4; }
 
-  /* ── DOS COLUMNAS ── */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media(max-width:700px) { .two-col { grid-template-columns: 1fr; } }
+  .tbl-wrap { overflow-x:auto; }
+  table.repo { width:100%; border-collapse:collapse; font-size:12px; min-width:640px; }
+  table.repo th { background:var(--verde-cl); color:var(--verde); font-size:10px; text-transform:uppercase; letter-spacing:.8px; padding:7px 9px; text-align:left; white-space:nowrap; }
+  table.repo td { padding:7px 9px; border-bottom:1px solid var(--gris-cl); vertical-align:top; line-height:1.4; }
+  table.repo tr:last-child td { border-bottom:none; }
+  table.repo tr.sub td { background:var(--gris-cl); }
+  table.repo tr.sub td:first-child { padding-left:22px; }
+  .code { font-weight:700; white-space:nowrap; font-size:11px; }
+  .muted { color:var(--gris-md); font-size:11px; }
+  .open { display:inline-block; text-decoration:none; background:var(--azul-cl); color:var(--azul); border-radius:5px; padding:2px 8px; font-size:11px; font-weight:700; white-space:nowrap; margin:1px 2px 1px 0; }
+  .open:hover { background:var(--azul); color:var(--blanco); }
+  .pill { display:inline-block; padding:2px 9px; border-radius:20px; font-size:10px; font-weight:700; white-space:nowrap; }
+  .pill.val{background:var(--verde-val);color:var(--verde-val-tx)} .pill.fin{background:var(--verde-cl);color:var(--verde)}
+  .pill.ok{background:var(--azul-cl);color:var(--azul)} .pill.ref{background:var(--gris-cl);color:var(--gris-md)}
+  .search { width:100%; max-width:360px; padding:7px 12px; border:1px solid var(--borde); border-radius:18px; font-size:13px; font-family:inherit; background:var(--blanco); color:var(--gris-os); }
+  .legend { display:flex; flex-wrap:wrap; gap:10px; font-size:11px; color:var(--gris-md); margin-top:10px; align-items:center; }
 
-  /* ── TARJETA CONTENEDOR ── */
-  .card {
-    background: var(--blanco);
-    border-radius: 10px;
-    padding: 22px 24px;
-    box-shadow: 0 1px 4px rgba(0,0,0,.07);
-  }
-  .card-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--verde);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
+  .timeline { position:relative; padding-left:24px; }
+  .timeline::before { content:''; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:var(--borde); }
+  .tl-item { position:relative; margin-bottom:16px; } .tl-item:last-child{margin-bottom:0}
+  .tl-dot { position:absolute; left:-21px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--verde); border:2px solid var(--blanco); box-shadow:0 0 0 2px var(--verde); }
+  .tl-item.fin .tl-dot { background:var(--dorado); box-shadow:0 0 0 2px var(--dorado); }
+  .tl-date { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--verde); margin-bottom:2px; }
+  .tl-item.fin .tl-date { color:var(--dorado); }
+  .tl-title { font-size:13px; font-weight:600; margin-bottom:2px; }
+  .tl-desc { font-size:12px; color:var(--gris-md); line-height:1.5; }
+  .progress-item { margin-bottom:13px; }
+  .progress-label { display:flex; justify-content:space-between; font-size:12px; margin-bottom:5px; font-weight:500; gap:8px; }
+  .progress-label span:last-child { color:var(--verde); font-variant-numeric:tabular-nums; }
+  .progress-track { height:8px; background:var(--gris-cl); border-radius:4px; overflow:hidden; }
+  .progress-fill { height:100%; border-radius:4px; background:var(--verde); width:100%; }
+  .nota-fin { margin-top:12px; padding:10px 12px; background:var(--verde-cl); border-radius:7px; font-size:12px; color:var(--verde); line-height:1.5; }
 
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 24px; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 7px; top: 6px; bottom: 6px;
-    width: 2px;
-    background: var(--borde);
-  }
-  .tl-item { position: relative; margin-bottom: 18px; }
-  .tl-item:last-child { margin-bottom: 0; }
-  .tl-dot {
-    position: absolute;
-    left: -21px; top: 4px;
-    width: 12px; height: 12px;
-    border-radius: 50%;
-    background: var(--verde);
-    border: 2px solid var(--blanco);
-    box-shadow: 0 0 0 2px var(--verde);
-  }
-  .tl-date {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--verde);
-    margin-bottom: 3px;
-  }
-  .tl-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-  .tl-desc  { font-size: 12px; color: var(--gris-md); line-height: 1.5; }
+  .rt { width:100%; border-collapse:collapse; font-size:12px; min-width:520px; }
+  .rt th { background:var(--verde-cl); color:var(--verde); font-size:10px; text-transform:uppercase; letter-spacing:.8px; padding:7px 9px; text-align:left; }
+  .rt td { padding:7px 9px; border-bottom:1px solid var(--gris-cl); vertical-align:top; color:var(--gris-md); line-height:1.4; }
+  .rt td:first-child { font-weight:600; color:var(--gris-os); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .tag-rector { display:inline-block; background:var(--dorado-cl); color:var(--dorado); border-radius:4px; padding:1px 6px; font-size:10px; font-weight:700; margin-left:6px; }
 
-  /* ── LISTA DE DOCUMENTOS ── */
-  .doc-list { list-style: none; }
-  .doc-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--gris-cl);
-    font-size: 12px;
-    line-height: 1.4;
-  }
-  .doc-list li:last-child { border-bottom: none; }
-  .doc-badge {
-    background: var(--verde-cl);
-    color: var(--verde);
-    border-radius: 5px;
-    padding: 2px 7px;
-    font-size: 10px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .doc-badge.azul  { background: var(--azul-cl);   color: var(--azul); }
-  .doc-badge.dorado{ background: var(--dorado-cl);  color: #8a6500; }
-  .doc-name { flex: 1; color: var(--gris-os); }
-  .doc-linea { font-size: 10px; color: var(--gris-md); }
+  .equipo { display:flex; gap:24px; flex-wrap:wrap; }
+  .equipo > div { flex:1 1 200px; }
+  .equipo .lbl { text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .equipo .val { font-weight:600; font-size:13px; }
 
-  /* ── PROGRESS BARS ── */
-  .progress-item { margin-bottom: 14px; }
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
-  .progress-track {
-    height: 8px;
-    background: var(--gris-cl);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    border-radius: 4px;
-    background: var(--verde);
-    transition: width .5s;
-  }
-  .progress-fill.dorado { background: var(--dorado); }
-  .progress-fill.azul   { background: var(--azul); }
-  .progress-fill.rojo   { background: #e67e22; }
-
-  /* ── REUNIONES TABLE ── */
-  .reuniones-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-  .reuniones-table th {
-    background: var(--verde-cl);
-    color: var(--verde);
-    font-weight: 700;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    padding: 8px 10px;
-    text-align: left;
-  }
-  .reuniones-table td {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--gris-cl);
-    vertical-align: top;
-    color: var(--gris-md);
-    line-height: 1.4;
-  }
-  .reuniones-table tr:last-child td { border-bottom: none; }
-  .reuniones-table td:first-child {
-    font-weight: 600;
-    color: var(--gris-os);
-    white-space: nowrap;
-  }
-  .tag-rector {
-    display: inline-block;
-    background: #fdebd0;
-    color: #a04000;
-    border-radius: 4px;
-    padding: 1px 6px;
-    font-size: 10px;
-    font-weight: 700;
-    margin-left: 6px;
-  }
-
-  /* ── PRÓXIMOS PASOS ── */
-  .pasos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-  }
-  .paso-card {
-    background: var(--gris-cl);
-    border-radius: 8px;
-    padding: 14px 16px;
-    border-top: 3px solid var(--borde);
-  }
-  .paso-card.p1 { border-top-color: var(--verde); }
-  .paso-card.p2 { border-top-color: var(--dorado); }
-  .paso-card.p3 { border-top-color: var(--azul); }
-  .paso-card.p4 { border-top-color: #8e44ad; }
-  .paso-card.p5 { border-top-color: #e67e22; }
-  .paso-num {
-    font-size: 22px;
-    font-weight: 800;
-    opacity: .15;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .paso-titulo { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
-  .paso-desc   { font-size: 11px; color: var(--gris-md); line-height: 1.5; }
-
-  /* ── ESTADO GENERAL ── */
-  .estado-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--gris-cl);
-    font-size: 12px;
-  }
-  .estado-row:last-child { border-bottom: none; }
-  .estado-eje { flex: 1; font-weight: 600; }
-  .estado-actual { flex: 1.5; color: var(--gris-md); }
-  .pill {
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  .pill.verde  { background: var(--verde-cl);  color: var(--verde); }
-  .pill.dorado { background: var(--dorado-cl); color: #8a6500; }
-  .pill.azul   { background: var(--azul-cl);   color: var(--azul); }
-  .pill.naranja{ background: #fef0e7; color: #c0590a; }
-
-  /* ── FOOTER ── */
-  .footer {
-    text-align: center;
-    padding: 24px 40px;
-    font-size: 11px;
-    color: #999;
-    border-top: 1px solid var(--borde);
-    margin-top: 16px;
-  }
-  .footer strong { color: var(--verde); }
-
+  .footer { text-align:center; padding-block:22px; padding-inline:16px; font-size:11px; color:var(--gris-md); border-top:1px solid var(--borde); margin-top:16px; }
+  .footer strong { color:var(--verde); }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
   /* ══════════ MAPA DE PROCESOS ══════════ */
   .mapa-wrapper {
     background: var(--blanco);
@@ -583,381 +335,136 @@
     font-size: 14px;
     flex-shrink: 0;
   }
-
-  /* ── PRINT ── */
-  @media print {
-    body { background: #fff; }
-    .main { padding: 16px 24px; }
-    .kpi-card:hover { transform: none; }
-    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
+  /* El mapa de procesos es una lamina clara fija en ambos temas */
+  .mapa-wrapper { --blanco:#ffffff; --verde:#1f6b3a; --verde-cl:#e8f5ee; --dorado:#c8960c; --dorado-cl:#fdf3d8; --gris-os:#2c2c2c; --gris-md:#555555; background:#ffffff; color:#2c2c2c; border:1px solid var(--borde); }
+  .sitebar { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px; }
+  .logos { display:flex; align-items:center; gap:14px; }
+  .logos .sep { width:1px; height:44px; background:rgba(255,255,255,0.3); }
+  .logo-unne { height:54px; filter:brightness(0) invert(1); }
+  .logo-tembiu { height:54px; background:#fff; border-radius:6px; padding:3px; }
+  .portal { font-size:11px; color:rgba(255,255,255,0.8); text-decoration:none; font-weight:500; border:1px solid rgba(255,255,255,0.3); padding:3px 12px; border-radius:20px; }
+  .portal:hover { background:rgba(255,255,255,.15); }
 </style>
 </head>
 <body>
 
-<!-- ══════════ HEADER ══════════ -->
 <div class="header">
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px;">
-    <div style="display:flex; align-items:center; gap:14px;">
-      <img src="../unne + logo 70 años (2).png" alt="Logo UNNE" style="height:54px; filter:brightness(0) invert(1);">
-      <div style="width:1px; height:44px; background:rgba(255,255,255,0.3);"></div>
-      <img src="logo-tembiu.jpeg" alt="Logo Tembi'u Porá" style="height:54px; background:white; border-radius:6px; padding:3px;">
+  <div class="sitebar">
+    <div class="logos">
+      <img class="logo-unne" src="../unne + logo 70 años (2).png" alt="Logo UNNE">
+      <div class="sep"></div>
+      <img class="logo-tembiu" src="logo-tembiu.jpeg" alt="Logo Tembi'u Porá">
     </div>
-    <a href="https://smaccio81.github.io/dgoia-dashboards/" style="position:relative; z-index:100; font-size:11px; color:rgba(255,255,255,0.7); text-decoration:none; font-weight:500; border:1px solid rgba(255,255,255,0.3); padding:3px 12px; border-radius:20px;">← Portal</a>
+    <a class="portal" href="https://smaccio81.github.io/dgoia-dashboards/">← Portal</a>
   </div>
-  <div style="text-align:center;">
-    <div class="institución">Universidad Nacional del Nordeste · Secretaría General de Planeamiento · DGOIA</div>
-    <h1>Casa de Agroindustrias <span>TEMBI'Ú PORÁ</span></h1>
-    <div class="header-sub">Informe ejecutivo de avance · Sistema de gestión documental y organización operativa</div>
-    <div style="margin-top:16px;"><span class="badge-fecha">📅 Agosto 2026</span></div>
+  <div class="header-top">
+    <div>
+      <div class="inst">Universidad Nacional del Nordeste · Secretaría General de Planeamiento · DGOIA</div>
+      <h1>Casa de Agroindustrias <span>TEMBI'Ú PORÁ</span></h1>
+      <div class="header-sub">Dashboard de cierre y repositorio documental · Sistema de gestión documental y organización operativa · Marzo – Agosto 2026</div>
+    </div>
+    <div class="badge-fecha">Cierre · Septiembre 2026</div>
+  </div>
+  <div class="tagline">"La planta TEMBI'Ú PORÁ cuenta hoy con una base documental integral y validada en planta para operar con orden, trazabilidad y calidad: procedimientos generales y de elaboración, registros de control, cursogramas, estructura organizativa y perfiles de cada puesto."</div>
+  <div class="nav">
+    <a href="#resumen">Resumen</a>
+    <a href="#cronologia">Cronología</a>
+    <a href="#repositorio">Repositorio documental</a>
+    <a href="#elaboracion">Matriz de elaboración</a>
+    <a href="#reuniones">Reuniones y validaciones</a>
+    <a href="#mapa">Mapa de procesos</a>
   </div>
 </div>
 
 <div class="main">
 
-  <!-- ══════════ KPIs ══════════ -->
-  <div class="section-title">Impacto del trabajo realizado</div>
+  <div class="section-title" id="resumen">Resumen del proyecto</div>
   <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-icon">📄</div>
-      <div class="kpi-num">20+</div>
-      <div class="kpi-label">documentos técnicos elaborados</div>
-    </div>
-    <div class="kpi-card dorado">
-      <div class="kpi-icon">🔬</div>
-      <div class="kpi-num">10</div>
-      <div class="kpi-label">procedimientos de elaboración por línea productiva</div>
-    </div>
-    <div class="kpi-card verde-md">
-      <div class="kpi-icon">📋</div>
-      <div class="kpi-num">5</div>
-      <div class="kpi-label">procedimientos generales transversales</div>
-    </div>
-    <div class="kpi-card azul">
-      <div class="kpi-icon">📊</div>
-      <div class="kpi-num">9</div>
-      <div class="kpi-label">registros operativos de control de proceso</div>
-    </div>
-    <div class="kpi-card dorado">
-      <div class="kpi-icon">🗺️</div>
-      <div class="kpi-num">9</div>
-      <div class="kpi-label">cursogramas de flujo por proceso productivo</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-icon">🤝</div>
-      <div class="kpi-num">14</div>
-      <div class="kpi-label">reuniones técnicas en planta y sede central</div>
-    </div>
-    <div class="kpi-card verde-md">
-      <div class="kpi-icon">🏭</div>
-      <div class="kpi-num">4</div>
-      <div class="kpi-label">líneas productivas cubiertas integralmente</div>
-    </div>
-    <div class="kpi-card azul">
-      <div class="kpi-icon">🔗</div>
-      <div class="kpi-num">1</div>
-      <div class="kpi-label">modelo completo de trazabilidad para sistemas</div>
-    </div>
+    <div class="kpi-card"><div class="kpi-num">16</div><div class="kpi-label">procedimientos: 6 generales (PG) y 10 de elaboración (PE)</div></div>
+    <div class="kpi-card"><div class="kpi-num">10</div><div class="kpi-label">procesos de elaboración validados en planta</div></div>
+    <div class="kpi-card azul"><div class="kpi-num">58</div><div class="kpi-label">formularios de registro (53 en Excel + 5 en PG.TEMPO.04)</div></div>
+    <div class="kpi-card dorado"><div class="kpi-num">10</div><div class="kpi-label">cursogramas de proceso en Draw.io + modelo base</div></div>
+    <div class="kpi-card dorado"><div class="kpi-num">4</div><div class="kpi-label">procedimientos revisados a V2</div></div>
+    <div class="kpi-card azul"><div class="kpi-num">10</div><div class="kpi-label">fichas de puesto en el Manual de Misiones y Funciones V2</div></div>
+    <div class="kpi-card"><div class="kpi-num">14</div><div class="kpi-label">reuniones técnicas y visitas a planta</div></div>
   </div>
 
-  <!-- ══════════ TIMELINE + ESTADO ══════════ -->
-  <div class="section-title">Desarrollo cronológico y estado del sistema</div>
+  <div class="section-title" id="cronologia">Cronología y estado del sistema</div>
   <div class="two-col">
-
     <div class="card">
-      <div class="card-title">📅 Línea de tiempo del proyecto</div>
+      <div class="card-title">Línea de tiempo</div>
       <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Marzo 2026</div>
-          <div class="tl-title">Relevamiento inicial</div>
-          <div class="tl-desc">Diagnóstico de condiciones operativas de la planta. Definición de criterios y alcance documental. Reuniones de articulación institucional.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Abril 2026</div>
-          <div class="tl-title">Construcción documental</div>
-          <div class="tl-desc">Elaboración de procedimientos generales, procedimientos de elaboración, registros, cursogramas, organigrama y perfiles de puestos.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Mayo 2026</div>
-          <div class="tl-title">Consolidación y entrega — con presencia del Rector</div>
-          <div class="tl-desc">Consolidación de la documentación completa. Reunión en PTC con el Sr. Rector y consultor de costos. Entrega del informe de avance.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot" style="background:#c8960c;box-shadow:0 0 0 2px #c8960c;"></div>
-          <div class="tl-date" style="color:#8a6500;">Próxima etapa</div>
-          <div class="tl-title">Implementación controlada</div>
-          <div class="tl-desc">Validación en planta, prueba piloto de registros, capacitación de operarios e integración con sistemas informáticos.</div>
-        </div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Marzo 2026</div><div class="tl-title">Relevamiento inicial</div><div class="tl-desc">Diagnóstico de las condiciones operativas y productos prioritarios (pan, queso criollo, medallones, mamón y chacinados). Punto de partida y guía de indicadores.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Abril 2026</div><div class="tl-title">Construcción documental</div><div class="tl-desc">Procedimientos generales, borradores de elaboración, modelo de cursograma, organigrama preliminar, trazabilidad, Manual BPM (28/04) e Informe SGC de abril.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Mayo 2026</div><div class="tl-title">Consolidación, con presencia del Rector</div><div class="tl-desc">Reunión en PTC (06/05), Informe de Avance (13/05), revisión de recetas (20/05) y de quesos (21/05), registros, 9 cursogramas y auditoría cruzada (27/05).</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Junio 2026</div><div class="tl-title">Recepción e identidad</div><div class="tl-desc">PG.TEMPO.00 unificado con sus 5 registros de recepción (2 con PCC). Dashboard ejecutivo. Propuesta de marca y logo.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Agosto 2026</div><div class="tl-title">Validación en planta</div><div class="tl-desc">Prueba in situ de mamón (PE.TEMPO.02 V2) y nuevo PE.TEMPO.10 Pan Integral. Informe de modificaciones. Nota de Pedido y Orden de Producción.</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Septiembre 2026</div><div class="tl-title">Quesos, estructura y revisión integral</div><div class="tl-desc">Verificación de quesos (02/09): PE.TEMPO.04 V2. Organigrama v4 y Manual de Misiones y Funciones V2. Registros de higiene, limpieza y mantenimiento, PG.TEMPO.05 y revisión cruzada de todo el sistema.</div></div>
+        <div class="tl-item fin"><div class="tl-dot"></div><div class="tl-date">Cierre</div><div class="tl-title">Entrega del sistema documental</div><div class="tl-desc">Los 10 procesos de elaboración validados en planta. Entrega del repositorio documental y del informe final de cierre.</div></div>
       </div>
     </div>
-
     <div class="card">
-      <div class="card-title">📈 Estado del sistema documental</div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Procedimientos generales</span><span style="color:var(--verde)">100%</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Procedimientos de elaboración</span><span style="color:var(--verde)">100%</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Registros operativos</span><span style="color:var(--verde)">100%</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Cursogramas</span><span style="color:var(--verde)">100%</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Organigrama y perfiles</span><span style="color:var(--dorado)">80%</span></div>
-        <div class="progress-track"><div class="progress-fill dorado" style="width:80%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Manual BPM</span><span style="color:var(--verde)">100%</span></div>
-        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Modelo de trazabilidad</span><span style="color:var(--dorado)">70%</span></div>
-        <div class="progress-track"><div class="progress-fill dorado" style="width:70%"></div></div>
-      </div>
-      <div class="progress-item">
-        <div class="progress-label"><span>Validación en planta y vigencia formal</span><span style="color:#e67e22">En proceso</span></div>
-        <div class="progress-track"><div class="progress-fill rojo" style="width:30%"></div></div>
-      </div>
-      <div style="margin-top:12px; padding:10px 12px; background:var(--verde-cl); border-radius:7px; font-size:11px; color:var(--verde); line-height:1.5;">
-        ✅ El sistema pasa de <strong>etapa de construcción</strong> a <strong>etapa de implementación controlada</strong>.
-      </div>
+      <div class="card-title">Estado del sistema al cierre</div>
+      <div class="progress-item"><div class="progress-label"><span>Procedimientos generales (6 de 6)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Procedimientos de elaboración (10 de 10)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Validación en planta (10 de 10)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Registros de elaboración (10 de 10 productos)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Registros de procedimientos generales (6 de 6)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Cursogramas (10 de 10 productos)</span><span>100%</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Organigrama y Manual de Misiones y Funciones</span><span>Entregado</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="progress-item"><div class="progress-label"><span>Manual BPM y modelo de trazabilidad</span><span>Entregado</span></div><div class="progress-track"><div class="progress-fill"></div></div></div>
+      <div class="nota-fin">El sistema documental de TEMBI'Ú PORÁ queda <strong>completo, validado en planta y entregado</strong>.</div>
     </div>
   </div>
 
-  <!-- ══════════ DOCUMENTOS ══════════ -->
-  <div class="section-title">Documentación producida</div>
-  <div class="two-col">
-
+  <div class="section-title" id="repositorio">Repositorio documental — versiones finales</div>
+  <div class="stack">
     <div class="card">
-      <div class="card-title">📗 Procedimientos Generales — PG.TEMPO</div>
-      <ul class="doc-list">
-        <li><span class="doc-badge">PG.TEMPO.00</span><span class="doc-name">Recepción de Materias Primas, Envases e Insumos<br><span class="doc-linea">Procedimiento unificado · 5 familias de materiales + PCC</span></span></li>
-        <li><span class="doc-badge">PG.TEMPO.01</span><span class="doc-name"><a href="procedimientos/PG-TEMPO-01.html" style="color:var(--verde);text-decoration:none;font-weight:500;">Buenas Prácticas de Higiene — Ingreso y Egreso a Planta</a></span></li>
-        <li><span class="doc-badge">PG.TEMPO.02</span><span class="doc-name">Limpieza y Desinfección — POES</span></li>
-        <li><span class="doc-badge">PG.TEMPO.03</span><span class="doc-name">Mantenimiento de Equipos e Instalaciones</span></li>
-        <li><span class="doc-badge">PG.TEMPO.04</span><span class="doc-name">Gestión de Producto Terminado — Almacenamiento y Despacho</span></li>
-      </ul>
+      <label for="q" class="muted" style="display:block;margin-bottom:6px;">Buscar en el repositorio</label>
+      <input class="search" id="q" type="search" placeholder="Documento, código o producto…" oninput="filtrar(this.value)">
+      <div class="legend">
+        <span class="pill val">Validado en planta</span>
+        <span class="pill fin">Versión final</span>
+        <span class="pill ok">Entregado</span>
+        <span class="pill ref">Referencia</span>
+        <span>Los enlaces abren cada archivo en Google Drive (unidad compartida DGOIA).</span>
+      </div>
     </div>
-
-    <div class="card">
-      <div class="card-title">📘 Procedimientos Específicos — PE.TEMPO</div>
-      <ul class="doc-list">
-        <li><span class="doc-badge azul">PE.ERAGIA.00</span><span class="doc-name">Control Sanitario de Ordeñe (Tambo)<br><span class="doc-linea">Proceso previo a elaboración láctea</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.01</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-01.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Pan de Mesa</a> <span class="doc-linea">· Farináceos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.02</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-02.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Mamón en Almíbar</a> <span class="doc-linea">· Conservas</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.03</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-03.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Conservas Saladas</a> <span class="doc-linea">· Conservas</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.04</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-04.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Elaboración de Quesos</a> <span class="doc-linea">· Lácteos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.05</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-05.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Medallones</a> <span class="doc-linea">· Cárnicos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.06</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-06.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Bondiola y Solomillo</a> <span class="doc-linea">· Cárnicos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.07</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-07.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Chorizos Secos y Salamines</a> <span class="doc-linea">· Cárnicos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.08</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-08.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Chacinados sin Fermentación</a> <span class="doc-linea">· Cárnicos</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.09</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-09.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Dulces de Frutas y Mermeladas</a> <span class="doc-linea">· Conservas</span></span></li>
-        <li><span class="doc-badge azul">PE.TEMPO.10</span><span class="doc-name"><a href="procedimientos/PE-TEMPO-10.html" style="color:var(--azul);text-decoration:none;font-weight:500;">Pan de Mesa Integral</a> <span class="doc-linea">· Farináceos · Nuevo — Agosto 2026</span></span></li>
-      </ul>
-    </div>
+    <div id="repo" class="stack"></div>
   </div>
 
-  <!-- ══════════ REUNIONES ══════════ -->
-  <div class="section-title">Reuniones técnicas realizadas</div>
+  <div class="section-title" id="elaboracion">Matriz de elaboración — procedimiento, registro y cursograma por producto</div>
   <div class="card">
-    <table class="reuniones-table">
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Lugar</th>
-          <th>Actividad</th>
-        </tr>
-      </thead>
+    <div class="tbl-wrap"><table class="repo" id="matriz">
+      <thead><tr><th>Código</th><th>Producto</th><th>Línea</th><th>Procedimiento</th><th>Registro</th><th>Cursograma</th><th>Validación</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="section-title" id="reuniones">Reuniones técnicas y validaciones en planta</div>
+  <div class="card">
+    <div class="tbl-wrap"><table class="rt">
+      <thead><tr><th>Fecha</th><th>Lugar</th><th>Actividad</th></tr></thead>
       <tbody>
         <tr><td>10/03/2026</td><td>ERAGIA</td><td>Relevamiento inicial de condiciones operativas de la planta</td></tr>
-        <tr><td>12/03/2026</td><td>ERAGIA</td><td>Relevamiento y articulación institucional vinculada al desarrollo documental</td></tr>
-        <tr><td>31/03/2026</td><td>ERAGIA</td><td>Continuidad de relevamiento y validación de información técnica</td></tr>
-        <tr><td>07/04/2026</td><td>ERAGIA</td><td>Reunión de avance documental</td></tr>
+        <tr><td>12/03/2026</td><td>ERAGIA</td><td>Relevamiento de productos prioritarios y normativa aplicable</td></tr>
+        <tr><td>31/03/2026</td><td>ERAGIA</td><td>Organigrama (dependencias), recepción por área y trazabilidad</td></tr>
+        <tr><td>07/04/2026</td><td>ERAGIA</td><td>Plantilla de mantenimiento, proveedores y servicios externos</td></tr>
         <tr><td>09/04/2026</td><td>ERAGIA</td><td>Revisión de criterios de procesos y registros</td></tr>
         <tr><td>14/04/2026</td><td>ERAGIA</td><td>Avance en procedimientos, BPM y organización documental</td></tr>
         <tr><td>16/04/2026</td><td>ERAGIA</td><td>Revisión de circuitos operativos</td></tr>
         <tr><td>30/04/2026</td><td>ERAGIA</td><td>Consolidación de documentación y definiciones de avance</td></tr>
-        <tr><td>06/05/2026</td><td>PTC</td><td>Consolidación y avance. Participación del consultor de Costos <span class="tag-rector">★ Sr. Rector</span></td></tr>
+        <tr><td>06/05/2026</td><td>PTC</td><td>Consolidación y avance, con participación del consultor de Costos <span class="tag-rector">Sr. Rector</span></td></tr>
         <tr><td>14/05/2026</td><td>ERAGIA</td><td>Revisión de procedimientos varios</td></tr>
-        <tr><td>20/05/2026</td><td>ERAGIA</td><td>Revisión de recetas de todos los procedimientos de elaboración · Patricia, Matías, Sebastián, Mara</td></tr>
-        <tr><td>21/05/2026</td><td>ERAGIA</td><td>Revisión del procedimiento de elaboración de quesos · Patricia, Matías, Verónica, Sebastián, Mara</td></tr>
-        <tr><td>26/05/2026</td><td>Rectorado</td><td>Coordinación de organización</td></tr>
-        <tr><td>04/06/2026</td><td>ERAGIA</td><td>Revisión de todos los procedimientos</td></tr>
-        <tr><td>03/06/2026</td><td>ERAGIA</td><td>Repaso de documentos previo a la inauguración</td></tr>
-        <tr><td>12/06/2026</td><td>ERAGIA</td><td>Inauguración de la Casa de Agroindustrias TEMBI'Ú PORÁ</td></tr>
-        <tr><td>07/07/2026</td><td>ERAGIA</td><td>Validación del documento de ingreso y gestiones con Sudocu de usuarios</td></tr>
-        <tr><td>03/08/2026</td><td>ERAGIA</td><td>Validación en planta de procedimientos de panificados — constatación de recetas, pasos, temperaturas y PCCs con práctica real · Patricia, Mara, Sebastián</td></tr>
-        <tr><td>07/08/2026</td><td>ERAGIA</td><td>Validación en planta de procedimientos de conservas — verificación de °Brix, tiempos Appert, secuencias de envasado y registros</td></tr>
-        <tr><td>20/08/2026</td><td>ERAGIA</td><td>Validación en planta de procedimientos de lácteos — constatación de pasteurización, coagulación, salmuera y maduración con responsables operativos</td></tr>
-        <tr><td>Agosto 2026</td><td>ERAGIA</td><td>Elaboración de Orden de Pedido y Orden de Compra (a pedido de la Casa de Agroindustrias)</td></tr>
+        <tr><td>20/05/2026</td><td>ERAGIA</td><td>Revisión de recetas de todos los procedimientos de elaboración (Patricia, Matías, Sebastián, Mara)</td></tr>
+        <tr><td>21/05/2026</td><td>ERAGIA</td><td>Revisión del procedimiento de quesos (Patricia, Matías, Verónica, Sebastián, Mara)</td></tr>
+        <tr><td>Ago 2026</td><td>Planta</td><td><b>Validación in situ</b> de Mamón en almíbar y relevamiento de Pan Integral → PE.TEMPO.02 V2 y PE.TEMPO.10</td></tr>
+        <tr><td>02/09/2026</td><td>Planta</td><td><b>Verificación grabada</b> del proceso de quesos → PE.TEMPO.04 V2</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
-  <!-- ══════════ LÍNEAS PRODUCTIVAS ══════════ -->
-  <div class="section-title">Cobertura por línea productiva</div>
-  <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr);">
-    <div class="kpi-card" style="border-left-color:#2e7d32; text-align:center; padding:20px 12px;">
-      <div style="font-size:32px; margin-bottom:8px;">🌾</div>
-      <div style="font-weight:700; font-size:13px; color:#2e7d32; margin-bottom:6px;">Farináceos</div>
-      <div style="font-size:11px; color:var(--gris-md);">Pan de Mesa<br>BPM · Proceso · Registro · Cursograma</div>
-    </div>
-    <div class="kpi-card dorado" style="text-align:center; padding:20px 12px;">
-      <div style="font-size:32px; margin-bottom:8px;">🍅</div>
-      <div style="font-weight:700; font-size:13px; color:var(--dorado); margin-bottom:6px;">Conservas</div>
-      <div style="font-size:11px; color:var(--gris-md);">Mamón · Conservas Saladas · Dulces<br>BPM · Procesos · Registros · Cursogramas</div>
-    </div>
-    <div class="kpi-card azul" style="text-align:center; padding:20px 12px;">
-      <div style="font-size:32px; margin-bottom:8px;">🧀</div>
-      <div style="font-weight:700; font-size:13px; color:var(--azul); margin-bottom:6px;">Lácteos</div>
-      <div style="font-size:11px; color:var(--gris-md);">Quesos · Ordeñe<br>BPM · Proceso · Registro · Cursograma · PCC</div>
-    </div>
-    <div class="kpi-card" style="border-left-color:#7b241c; text-align:center; padding:20px 12px;">
-      <div style="font-size:32px; margin-bottom:8px;">🥩</div>
-      <div style="font-weight:700; font-size:13px; color:#7b241c; margin-bottom:6px;">Cárnicos</div>
-      <div style="font-size:11px; color:var(--gris-md);">Medallones · Bondiola · Chorizos · Chacinados<br>BPM · Procesos · Registros · PCC</div>
-    </div>
-  </div>
-
-  <!-- ══════════ HERRAMIENTAS ══════════ -->
-  <div class="section-title">Herramientas y soportes complementarios</div>
-  <div class="two-col">
-    <div class="card">
-      <div class="card-title">🔧 Instrumentos de soporte operativo</div>
-      <ul class="doc-list">
-        <li><span class="doc-badge dorado">BPM</span><span class="doc-name">Manual de Buenas Prácticas de Manufactura actualizado</span></li>
-        <li><span class="doc-badge dorado">ORG</span><span class="doc-name">Organigrama preliminar TEMBI'Ú PORÁ (v2 / v3)</span></li>
-        <li><span class="doc-badge dorado">RRHH</span><span class="doc-name">Perfiles de puestos, responsabilidades y competencias</span></li>
-        <li><span class="doc-badge dorado">FLOW</span><span class="doc-name">9 cursogramas en Draw.io + modelo base estandarizado</span></li>
-        <li><span class="doc-badge dorado">IND</span><span class="doc-name">Guía de indicadores de gestión y desempeño (GUIA.TEMPO.01)</span></li>
-        <li><span class="doc-badge dorado">NORM</span><span class="doc-name">Normativa aplicable — Código Alimentario Argentino y anexos</span></li>
-        <li><span class="doc-badge dorado">COMP</span><span class="doc-name">Orden de Pedido y Orden de Compra — formularios elaborados a pedido (Agosto 2026)</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title">💻 Insumos funcionales para sistemas</div>
-      <ul class="doc-list">
-        <li><span class="doc-badge azul">TRAZ</span><span class="doc-name">Modelo de trazabilidad completa (recepción → producción → despacho)</span></li>
-        <li><span class="doc-badge azul">MAT</span><span class="doc-name">Matriz de procedimientos, códigos, versiones y responsables</span></li>
-        <li><span class="doc-badge azul">REC</span><span class="doc-name">Base para digitalización de recepción, cuarentena, rechazo y NC</span></li>
-        <li><span class="doc-badge azul">REG</span><span class="doc-name">9 registros como base para carga digital de controles operativos</span></li>
-        <li><span class="doc-badge azul">REP</span><span class="doc-name">Líneas funcionales definidas: lotes, producción, stock, reportes</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ══════════ ESTADO GENERAL ══════════ -->
-  <div class="section-title">Estado consolidado del sistema</div>
-  <div class="card">
-    <div class="estado-row">
-      <div class="estado-eje">Procedimientos generales</div>
-      <div class="estado-actual">Elaborados en borrador técnico · codificados y articulados</div>
-      <span class="pill dorado">Revisión final</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Procedimiento unificado de recepción</div>
-      <div class="estado-actual">Documento unificado que absorbe 5 familias de materiales</div>
-      <span class="pill dorado">Revisión final</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Procedimientos de elaboración</div>
-      <div class="estado-actual">11 PE elaborados · panificados (inc. integral), conservas y lácteos validados en planta con correcciones incorporadas</div>
-      <span class="pill dorado">Validación cárnicos pendiente</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Registros operativos</div>
-      <div class="estado-actual">9 registros vinculados a procesos productivos</div>
-      <span class="pill naranja">Prueba piloto pendiente</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Cursogramas</div>
-      <div class="estado-actual">9 diagramas de flujo en Draw.io + modelo base · integrados en dashboard web</div>
-      <span class="pill verde">Publicados online</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Organigrama y perfiles</div>
-      <div class="estado-actual">Estructura funcional preliminar definida</div>
-      <span class="pill naranja">Validación institucional</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Manual BPM</div>
-      <div class="estado-actual">Versión actualizada elaborada y entregada</div>
-      <span class="pill verde">Listo</span>
-    </div>
-    <div class="estado-row">
-      <div class="estado-eje">Trazabilidad y sistemas</div>
-      <div class="estado-actual">Insumos funcionales elaborados para desarrollo informático</div>
-      <span class="pill azul">Pendiente de desarrollo</span>
-    </div>
-  </div>
-
-  <!-- ══════════ PRÓXIMOS PASOS ══════════ -->
-  <div class="section-title">Próximos pasos</div>
-  <div class="pasos-grid">
-    <div class="paso-card p1">
-      <div class="paso-num">01</div>
-      <div class="paso-titulo">Validación en planta — cárnicos</div>
-      <div class="paso-desc">Panificados, conservas y lácteos validados con correcciones incorporadas. Pendiente completar la validación de los procedimientos de la línea cárnica (PE.TEMPO.05 a .08).</div>
-    </div>
-    <div class="paso-card p2">
-      <div class="paso-num">02</div>
-      <div class="paso-titulo">Prueba piloto de registros</div>
-      <div class="paso-desc">Carga real de los RG.TEMPO.01 a .09 en producción para ajustar usabilidad, completar parámetros técnicos y definir responsables de carga.</div>
-    </div>
-    <div class="paso-card p3">
-      <div class="paso-num">03</div>
-      <div class="paso-titulo">Integración a sistemas</div>
-      <div class="paso-desc">Trabajo con el equipo TI sobre la matriz de trazabilidad: módulos de recepción, lotes, producción, producto terminado y reportes.</div>
-    </div>
-    <div class="paso-card p4">
-      <div class="paso-num">04</div>
-      <div class="paso-titulo">Capacitación interna</div>
-      <div class="paso-desc">Diseño y ejecución de un cronograma de capacitación para responsables de planta y operarios sobre procedimientos y registros aprobados.</div>
-    </div>
-    <div class="paso-card p5">
-      <div class="paso-num">05</div>
-      <div class="paso-titulo">Aprobación formal</div>
-      <div class="paso-desc">Circuito de revisión, firma y vigencia formal de los documentos. Actualización del historial de versiones y control de cambios institucional.</div>
-    </div>
-  </div>
-
-  <!-- ══════════ EQUIPO ══════════ -->
-  <div class="section-title">Equipo de trabajo</div>
-  <div class="card" style="display:flex; gap:24px; flex-wrap:wrap; align-items:center; padding:20px 28px;">
-    <div style="flex:1; min-width:220px;">
-      <div style="font-size:11px; color:var(--gris-md); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Iniciador</div>
-      <div style="font-weight:600; font-size:13px;">Dirección General de Organización e Innovación Administrativa</div>
-      <div style="font-size:12px; color:var(--gris-md);">Secretaría General de Planeamiento · UNNE</div>
-    </div>
-    <div style="flex:1; min-width:200px;">
-      <div style="font-size:11px; color:var(--gris-md); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Equipo técnico</div>
-      <div style="font-weight:600; font-size:13px;">Mara Gómez Contardi · Sebastián Maccio</div>
-      <div style="font-size:12px; color:var(--gris-md);">DGOIA · Secretaría General de Planeamiento</div>
-    </div>
-    <div style="flex:1; min-width:200px;">
-      <div style="font-size:11px; color:var(--gris-md); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Articulación en planta</div>
-      <div style="font-weight:600; font-size:13px;">Lic. Patricia Romero V.</div>
-      <div style="font-size:12px; color:var(--gris-md);">ERAGIA · Responsable técnica de planta</div>
-    </div>
-    <div style="flex:1; min-width:160px;">
-      <div style="font-size:11px; color:var(--gris-md); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Período</div>
-      <div style="font-weight:600; font-size:13px;">Marzo — Mayo 2026</div>
-      <div style="font-size:12px; color:var(--gris-md);">Relevamiento · Construcción · Consolidación</div>
-    </div>
-  </div>
-
-  <!-- ══════════ MAPA DE PROCESOS ══════════ -->
-  <div class="section-title">Mapa de procesos</div>
+  <div class="section-title" id="mapa">Mapa de procesos</div>
   <div class="mapa-wrapper">
     <div class="mapa-title">Mapa de Procesos — Casa de Agroindustrias TEMBI'Ú PORÁ · ERAGIA · UNNE</div>
 
@@ -1106,13 +613,128 @@
     </div><!-- /mapa-flujo -->
   </div><!-- /mapa-wrapper -->
 
-</div><!-- /main -->
+  <div class="section-title">Equipo de trabajo</div>
+  <div class="card equipo">
+    <div><div class="muted lbl">Iniciador</div><div class="val">Dirección General de Organización e Innovación Administrativa</div><div class="muted">Secretaría General de Planeamiento · UNNE</div></div>
+    <div><div class="muted lbl">Equipo técnico</div><div class="val">Mara Gómez Contardi · Sebastián Maccio</div><div class="muted">DGOIA</div></div>
+    <div><div class="muted lbl">Articulación en planta</div><div class="val">Lic. Patricia Romero Vidomlansky</div><div class="muted">ERAGIA · Responsable técnica de planta</div></div>
+    <div><div class="muted lbl">Período</div><div class="val">Marzo — Agosto 2026</div><div class="muted">Relevamiento · Construcción · Validación · Cierre</div></div>
+  </div>
 
-<div class="footer">
-  Elaborado por la <strong>Dirección General de Organización e Innovación Administrativa</strong> · Secretaría General de Planeamiento · UNNE &nbsp;·&nbsp; Junio 2026
-  <br style="margin-top:4px;">
-  <span style="font-size:10px; color:#bbb;">Para imprimir como PDF: Archivo → Imprimir → Guardar como PDF · Escala 80% · Orientación horizontal recomendada</span>
 </div>
 
+<div class="footer">
+  Elaborado por la <strong>Dirección General de Organización e Innovación Administrativa</strong> · Secretaría General de Planeamiento · UNNE · Septiembre 2026<br>
+  Acompaña al Informe Final de Cierre. Los botones «Web» abren los procedimientos en este sitio; los enlaces a Drive requieren acceso a la unidad compartida DGOIA.
+</div>
+
+<script>
+const D = id => 'https://drive.google.com/file/d/' + id + '/view';
+const G = id => 'https://docs.google.com/document/d/' + id + '/edit';
+const S = id => 'https://docs.google.com/spreadsheets/d/' + id + '/edit';
+const EST = {val:['val','Validado en planta'], fin:['fin','Versión final'], ok:['ok','Entregado'], ref:['ref','Referencia']};
+
+// [codigo, nombre, version/fecha, estado, [[etiqueta, url],...], nota, esSubfila]
+const GRUPOS = [
+ { t:'Documentos del sistema y organización', filas:[
+  ['SGC','Estructura del Sistema de Gestión de Calidad','Jun 2026','ok',[['Draw.io',D('1kA-NdSV8XrzikQXFh2sAdKzDP1bEL3wm')]]],
+  ['BPM','Manual de Buenas Prácticas de Manufactura','28/04/2026','ok',[['Abrir',D('1H5yFbowiXNxD0_tcJglioKixOPraq03n')]],'Elaborado por la Lic. Romero V.'],
+  ['ORG v4','Organigrama TEMBI\'Ú PORÁ, con Subgerencia de Operaciones','Sept 2026','fin',[['PNG',D('1u-7u64Uyz7Tvqid-rxYFIxeiJXbvMw9g')],['Draw.io',D('1TzYlax9gQX6jw3FZ8tJ_ORWKlgCvX_FX')]]],
+  ['DOC.TEMPO.04','Manual de Misiones y Funciones — 10 fichas de puesto','V2 · Sept 2026','fin',[['Abrir',D('1GzN1zV5z00LDb5LtOp-nXV7tDwuJpcil')]]],
+  ['GUIA.TEMPO.01','Guía de indicadores de gestión','Mar 2026','ok',[['Google Doc',G('15FPPtMHcg7Eky8w-8ZAzQCE2t_mSt6ObbQfufIZUhDY')]]],
+  ['TRAZ','Modelo de trazabilidad completa (recepción → producción → distribución)','Mar 2026','ok',[['Abrir',D('1yPDviVGWp287U6fWDY4MgwndaBOrVtX7')]],'Base para sistemas'],
+  ['MAT','Matriz de procedimientos, códigos y responsables','Abr 2026','ok',[['Google Sheet',S('1kJw7zxMNcDw5kVF7Rvatkrqlt4kT8B6SlCP9z88jvHo')]]],
+  ['MODELO','Modelo estandarizado de cursograma PE.TEMPO.XX','v2.1 · Abr 2026','ok',[['Draw.io',D('16PJuaG1p9mGn1TTUAveVqi_fBJQiSXLP')],['JPG',D('1q1xOe8n97MKxwkdmjxle6S2rq8LtM6KR')]]],
+  ['MARCA','Propuesta de marca y logo TEMBI\'Ú PORÁ','Jun 2026','ok',[['PDF',D('11jZw7NRI8PThdkITQemDH9wHF4ayM83U')],['Logo',D('1XiVuHZif0HGJ2rQ2Brzp4VGe_VEHymtk')]]],
+  ['PLANTA','Memoria descriptiva y plano general con equipamiento','Mar 2026','ref',[['Memoria',D('19Mo5HxZzRV30d65-RV6LSxldOp0W8mMI')],['Plano',D('1LCogHuZ2CQWXeNXolY7ew93AG9OCCJRp')]]],
+  ['NORM','Normativa aplicable — CAA (Dec. 1226/69) y anexo','—','ref',[['CAA',D('12Cz_0nkyRZB6bj8Ni1ywyWoxJTLm0npL')],['Anexo',D('1Xa7duQ4DSo62bSAp7_ddrK4BDcVor1xO')]]],
+  ['MANT-PROV','Formulario de mantenimiento por proveedor','08/04/2026','ok',[['Abrir',D('1iNQOn7V2fSAYkiIUqpXHZAN4b698aYDi')]]],
+ ]},
+ { t:'Procedimientos generales y sus registros', filas:[
+  ['PG.TEMPO.00','Recepción de Materias Primas, Envases e Insumos (unificado, con PCC)','V1 · Jun 2026','fin',[['Abrir',D('1fURD6TZA9DiXwGtbr8egh7a77lj0dHE_')]]],
+  ['RG.PG.TEMPO.00.01','Recepción de Farináceos','V1','fin',[['Excel',D('1y-z-oShUKFkZSwlaMW3SMsg7kINRCLHQ')]],'',1],
+  ['RG.PG.TEMPO.00.02','Recepción de Conservas','V1','fin',[['Excel',D('16dcfwdoCVqF9iMKG6hOWKgpwopYkgW9s')]],'',1],
+  ['RG.PG.TEMPO.00.03','Recepción de Leche Cruda — PCC','V1','fin',[['Excel',D('1ZuVsAqFwtMbTf_06ruoG9JNt17ih_6yg')]],'',1],
+  ['RG.PG.TEMPO.00.04','Recepción de Cárnicos — PCC','V1','fin',[['Excel',D('1vYzpG0HGuA1-Z077KeZ8k7O6J6wcNllN')]],'',1],
+  ['RG.PG.TEMPO.00.05','Recepción de Envases e Insumos','V1','fin',[['Excel',D('1qf6yeh3nPFXgKvimocqNQpShgnWWEOoo')]],'',1],
+  ['RG.TEMPO.NC.01','Registro de No Conformidades (recepción, proceso, producto terminado)','V1 · Sept 2026','fin',[['Excel',D('1-1xokfRzJ4H8gSxNGENX-FG_6EeXRjE6')]],'',1],
+  ['PG.TEMPO.01','Ingreso y Egreso a Planta — Buenas Prácticas de Higiene','V1 · Jun 2026','fin',[['Web','procedimientos/PG-TEMPO-01.html'],['Drive',D('1JSGHD-r5eeBZFNNaoKL5v1Ue8_xrNRpB')]]],
+  ['RG.PG.TEMPO.01.01','Visitantes y proveedores','V1 · Sept 2026','fin',[['Excel',D('194LelQJ4DbHK0CimHEbH_IgUsYd3Olic')]],'',1],
+  ['RG.PG.TEMPO.01.02','Control de higiene del personal (semanal)','V1 · Sept 2026','fin',[['Excel',D('1Z32plo7wPpi4ayXZqyXhZ1_Ntn6nKpr5')]],'',1],
+  ['RG.PG.TEMPO.01.03','No conformidades de higiene del personal','V1 · Sept 2026','fin',[['Excel',D('1dyKjnBGwKfe98fyghoxnTHLDAvzUylcx')]],'',1],
+  ['RG.PG.TEMPO.01.04','Control de pediluvio (recambio de solución)','V1 · Sept 2026','fin',[['Excel',D('1rwvoLCtAdzTPlQ6FDjOK3i-sf8PlkbxP')]],'',1],
+  ['RG.PG.TEMPO.01.05','Tránsito entre sectores','V1 · Sept 2026','fin',[['Excel',D('1Kl1de8iOFyMirKnGN96VtTRt-5i3-KKZ')]],'',1],
+  ['PG.TEMPO.02','Limpieza y Desinfección — POES','V1 · Jun 2026','fin',[['Abrir',D('17SSdUM0xcSKT3BPVzekeI311P4aecTEH')]]],
+  ['RG.PG.TEMPO.02.01','Control pre-operacional diario','V1 · Sept 2026','fin',[['Excel',D('1AvtTSBwMAUWMF-jzB5KqGT6iUTz2bQUZ')]],'',1],
+  ['RG.PG.TEMPO.02.02','L&D de salas, áreas comunes e instalaciones (grilla mensual)','V1 · Sept 2026','fin',[['Excel',D('1zg8iunsJHixMfCFIW1FFMvmmXcFoTHe7')]],'',1],
+  ['RG.PG.TEMPO.02.03','L&D de equipos y utensilios','V1 · Sept 2026','fin',[['Excel',D('1PyzahDBf8MzZVo-uEqhwxa5RS5z5uKvO')]],'',1],
+  ['RG.PG.TEMPO.02.04','L&D de baños y vestuarios (grilla mensual)','V1 · Sept 2026','fin',[['Excel',D('130PqJZdmWSiKPZ9xmlsDyqcoeX66XUcw')]],'',1],
+  ['RG.PG.TEMPO.02.05','Sanitización de envases','V1 · Sept 2026','fin',[['Excel',D('14_BJna_Xojy7RlPORThWCW8hNgfAmv2U')]],'',1],
+  ['PG.TEMPO.03','Mantenimiento de Equipos e Instalaciones','V1 · Jun 2026','fin',[['Abrir',D('1JrZU17T9JWq6i4T1OauGBD9X_wXd_uyi')]]],
+  ['RG.PG.TEMPO.03.01','Plan anual de mantenimiento preventivo (49 equipos)','V1 · Sept 2026','fin',[['Excel',D('1QKUxvk-iCBc_DFbr88iGFh0roAQvx4Vm')]],'Incluye el cronograma anual',1],
+  ['RG.PG.TEMPO.03.02','Historial por equipo: ficha de equipo + Orden de Trabajo','V1 · Sept 2026','fin',[['Excel',D('1DzL35IcEnZuITE8BKkwJvOxE6AYLNPuP')]],'',1],
+  ['RG.PG.TEMPO.03.03','Seguimiento mensual del plan preventivo','V1 · Sept 2026','fin',[['Excel',D('14EnmgMiwAzFhas2WnBefKYTNNSLtILzC')]],'',1],
+  ['RG.PG.TEMPO.03.04','Fallas y solicitudes de correctivo','V1 · Sept 2026','fin',[['Excel',D('1ICI1ce5uveIwFBbUivvor7LC-l3JpXtn')]],'',1],
+  ['RG.PG.TEMPO.03.05','Plan y registro de calibración de instrumentos','V1 · Sept 2026','fin',[['Excel',D('1NBaJcG3QmpJkGZrHcW3G0-LjpKV5lbii')]],'',1],
+  ['RG.PG.TEMPO.03.06','Proveedores de mantenimiento habilitados','V1 · Sept 2026','fin',[['Excel',D('1ilv4SwLAm5KnHBs35UYlPHNSBXvhetfc')]],'',1],
+  ['PG.TEMPO.04','Gestión de Producto Terminado — Almacenamiento y Despacho','V1 · Jun 2026','fin',[['Abrir',D('1EAB04cWZPkh555EvkfPPB-tpKJgXG8cL')]]],
+  ['RG.PG.TEMPO.04.01–05','Ingreso PT · Despacho · Temperatura · Stock por lote · Matriz de almacenamiento','V1','fin',[['En el PG',D('1EAB04cWZPkh555EvkfPPB-tpKJgXG8cL')]],'Incluidos como anexos del procedimiento',1],
+  ['PG.TEMPO.05','Compras y Órdenes de Producción','V1 · Sept 2026','fin',[['Abrir',D('10QTF1XBLNnVBqmlCu1Tj7wMdDxeiEq2_')]]],
+  ['RG.PG.TEMPO.05.01','Nota de Pedido (orden de compra a proveedores)','V1 · Ago 2026','fin',[['Excel',D('1_VYuOHKvyp05PFGGd7QKC4hPY9840zge')]],'',1],
+  ['RG.PG.TEMPO.05.02','Orden de Producción','V1 · Ago 2026','fin',[['Excel',D('17RN_c3HeCnsxi1hyxmgMQXu4fwV7dz31')]],'',1],
+ ]},
+ { t:'Informes y antecedentes', filas:[
+  ['INF-CIERRE','Informe Final de Cierre del proyecto','Sept 2026','ok',[['Abrir',D('1PlZGHV0o4LYcoNZvButSmfjDdTitvEEK')]],'Complementa este dashboard'],
+  ['INF-MOD','Informe de Modificaciones — PE.TEMPO.02 V2 y PE.TEMPO.10','12/08/2026','ok',[['PDF',D('14HQVkRycYyY6-rHuw1tWrBk09yfY66ep')]]],
+  ['VERIF-04','Verificación en planta del proceso de quesos (transcripción y foto de prensa)','02/09/2026','ref',[['Texto',D('1D0XyvY2eAgkWG04fTnWYaI1GN57zcgHG')],['Foto',D('1trtRNmtE-PY3Ylmu_tqk0fbA9bQBCZPr')]]],
+  ['AUDIT','Auditoría documental de cursogramas y registros','27/05/2026','ok',[['Abrir',D('1ELOqxI4T2d6zoU6-CKTqQePspcKywMrl')]]],
+  ['INF-AVANCE','Informe de Avance al Secretario General de Planeamiento','13/05/2026','ok',[['Abrir',D('1sU3NGCJAB1jpBHdeQ6-c1FKPsDrhB7gj')]]],
+  ['INF-SGC','Informe SGC TEMBI\'Ú PORÁ v3','Abr 2026','ok',[['PDF',D('1TKm43wlPUwS4U45zIAH2-6391YRJw4jZ')]]],
+  ['PARTIDA','Punto de partida del proyecto','Abr 2026','ref',[['Google Doc',G('1fBMtdQGsXxfKVdGiEt-eq_Z222zwIh61xEtPfgy_hkk')]]],
+  ['NOTAS','Notas de relevamiento de producción (reuniones mar–abr)','Mar–Abr 2026','ref',[['Google Doc',G('1sTunXMVEv4MNkr-ShVhBUJ5WUP-9GF-UkmxZJNUvu18')]]],
+  ['PERF-V2','Perfiles de puestos versión 2 (insumo de planta)','Ago 2026','ref',[['PDF',D('1pq3uubBd9WZQZhnRzkyTngPslW-mlubz')]]],
+  ['OJAPÓ','Presentación Ojapó Hesaí (antecedente)','Mar 2026','ref',[['PDF',D('1u7PXeVdo8wOBnkrdla1JNuhRYg0dBseF')]]],
+ ]},
+];
+
+// [cod, producto, linea, peId, peVer, rgId, rgDetalle, cursId, cursVer, validacion]
+const PE = [
+ ['PE.TEMPO.01','Pan de Mesa (Mignon)','Farináceos','1-hsyMupjSDz5W8EFhLJm9rHvt9zYRZ-O','V1','1s5N-d5OZKXDj3rXAADADU79Udt_CAEmI','v2 · 2 hojas','1op1SyQ2RIecaRTl1-E_UIiemmJC6N2kQ','V1','Validado'],
+ ['PE.TEMPO.02','Mamón en almíbar','Conservas','1Sc9G8nFGe-JWfnHG3FAFtCguWxZOBKD1','V2 · ago-26','1IqfyFdFbnNXJ1pPSGHtuVAQsRtMujVbK','v3 · 3 hojas','12pKtooeekZZ3xw96DqnXSBbfNsQHaRQ7','V2','Validado · ago-26'],
+ ['PE.TEMPO.03','Conservas saladas (pickles y salsa)','Conservas','18Y9DbvQVbfTYs_7K3bFZOuyaS82dBGPI','V1','1z8HluXWBkQkD7Jlf4yMpM4OSo5gNz_US','v2 · 3 hojas','1qn4WgIIptr_-XVSXMmdaaHh-wZm9pffx','V1','Validado'],
+ ['PE.TEMPO.04','Quesos','Lácteos','1oDiFisIhM0l1OB5xnqeF-Cls92ymbYUl','V2 · sept-26','1kvQm0BMtGZs8722L-e9xZvaUeSVG1Vj8','v3 · 4 hojas','1D3aR1UOCuLi2BpKmYXJsGcqGv2FqCS5r','V2','Validado · 02/09'],
+ ['PE.TEMPO.05','Medallones (hamburguesas)','Cárnicos','1KfZtZzBMrv1Sh9PoZKzqAOunlMn0q3BG','V1','1E0Mld8Zx_xYygBUd4qlHXIXNWy4gJHfQ','v2 · 2 hojas','1HvOry65aTmczZfc_EUDHVWHCXuCPt-c6','V1','Validado'],
+ ['PE.TEMPO.06','Bondiola y solomillo curados','Cárnicos','1Fw8dTXx4yhFlCOMFxlBhvSTXYs1GE1dd','V2 · may-26','1D6iKR-nsjBJzPWcV5NwEjyejKv8pEGwB','v2 · 3 hojas','1q89VFFzCEObNxiXP5-3HF3OpgQeu418V','V1','Validado'],
+ ['PE.TEMPO.07','Salames y salamines','Cárnicos','19gTOZerJ4_idSywdHkO_rsGOFGo4_LYM','V2 · may-26','1SXXV9TGoTi3Kv7m3v-pE4a2pobgq_-Dm','v2 · 4 hojas','1rDdmqoVJMWkQVa5p_Z-F28GR_UXadcrL','V1','Validado'],
+ ['PE.TEMPO.08','Chacinados sin fermentación','Cárnicos','12qs974moiwCFRofraqyw_VtbXJhT05Mo','V1','1jm2tAbPgLzAL42urj1HjyytmvIaCMoR3','v2 · 3 hojas','1TJ-EHkEvswqtCt8ZFP4eFDPiPm4HQxT-','V1','Validado'],
+ ['PE.TEMPO.09','Dulces de frutas y mermeladas','Conservas','1vIC-DUa_bZV7DtMLCpjdVaDQCEa6qU0J','V1','1ZTWns1K156FNIP0QmE0iJaRsAlSUBSml','v2 · 3 hojas','1l87SuAgEIskzve7wRCJmxGtkPI3fPndB','V1','Validado'],
+ ['PE.TEMPO.10','Pan de Mesa Integral','Farináceos','1N8QDKzEUOWBCMUwd42gM4A6ncmgju6U8','V1 · ago-26','1WVupyKijkKlIvzYDxRps7k37xUzu_lxV','v1 · 2 hojas + destino','1AFn02D0MRrgrVCat10OGVerGTFDXgnV5','V1','Validado · ago-26'],
+];
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function pill(e){ const [c,l]=EST[e]; return '<span class="pill '+c+'">'+l+'</span>'; }
+function links(ls){ return ls.map(([l,u]) => '<a class="open" target="_blank" rel="noopener" href="'+u+'">'+esc(l)+' ↗</a>').join(''); }
+
+document.getElementById('repo').innerHTML = GRUPOS.map(g =>
+  '<div class="card"><div class="card-title">'+g.t+' <small>'+g.filas.length+' documentos</small></div><div class="tbl-wrap"><table class="repo"><thead><tr><th>Código</th><th>Documento</th><th>Versión / fecha</th><th>Estado</th><th>Abrir</th></tr></thead><tbody>'+
+  g.filas.map(f => '<tr class="'+(f[6]?'sub':'')+'"><td class="code">'+esc(f[0])+'</td><td>'+esc(f[1])+(f[5]?'<div class="muted">'+esc(f[5])+'</div>':'')+'</td><td class="muted">'+esc(f[2])+'</td><td>'+pill(f[3])+'</td><td>'+links(f[4])+'</td></tr>').join('')+
+  '</tbody></table></div></div>').join('');
+
+document.querySelector('#matriz tbody').innerHTML = PE.map(p =>
+  '<tr><td class="code">'+p[0]+'</td><td>'+esc(p[1])+'</td><td class="muted">'+p[2]+'</td>'+
+  '<td>'+links([['Web', 'procedimientos/PE-TEMPO-'+p[0].slice(-2)+'.html'],[p[4]+' · Drive', D(p[3])]])+'</td>'+
+  '<td>'+links([['Excel', D(p[5])]])+'<div class="muted">'+p[6]+'</div></td>'+
+  '<td>'+links([['Draw.io', D(p[7])]])+'<div class="muted">'+p[8]+'</div></td>'+
+  '<td><span class="pill val">'+p[9]+'</span></td></tr>'
+).join('');
+
+function filtrar(q){
+  const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  q = norm(q);
+  document.querySelectorAll('#repo tbody tr, #matriz tbody tr').forEach(tr => {
+    tr.hidden = !!q && !norm(tr.textContent).includes(q);
+  });
+}
+</script>
 </body>
 </html>
